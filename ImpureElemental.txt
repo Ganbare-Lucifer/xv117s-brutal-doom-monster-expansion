@@ -1,0 +1,675 @@
+
+Actor ImpureElemental
+{
+Health 450
+Speed 8
+FloatSpeed 8
+Radius 30
+Height 56
+PainChance 100
+	PainChance "Kick", 255
+	PainChance "Avoid", 90
+	PainChance "Saw", 255
+	PainChance "Cut", 255
+	damagefactor "ExplosiveImpact", 3.0 damagefactor "Shrapnel", 3.0
+	damagefactor "GibRemoving", 0.0 damagefactor "HangingHook", 0
+Mass 200
+Meleedamage 20
+Tag "Impure Elemental"
+DamageFactor "SatanGuard", 0.0
+Damagetype "SatanGuard"
+Species "SatanGuard"
+Damagefactor "DTRPlayer", 0.3
+DamageFactor "HelementalComet", 0.0
+bloodtype "Blue_Blood", "BlueSawBlood", "BlueSawBlood"
+	bloodcolor "Blue"
+Accuracy 998
+SeeSound "ImpureCac/sight"
+PainSound "ImpureCac/pain"
+ActiveSound "ImpureCac/active"
+MeleeSound "caco/melee"
+DeathSound "ImpureCac/death"
+Obituary "%o was turned into ashes by an Impure Elemental"
+HitObituary "%o was mangled by an Impure Elemental." 
+MONSTER
++FLOAT
++NoGravity
++MISSILEMORE
++MissileEvenMore
++NoTarget
++DontHurtSpecies
++QuickToRetaliate
++IsMonster
+States
+ {
+  Spawn:
+    AGAH A 0 A_SpawnItemEx("BlueBreath",15,15,20,frandom(1,-1),frandom(0.3,1.2),frandom(0.6,-0.6),0,SXF_NOCHECKPOSITION,96)
+	AGAH A 0 A_SpawnItemEx("BlueBreath",15,-15,20,frandom(1,-1),frandom(-0.3,-1.2),frandom(0.6,-0.6),0,SXF_NOCHECKPOSITION,96)
+  Idle:
+	IMCC AAAA 4 A_Look
+	Loop
+  See:
+	AGAH A 0 A_SpawnItemEx("BlueBreath",15,15,20,frandom(1,-1),frandom(0.3,1.2),frandom(0.6,-0.6),0,SXF_NOCHECKPOSITION,96)
+	AGAH A 0 A_SpawnItemEx("BlueBreath",15,-15,20,frandom(1,-1),frandom(-0.3,-1.2),frandom(0.6,-0.6),0,SXF_NOCHECKPOSITION,96)
+	IMCC AAAA 4 A_Chase
+	Loop
+  Missile:
+   TNT1 A 0 A_Jump(128,"RapidFire","Comet")
+   TNT1 A 0 A_Jump(64,"HomingComets","Souls")
+   IMCC EF 3 Bright A_FaceTarget
+   IMCC G 3 Bright A_FaceTarget
+   TNT1 A 0 A_CustomMissile("DarkRipper",24,0,0)
+   //TNT1 A 0 A_CustomMissile("DarkRipper",24,0,5)
+   TNT1 A 0 A_CustomMissile("DarkRipper",24,0,10)
+   //TNT1 A 0 A_CustomMissile("DarkRipper",24,0,15)
+   //TNT1 A 0 A_CustomMissile("DarkRipper",24,0,-5)
+   TNT1 A 0 A_CustomMissile("DarkRipper",24,0,-10)
+   //TNT1 A 0 A_CustomMissile("DarkRipper",24,0,-15)
+   IMCC FE 3 Bright
+   GoTo See
+  RapidFire:
+   TNT1 A 0 A_Jump(128,"Comet")
+   TNT1 A 0 A_Jump(89,"HomingComets","Souls")
+   IMCC EF 3 Bright A_FaceTarget
+   IMCC G 3 Bright A_FaceTarget
+   TNT1 A 0 A_CustomMissile("DarkRipper",24,random(-5,5),random(-5,5))
+   IMCC G 3 Bright A_FaceTarget
+   TNT1 A 0 A_CustomMissile("DarkRipper",24,random(-5,5),random(-5,5))
+   IMCC G 3 Bright A_FaceTarget
+   TNT1 A 0 A_CustomMissile("DarkRipper",24,random(-5,5),random(-5,5))
+   IMCC G 3 Bright A_FaceTarget
+   TNT1 A 0 A_CustomMissile("DarkRipper",24,random(-5,5),random(-5,5))
+   IMCC G 3 Bright A_FaceTarget
+   TNT1 A 0 A_CustomMissile("DarkRipper",24,random(-5,5),random(-5,5))
+  // IMCC G 3 Bright A_FaceTarget
+  // TNT1 A 0 A_CustomMissile("DarkRipper",24,random(-5,5),random(-5,5))
+  // IMCC G 3 Bright A_FaceTarget
+  // TNT1 A 0 A_CustomMissile("DarkRipper",24,random(-5,5),random(-5,5))
+  // IMCC G 3 Bright A_FaceTarget
+   //TNT1 A 0 A_CustomMissile("DarkRipper",24,random(-5,5),random(-5,5))
+   //IMCC G 3 Bright A_FaceTarget
+   //TNT1 A 0 A_CustomMissile("DarkRipper",24,random(-5,5),random(-5,5))
+   //IMCC G 3 Bright A_FaceTarget
+  // TNT1 A 0 A_CustomMissile("DarkRipper",24,random(-5,5),random(-5,5))
+  // IMCC G 3 Bright A_FaceTarget
+ //  TNT1 A 0 A_CustomMissile("DarkRipper",24,random(-5,5),random(-5,5))
+ //  IMCC G 3 Bright A_FaceTarget
+  // TNT1 A 0 A_CustomMissile("DarkRipper",24,random(-5,5),random(-5,5))
+  // IMCC G 3 Bright A_FaceTarget
+  // TNT1 A 0 A_CustomMissile("DarkRipper",24,random(-5,5),random(-5,5))
+  // IMCC G 3 Bright A_FaceTarget
+  // TNT1 A 0 A_CustomMissile("DarkRipper",24,random(-5,5),random(-5,5))
+   IMCC FE 3 Bright
+   GoTo See
+  Comet:
+   TNT1 A 0 A_Jump(89,"HomingComets","Souls")
+   IMCC EF 4 Bright A_FaceTarget
+   IMCC G 3 Bright A_FaceTarget
+   TNT1 A 0 A_CustomMissile("PainLordDarkMatteRDBLl",24,0,0)
+   IMCC GFE 3 Bright
+   GoTo See
+  HomingComets:
+   TNT1 A 0 A_Jump(128,"RapidFire","Comet")
+   TNT1 A 0 A_Jump(89,"Souls")
+   IMCC EF 4 Bright A_FaceTarget
+   IMCC G 3 Bright A_FaceTarget
+   TNT1 A 0 A_CustomMissile("PainLordDarkMatteRDBLlHoming",24,0,15)
+   TNT1 A 0 A_CustomMissile("PainLordDarkMatteRDBLlHoming",24,0,-15)
+   IMCC GFE 3 Bright
+   GoTo See
+  Souls:
+   TNT1 A 0 A_Jump(128,"RapidFire","Comet")
+   TNT1 A 0 A_Jump(89,"Dual","Rapid")
+   IMCC EF 5 Bright
+   IMCC G 3 Bright A_FaceTarget
+   TNT1 A 0 A_PainAttack("ImpureSoul")
+   IMCC EF 3 Bright
+   GoTo See
+  Dual:
+   TNT1 A 0 A_Jump(128,"RapidFire","Comet")
+   TNT1 A 0 A_Jump(89,"Rapid")
+   IMCC EF 5 Bright
+   IMCC G 3 Bright A_FaceTarget
+   TNT1 A 0 A_DualPainAttack("ImpureSoul")
+   IMCC EF 3 Bright
+   GoTo See
+  Rapid:
+   TNT1 A 0 A_Jump(128,"RapidFire","Comet")
+   IMCC EF 5 Bright
+   IMCC G 3 Bright A_FaceTarget
+   TNT1 A 0 A_PainAttack("ImpureSoul")
+   IMCC G 5 Bright A_FaceTarget
+   TNT1 A 0 A_PainAttack("ImpureSoul")
+   IMCC G 5 Bright A_FaceTarget
+   TNT1 A 0 A_PainAttack("ImpureSoul")
+   IMCC G 5 Bright A_FaceTarget
+   TNT1 A 0 A_PainAttack("ImpureSoul")
+   IMCC EF 3 Bright
+   GoTo See
+  Melee:
+   IMCC EFG 4 Bright A_FaceTarget
+   IMCC G 0 A_MeleeAttack
+   IMCC FE 4 Bright
+   GoTo See
+
+	Pain.Cut:
+	Pain.Saw:
+		TNT1 A 0 A_Stop
+   IMCC HH 6 Bright A_Pain
+        Goto See
+
+  Pain:
+   TNT1 A 0 A_Jump(40,"Missile")
+   IMCC H 9 Bright A_Pain
+   GoTo See
+
+Death.Cut:
+TNT1 A 0 A_SpawnItemEx("HealthBonus", 0, 0, 4, random (-2.5, 2.5), random (-2.5, 2.5), 5)
+TNT1 A 0 A_SpawnItemEx("HealthBonus", 0, 0, 4, random (-2.5, 2.5), random (-2.5, 2.5), 5)
+Death.Saw:
+TNT1 A 0 A_SpawnItemEx("HealthCrueltyBonus", 0, 0, 4, random (-2.5, 2.5), random (-2.5, 2.5), 5)
+TNT1 A 0 A_SpawnItemEx("HealthBonus", 0, 0, 4, random (-2.5, 2.5), random (-2.5, 2.5), 5)
+TNT1 A 0 A_SpawnItemEx("HealthBonus", 0, 0, 4, random (-2.5, 2.5), random (-2.5, 2.5), 5)
+TNT1 A 0 A_SpawnItemEx("HealthBonus", 0, 0, 4, random (-2.5, 2.5), random (-2.5, 2.5), 5)
+TNT1 A 0 A_SpawnItemEx("HealthBonus", 0, 0, 4, random (-2.5, 2.5), random (-2.5, 2.5), 5)
+
+  XDeath:
+  Death:
+  TNT1 A 0 A_PlaySound("Misc/EnemyKilled",255,2.0,0,1)
+    IMCC I 6 Bright A_Scream
+    IMCC J 6 Bright
+    IMCC K 6 Bright A_NoBlocking
+	TNT1 A 0 A_PainDie("ImpureSoul")
+	TNT1 A 0 A_PlaySound("ImpureCac/DeathExp",0,1.0,0)
+	TNT1 AAAA 0 Bright A_SpawnItemEx("BlueParticleSpawner", 0, 0, 0, 0, 0, 0, 0, 128)
+	TNT1 A 0 A_Explode(35,64)
+	TNT1 A 0 A_SpawnItemEx("PainLordDeathFlare",0,0,32,0,0,0,0,128,0)
+	TNT1 AAAA 0 A_CustomMissile("ExplosionSmoke", random(10,20), 0, random(0,360), 2, random(0,360))
+	TNT1 AAAAAA 0 A_CustomMissile("PainlordDeathExplosionSpawner", random(10,20), 0, random(0,360), 2, random(0,360))
+	IMCC L 6 Bright
+	TNT1 A 0 A_PainDie("ImpureSoul")
+    IMCC MNOP 6 Bright
+  Fall:
+    IMCC Q 1 A_CheckFloor("Fallen")
+	Loop
+  Fallen:
+    IMCC RSTU 3
+	IMCC V -1
+    Stop
+	Death.Sniper:
+  TNT1 A 0 A_PlaySound("Misc/EnemyKilled",255,2.0,0,1)
+  TNT1 A 0 A_GiveToTarget("ShitMyPlayerSaysWhenHeKillsShit",1)
+  TNT1 A 0 A_GiveToTarget ("PlayerScore", 1500)
+    IMCC I 6 Bright A_FaceTarget
+	TNT1 A 0 A_Recoil(30)
+	TNT1 A 0 ThrustThingZ(0,20,0,1)
+    IMCC J 6 Bright A_Scream
+    IMCC K 6 Bright A_NoBlocking
+	TNT1 A 0 A_PainDie("ImpureSoul")
+	TNT1 A 0 A_PlaySound("ImpureCac/DeathExp",0,1.0,0)
+	TNT1 AAAA 0 Bright A_SpawnItemEx("BlueParticleSpawner", 0, 0, 0, 0, 0, 0, 0, 128)
+	TNT1 A 0 A_Explode(70,128)
+	TNT1 A 0 A_SpawnItemEx("PainLordDeathFlare",0,0,32,0,0,0,0,128,0)
+	TNT1 AAAA 0 A_CustomMissile("ExplosionSmoke", random(10,20), 0, random(0,360), 2, random(0,360))
+	TNT1 AAAAAA 0 A_CustomMissile("PainlordDeathExplosionSpawner", random(10,20), 0, random(0,360), 2, random(0,360))
+	IMCC L 6 Bright
+	TNT1 A 0 A_PainDie("ImpureSoul")
+    IMCC MNOP 6 Bright
+  Fall:
+    IMCC Q 1 A_CheckFloor("Fallen")
+	Loop
+  Fallen:
+    IMCC RSTU 3
+	IMCC V -1
+    Stop
+  }
+}
+
+Actor BlueBreath
+{
+	+NOINTERACTION
+	RenderStyle Add
+	Alpha 0.8
+	Scale 0.01
+	//YScale 0.1
+	Translation "0:255=%[0.00,0.00,0.00]:[0.17,0.17,2.00]"
+	+FORCEXYBILLBOARD
+	States
+	{
+	Spawn:
+		TNT1 A 0 NODELAY A_Jump(230,2,4,6,8,10,12,14,16,18)
+		X102 ABCDEFGHIJKL 2 Bright A_SetScale(scalex+0.015) 
+		X102 MNOPQRSTUV 2 A_FadeOut(0.05)
+		Loop
+	}
+}
+
+Actor ImpureSoul : LostSoul
+{
+ Health 66
+  Radius 16
+  Height 56
+  Tag "Impure Soul"
+  DamageFactor "SatanGuard", 0.0
+  PainChance "SatanGuard", 0
+Damagetype "SatanGuard"
+Species "SatanGuard"
+  Mass 50
+  Speed 7
+  FloatSpeed 7
+  Damage (15)
+  PainChance 100
+  Monster
+  +NOBLOOD
+  +NOBLOODDECALS
+  +NoDamageThrust
+  +DontHurtSpecies
+  Mass 800
+  +FLOAT
+  +NOGRAVITY
+  +MISSILEMORE
+  +DONTFALL
+  +NOICEDEATH
+  +IsMonster
+  SeeSOund "ImpureSoul/See"
+  AttackSound "skull/melee"
+  PainSound "ImpureSoul/pain"
+  DeathSound "ImpureSoul/death"
+  ActiveSound "ImpureSoul/active"
+  HitObituary "%o was spooked by an Impure Soul"
+   States
+    {
+	 Spawn:
+	  ISUL A 3 Bright A_Look
+	  TNT1 A 0 A_Explode(3,65,0)
+	  TNT1 A 0 A_SpawnItem("ImpureSoulFlare", 0, 17, 0, 0)
+	  TNT1 A 0 A_SpawnItem("ImpureSoulFire1", 0, 17, 0, 0)
+	  TNT1 A 0 A_SpawnItem("ImpureSoulFire2", 0, 17, 0, 0)
+	  Loop
+	 See:
+	  ISUL A 3 Bright A_Chase
+	  TNT1 A 0 A_Explode(3,65,0)
+	  TNT1 A 0 A_SpawnItem("ImpureSoulFlare", 0, 17, 0, 0)
+	  TNT1 A 0 A_SpawnItem("ImpureSoulFire1", 0, 17, 0, 0)
+	  TNT1 A 0 A_SpawnItem("ImpureSoulFire2", 0, 17, 0, 0)
+	  TNT1 A 0 A_JumpIfHealthLower(60,"CloserCheck")
+	  Loop
+	 Missile:
+	  TNT1 A 0 A_JumpIfHealthLower(60,"Suicide")
+      ISUL A 3 Bright A_FaceTarget
+	  TNT1 A 0 A_SpawnItem("ImpureSoulFlare", 0, 17, 0, 0)
+	  TNT1 A 0 A_SpawnItem("ImpureSoulFire1", 0, 17, 0, 0)
+	  TNT1 A 0 A_SpawnItem("ImpureSoulFire2", 0, 17, 0, 0)
+	  ISUL A 3 Bright A_FaceTarget
+	  TNT1 A 0 A_SpawnItem("ImpureSoulFlare", 0, 17, 0, 0)
+	  TNT1 A 0 A_SpawnItem("ImpureSoulFire1", 0, 17, 0, 0)
+	  TNT1 A 0 A_SpawnItem("ImpureSoulFire2", 0, 17, 0, 0)
+	  ISUL A 3 Bright A_FaceTarget
+	  TNT1 A 0 A_SpawnItem("ImpureSoulFlare", 0, 17, 0, 0)
+	  TNT1 A 0 A_SpawnItem("ImpureSoulFire1", 0, 17, 0, 0)
+	  TNT1 A 0 A_SpawnItem("ImpureSoulFire2", 0, 17, 0, 0)
+	  ISUL A 3 Bright A_FaceTarget
+	  TNT1 A 0 A_SpawnItem("ImpureSoulFlare", 0, 17, 0, 0)
+	  TNT1 A 0 A_SpawnItem("ImpureSoulFire1", 0, 17, 0, 0)
+	  TNT1 A 0 A_SpawnItem("ImpureSoulFire2", 0, 17, 0, 0)
+	  ISUL A 3 Bright A_FaceTarget
+	  TNT1 A 0 A_SpawnItem("ImpureSoulFlare", 0, 17, 0, 0)
+	  TNT1 A 0 A_SpawnItem("ImpureSoulFire1", 0, 17, 0, 0)
+	  TNT1 A 0 A_SpawnItem("ImpureSoulFire2", 0, 17, 0, 0)
+	  ISUL A 3 Bright A_FaceTarget
+	  TNT1 A 0 A_SpawnItem("ImpureSoulFlare", 0, 17, 0, 0)
+	  TNT1 A 0 A_SpawnItem("ImpureSoulFire1", 0, 17, 0, 0)
+	  TNT1 A 0 A_SpawnItem("ImpureSoulFire2", 0, 17, 0, 0)
+	  ISUL A 3 Bright A_FaceTarget
+	  TNT1 A 0 A_SpawnItem("ImpureSoulFlare", 0, 17, 0, 0)
+	  TNT1 A 0 A_SpawnItem("ImpureSoulFire1", 0, 17, 0, 0)
+	  TNT1 A 0 A_SpawnItem("ImpureSoulFire2", 0, 17, 0, 0)
+	  ISUL A 3 Bright A_SkullAttack
+	  TNT1 A 0 A_SpawnItem("ImpureSoulFlare", 0, 17, 0, 0)
+	  TNT1 A 0 A_SpawnItem("ImpureSoulFire1", 0, 17, 0, 0)
+	  TNT1 A 0 A_SpawnItem("ImpureSoulFire2", 0, 17, 0, 0)
+	  ISUL B 3 Bright A_SkullAttack
+	  TNT1 A 0 A_SpawnItem("ImpureSoulFlare", 0, 17, 0, 0)
+	  TNT1 A 0 A_SpawnItem("ImpureSoulFire1", 0, 17, 0, 0)
+	  TNT1 A 0 A_SpawnItem("ImpureSoulFire2", 0, 17, 0, 0)
+      GoTo Missile+16
+	  Pain:
+	   ISUL C 3 Bright A_Pain
+	   GoTo See
+	 Suicide:
+	  TNT1 A 0 A_ChangeFlag(NOPAIN,1)
+	  ISUL A 3 Bright A_FaceTarget
+	  TNT1 A 0 A_SpawnItem("ImpureSoulFlare", 0, 17, 0, 0)
+	  TNT1 A 0 A_SpawnItem("ImpureSoulFire1", 0, 17, 0, 0)
+	  TNT1 A 0 A_SpawnItem("ImpureSoulFire2", 0, 17, 0, 0)
+	  ISUL A 3 Bright A_FaceTarget
+	  TNT1 A 0 A_SpawnItem("ImpureSoulFlare", 0, 17, 0, 0)
+	  TNT1 A 0 A_SpawnItem("ImpureSoulFire1", 0, 17, 0, 0)
+	  TNT1 A 0 A_SpawnItem("ImpureSoulFire2", 0, 17, 0, 0)
+	  ISUL A 3 Bright A_FaceTarget
+	  TNT1 A 0 A_SpawnItem("ImpureSoulFlare", 0, 17, 0, 0)
+	  TNT1 A 0 A_SpawnItem("ImpureSoulFire1", 0, 17, 0, 0)
+	  TNT1 A 0 A_SpawnItem("ImpureSoulFire2", 0, 17, 0, 0)
+	  ISUL A 3 Bright A_FaceTarget
+	  TNT1 A 0 A_SpawnItem("ImpureSoulFlare", 0, 17, 0, 0)
+	  TNT1 A 0 A_SpawnItem("ImpureSoulFire1", 0, 17, 0, 0)
+	  TNT1 A 0 A_SpawnItem("ImpureSoulFire2", 0, 17, 0, 0)
+	  ISUL A 3 Bright A_FaceTarget
+	  TNT1 A 0 A_SpawnItem("ImpureSoulFlare", 0, 17, 0, 0)
+	  TNT1 A 0 A_SpawnItem("ImpureSoulFire1", 0, 17, 0, 0)
+	  TNT1 A 0 A_SpawnItem("ImpureSoulFire2", 0, 17, 0, 0)
+	  ISUL A 3 Bright A_FaceTarget
+	  TNT1 A 0 A_SpawnItem("ImpureSoulFlare", 0, 17, 0, 0)
+	  TNT1 A 0 A_SpawnItem("ImpureSoulFire1", 0, 17, 0, 0)
+	  TNT1 A 0 A_SpawnItem("ImpureSoulFire2", 0, 17, 0, 0)
+	  ISUL A 3 Bright A_FaceTarget
+	  TNT1 A 0 A_SpawnItem("ImpureSoulFlare", 0, 17, 0, 0)
+	  TNT1 A 0 A_SpawnItem("ImpureSoulFire1", 0, 17, 0, 0)
+	  TNT1 A 0 A_SpawnItem("ImpureSoulFire2", 0, 17, 0, 0)
+	  ISUL B 3 Bright A_SkullAttack
+	  TNT1 A 0 A_Recoil(-5)
+	  TNT1 A 0 A_SpawnItem("ImpureSoulFlare", 0, 17, 0, 0)
+	  TNT1 A 0 A_SpawnItem("ImpureSoulFire1", 0, 17, 0, 0)
+	  TNT1 A 0 A_SpawnItem("ImpureSoulFire2", 0, 17, 0, 0)
+      GoTo Suicide+16
+	 CloserCheck:
+	  ISUL A 0 Bright A_JumpIfCloser(20,"Death")
+	  GoTo See
+	 Death:
+	 TNT1 A 0 A_PlaySound("Misc/EnemyKilled",255,2.0,0,1)
+    TNT1 A 0 A_GiveToTarget("ShitMyPlayerSaysWhenHeKillsShit",1)
+    TNT1 A 0 A_SetTranslucent(0.75,1)
+	ISUL C 3 Bright A_NoGravity
+	ISUL D 3 Bright A_Scream
+	ISUL E 3 Bright
+	ISUL F 3 Bright A_Fall
+	TNT1 A 0 A_Explode(20,64)
+	TNT1 AAAA 0 A_CustomMissile ("SmallISPart1", 0, 0, random (0, 360), 2, random (0, 360))
+	TNT1 AAAA 0 A_CustomMissile ("SmallISPart3", 0, 0, random (0, 360), 2, random (0, 360))
+	TNT1 A 0 A_SpawnItemEx("HealthBonus")
+	TNT1 A 0 A_SpawnItem("ImpureSoulFlare", 0, 17, 0, 0)
+    TNT1 AA 0 A_SpawnItemEx("BlueParticleSpawner", 0, 0, 0, 0, 0, 0, 0, 128) 
+	TNT1 AAAA 0 A_CustomMissile("ExplosionSmoke", 15, 0, random(0,360), 2, random(0,360))
+	TNT1 AAAA 0 A_CustomMissile("PainlordDeathExplosionSpawner", 15, 0, random(0,360), 2, random(0,360))
+	TNT1 AAA 0 A_CustomMissile ("ISpart1", 42, 0, random (0, 360), 2, random (0, 160))
+    TNT1 A 0 A_CustomMissile ("ISpart3", 42, 0, random (0, 360), 2, random (0, 160))
+    TNT1 AA 0 A_CustomMissile ("ISpart2", 42, 0, random (0, 360), 2, random (0, 160))
+	ISUL G 3
+	ISUL H 3 
+    Stop
+	}
+}
+
+Actor StealthImpureElemental : ImpureElemental
+{
+  Obituary "%o thought %g saw an Impure Elemental."
+  Renderstyle Translucent
+  Tag "Stealthed Impure Elemental"
+  Alpha 0
+  +STEALTH
+}
+
+Actor ImpureSoulFlare
+{
+ +NoGravity
+ +NoInteraction
+ +NoBlockmap
+ +ForceXYBillboard
+ RenderStyle Add
+ Scale 0.4
+ Alpha 0.6
+ States
+ {
+  Spawn:
+   BFLR A 5 
+   BFLR AAAAAAAAAA 1 Bright A_Fadeout(0.1)
+   Stop
+ }
+}
+
+Actor ImpureSoulFire1
+{
+ +NoGravity
+ +NoInteraction
+ +NoBlockmap
+ +NoTeleport
+ +ForceXYBillboard
+ Radius 0
+ Height 0
+ RenderStyle Add
+ Alpha 0.5
+ Scale 0.5
+ States
+ {
+  Spawn:
+   FIB1 ABCDEFGHIJKLM 1 BRIGHT
+   FIB1 NOPQRSTUVWXYZ 1 BRIGHT A_Fadeout(0.5)
+   Stop
+ }
+}
+
+Actor ImpureSoulFire2
+{
+ +NoGravity
+ +NoInteraction
+ +NoBlockmap
+ +NoTeleport
+ +ForceXYBillboard
+ Radius 0
+ Height 0
+ RenderStyle Add
+ Alpha 0.6
+ Scale 0.5
+ States
+ {
+  Spawn:
+   FIB2 ABCDEFGHIJKLM 1 BRIGHT
+   FIB2 NOPQRSTUVWXYZ 1 BRIGHT A_Fadeout(0.5)
+   Stop
+ }
+}
+
+ACTOR ISPart1
+{
+    Radius 2
+    Height 2
+    Speed 7
+	Mass 3
+	BounceFactor 0.4
+	+DOOMBOUNCE
+    +NOBLOCKMAP
+	+MISSILE
+    +NOTELEPORT
+    +DONTSPLASH
+    +MOVEWITHSECTOR
+    +CLIENTSIDEONLY
+	+THRUACTORS
+    Scale 0.7
+    States
+    {
+    Spawn:
+		TNT1 A 0
+		
+		TNT1 A 0 Thing_ChangeTID(0,394)
+		TNT1 A 0 A_Jump(128,9)
+		LGI1 ABCDEFGH 2
+		wait
+		LGI1 HGFEDCBA 2
+		wait
+	Death:
+		TNT1 A 0
+		TNT1 A 0 A_Jump(128,2)
+		LGI1 A 200
+		stop
+		LGI1 E 200
+        LGI1 E 1 A_FadeOut(0.1)
+        wait
+    }
+}
+
+
+
+
+actor ISpart2 : ISpart1
+{
+states
+	{
+	spawn:
+		TNT1 A 0
+		TNT1 A 0 Thing_ChangeTID(0,394)
+		TNT1 A 0 A_Jump(128,9)
+		LGI2 ABCDEFGH 2
+		wait
+		LGI2 HGFEDCBA 2
+		wait
+	Death:
+		TNT1 A 0
+		TNT1 A 0 A_Jump(128,2)
+		LGI2 A 200
+		stop
+		LGI2 E 200
+        LGI2 E 1 A_FadeOut(0.1)
+        wait
+	}
+}
+
+actor ISpart3 : ISpart1
+{
+states
+	{
+	spawn:
+		TNT1 A 0
+		TNT1 A 0 Thing_ChangeTID(0,394)
+		TNT1 A 0 A_Jump(128,9)
+		LGI3 ABCDEFGH 2
+		wait
+		LGI3 HGFEDCBA 2
+		wait
+	Death:
+		TNT1 A 0
+		TNT1 A 0 A_Jump(128,2)
+		LGI3 A 200
+		stop
+		LGI3 E 200
+        LGI3 E 1 A_FadeOut(0.1)
+        wait
+	}
+}
+
+actor SmallISPart1: ISPart1
+{
+Scale 0.3
+Speed 10
+}
+
+
+actor SmallISPart3: ISPart3
+{
+Scale 0.3
+Speed 12
+}
+
+
+
+ACTOR DarkRipper
+{
+   Radius 8
+   Height 8
+   Speed 30
+   Damage 8
+   RENDERSTYLE Normal
+   Damagetype Bone
+   PROJECTILE
+   +SPAWNSOUNDSOURCE
+   Scale 0.9
+   SeeSound "imp/attack"
+   DeathSound "imp/shotx"
+   States
+  {
+  Spawn:
+	PLDB A 0 BRIGHT A_SpawnItemEx("BlueBaronBallTrail",random(-2,2),random(-2,2),random(-2,2))
+	PLDB A 1 BRIGHT A_SpawnItemEx("BlueBaronBallTrail",random(-2,2),random(-2,2),random(-2,2))
+	PLDB A 0 BRIGHT A_SpawnItemEx("BlueBaronBallTrail",random(-2,2),random(-2,2),random(-2,2))
+	PLDB A 1 BRIGHT A_SpawnItemEx("BlueBaronBallTrail",random(-2,2),random(-2,2),random(-2,2))
+	PLDB B 0 BRIGHT A_SpawnItemEx("BlueBaronBallTrail",random(-2,2),random(-2,2),random(-2,2))
+	PLDB B 1 BRIGHT A_SpawnItemEx("BlueBaronBallTrail",random(-2,2),random(-2,2),random(-2,2))
+	PLDB B 0 BRIGHT A_SpawnItemEx("BlueBaronBallTrail",random(-2,2),random(-2,2),random(-2,2))
+	PLDB B 1 BRIGHT A_SpawnItemEx("BlueBaronBallTrail",random(-2,2),random(-2,2),random(-2,2))
+	Loop
+	Death:
+	PLDB CCCDDDEEE 1 BRIGHT A_FadeOut(0.08)
+	Stop
+}
+}
+
+ACTOR PainLordDarkMatteRDBLl
+{
+    Radius 11
+    Height 8
+    Speed 32
+    Damage 10
+    Scale 1.0
+    Projectile
+    +RANDOMIZE
+    +EXTREMEDEATH
+    +DONTREFLECT
+    RenderStyle Normal
+    SeeSound "painlord/darkmatter"
+    DeathSound "painlord/darkmatterdie"
+    States
+    {
+    Spawn: 
+      PLDC AAAABBBBCCCC 1 Bright A_SpawnItem("DarkMatterSpark",0,0)
+      loop
+   Death:
+      PLDC J 0 Bright A_SetTranslucent (0.67,1)
+      PLDC J 3 Bright
+      PLDC K 3 Bright A_Explode(15,128,0)
+      PLDC LMN 3 Bright
+      stop
+   }
+}
+
+ACTOR PainLordDarkMatteRDBLlHoming
+{
+    Radius 11
+    Height 8
+    Speed 32
+    Damage 10
+    Scale 1.0
+    Projectile
+    +RANDOMIZE
+    +EXTREMEDEATH
+    +DONTREFLECT
+	+SeekerMissile
+    RenderStyle Normal
+    SeeSound "painlord/darkmatter"
+    DeathSound "painlord/darkmatterdie"
+    States
+    {
+    Spawn: 
+      PLDC AAAABBBBCCCC 1 Bright A_SpawnItem("DarkMatterSpark",0,0)
+      loop
+   Death:
+      PLDC J 0 Bright A_SetTranslucent (0.67,1)
+      PLDC J 3 Bright
+      PLDC K 3 Bright A_Explode(15,128,0)
+      PLDC LMN 3 Bright
+      stop
+   }
+}
+
+ACTOR DarkMatterSpark
+{
+    RenderStyle Add
+    Scale 0.75
+    Alpha 0.67
+    PROJECTILE
+    States
+    {
+     Spawn:
+      TNT1 A 3 Bright
+      PLDC DEFGHI 3 BRIGHT A_FadeOut(0.04)
+      Stop 
+   }
+}
