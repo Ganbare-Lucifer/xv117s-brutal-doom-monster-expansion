@@ -1,0 +1,37 @@
+ACTOR PistolZombiePatch : PistolZombie Replaces PistolZombie
+{
+	States
+	{
+		Death.Fatality3:
+		TNT1 A 0 A_Scream
+        TNT1 A 0 A_GiveToTarget("PistolZombiemanFatality1", 1)
+        Stop
+
+
+Death.Ice:
+	Death.Freeze:
+	Death.Frost:
+	TNT1 A 0 A_ChangeFlag("SHOOTABLE", 0)
+	TNT1 A 0 A_ChangeFlag("SOLID", 0)
+	TNT1 A 0 A_SpawnItem("FrozenPistolZombieman")
+	Stop
+	}
+}
+
+Actor ExecutedPistolZombie: DeadZombieMan_NoHeadFront
+{
+States
+	 {	
+		Spawn:
+        FSP7 K -1
+        Stop
+		
+		Death:
+	    TNT1 A 0 A_NoBlocking
+		TNT1 AA 0 A_CustomMissile ("XDeath1", 15, 0, random (0, 360), 2, random (0, 180))
+		TNT1 A 0 A_CustomMissile ("XDeathArm1", 15, 0, random (0, 360), 2, random (0, 180))
+		TNT1 AAAA 0 A_CustomMissile ("BloodMist", 15, 0, random (0, 360), 2, random (0, 180))
+        TNT1 A 0 A_SpawnItem ("DeadZombieman_NoHeadNoArm")
+		Stop
+     }
+}
