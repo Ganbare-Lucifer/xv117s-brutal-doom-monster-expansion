@@ -1,0 +1,533 @@
+ACTOR TerminatorDemon
+{ 
+	//$Title "Terminator"
+	//$Category XV117Monsters
+	Health 1250
+	Radius 24//43SpriteW(110%=47)
+	Height 79//72SpriteH(110%=79)
+	scale 1.1
+	Mass 1030
+	Speed 6
+	PainChance 25
+	Translation "16:47=48:79", "188:191=236:239", "64:79=160:167"
+	MONSTER
+	BloodType "CyberDemon_Blood", "CyberDemon_SawBlood", "MastermindBlood" 
+	Obituary "%o was liquidated by a Terminator."
+	+QUICKTORETALIATE
+	+FLOORCLIP 
+	+MISSILEMORE
+	+MISSILEEVENMORE
+	+DONTHURTSPECIES
+	PainChance "Saw", 100
+	PainChance "Cut", 100
+	PainChance "Kick", 255 PainChance "Leg", 255
+	PainChance "LowKick", 200 PainChance "HangingHook", 0
+	damagefactor "TeleportRemover", 0.0
+	PainChance "CallingTheBaronAFaggot", 255
+	damagefactor "Avoid", 0.0
+	damagefactor "SSG", 0.2
+	PainChance "Explosive", 255
+	damagefactor "DontCallTheBaron", 0.0
+	DamageFactor "CauseSplash", 0.0 DamageFactor "CauseObjectsToSplashSlime", 0.0 DamageFactor "CauseObjectsToSplashNukage", 0.0
+	DamageFactor "CauseObjectsToSplashBlood", 0.0 DamageFactor "CauseObjectsToSplashLava", 0.0
+	damagefactor "Fatality", 3.0
+	damagefactor "Blood", 0.0 damagefactor "BlueBlood", 0.0 damagefactor "GreenBlood", 0.0
+	PainChance "Head", 120
+	SeeSound "monster/termsit" 
+	PainSound "monster/termpin" 
+	DeathSound "monster/termdth"
+	ActiveSound "Terminator/termact"
+	//DropItem "DemonRuneMix", 16
+DropItem "GrenadeLauncher"	
+DropItem "MinigunAmmo"	
+Tag "Terminator"
+	Species "BaronofHell"
+	States 
+   { 
+   Spawn: 
+       TERM AB 10 A_Look 
+	   TNT1 A 0 A_TakeInventory("TMGAmmo", 16)
+	   TNT1 A 0 A_GiveInventory("TMGAmmo", random(0,4))
+       Loop 
+   See:
+       TNT1 A 0 A_Playsound("Terminator/terstepA")
+       TERM AA 3 A_Chase
+	   TERM BB 3 A_Chase
+	   TNT1 A 0 A_Playsound("Terminator/terstepA")
+	   TERM CC 3 A_Chase
+	   TERM DD 3 A_Chase
+       Loop 
+	   
+   Pain:
+       TERM L 2 	
+       TERM L 2 A_Pain
+       Goto See
+	   
+   Missile:
+		TNT1 A 0 A_Jump(96, "RTshot")
+		
+   Machinegun://Y=42 | X=-14
+		TERM G 2 A_Facetarget
+		TERM H 2 BRIGHT A_CustomMissile("OrangeLensFlareAlt", 46, -15, 0, 0)
+		TNT1 A 0 A_CustomMissile("MonsterMinigunTracer", 46, -15, random(-4, 3), 0)
+		TNT1 A 0 A_PlaySound("FARHMG", 6)
+		TNT1 A 0 A_PlaySound("HMGFIRE", 1)
+		TNT1 A 0 A_GiveInventory("TMGAmmo", 1)
+		TNT1 A 0 A_JumpIfInventory("TMGAmmo", 16, "Cooldown")
+		TNT1 A 0 A_CheckSight("see")
+		Goto Machinegun
+		
+	RTshot://Y=39 | X=17
+       TERM E 8 A_FaceTarget
+	   TNT1 A 0 A_JumpIfCloser(152, "Machinegun")//avoid it's own splash damage
+	   TNT1 A 0 A_Playsound("Terminator/tershotA")
+	 
+//  TERM F 8 Bright A_CustomMissile("CyberBalls",43,19,0,0)
+
+ TERM F 8 Bright A_CustomMissile("AGLMissileMonster",43,19,0,0)
+
+	   TERM E 8
+	 Goto See 
+
+	Cooldown:
+		TNT1 A 0
+		TNT1 A 0 A_TakeInventory("TMGAmmo", 8)
+		Goto See
+
+	  Death:
+       TERM M 6 A_Scream 
+	   TNT1 A 0 A_CustomMissile ("MuchBlood", 50, 0, random (0, 360), 2, random (70, 90))
+		TNT1 A 0 A_CustomMissile ("MuchBlood", 50, 0, random (0, 360), 2, random (70, 90))
+		TNT1 A 0 A_CustomMissile ("MuchBlood", 50, 0, random (0, 360), 2, random (70, 90))
+		TNT1 AAA 0 A_CustomMissile ("BloodmistXXBig", 50, 0, random (0, 360), 2, random (70, 90))
+	    TNT1 AAA 0 A_CustomMissile ("BloodmistXXBig", 40, 0, random (0, 360), 2, random (70, 90))
+		TNT1 A 0 A_CustomMissile ("SuperGoreSPawner", 50, 0, random (0, 360), 2, random (0, 180))
+		TNT1 A 0 A_CustomMissile ("UltraGoreSPawner", 40, 0, random (0, 360), 2, random (0, 180))
+		TNT1 A 0 A_CustomMissile ("Brutal_LiquidBlood2", 40, 0, random (0, 360), 2, random (0, 180))
+       TERM N 4 
+       TERM OPQ 4 Bright 
+	   TERM R 0 Bright A_FaceTarget
+	   	  TNT1 AAAAAA 0 A_CustomMissile ("Xdeath1", 82, 0, random (0, 360), 2, random (0, 160))
+		TNT1 AA 0 A_CustomMissile ("Brains2", 82, 0, random (0, 360), 2, random (0, 160))
+		TNT1 AA 0 A_CustomMissile ("Brains3", 82, 0, random (0, 360), 2, random (0, 160))
+		TNT1 AA 0 A_CustomMissile ("Brains4", 82, 0, random (0, 360), 2, random (0, 160))
+		TNT1 AA 0 A_CustomMissile ("Brains5", 82, 0, random (0, 360), 2, random (0, 160))
+		TNT1 AA 0 A_CustomMissile ("Brutal_LiquidBlood", 35, 0, random (0, 360), 2, random (0, 160))
+		TNT1 AAAAA 0 A_CustomMissile ("Brutal_LiquidBlood", 35, 0, random (0, 360), 2, random (20, 90))
+		TNT1 AAAAA 0 A_CustomMissile ("Brutal_LiquidBlood", 40, 0, random (0, 360), 2, random (70, 90))
+		TNT1 AAAAA 0 A_CustomMissile ("Brutal_LiquidBlood", 45, 0, random (0, 360), 2, random (20, 90))
+		 TNT1 A 0 A_CustomMissile ("Guts2", 24, 0, random (0, 360), 2, random (0, 160))
+		 TNT1 A 0 A_CustomMissile ("Guts2", 24, 0, random (0, 360), 2, random (0, 160))
+		 TNT1 A 0 A_SpawnItem ("Brutal_BloodSpot")
+		TNT1 A 0 A_SpawnItem ("BarrelExplosion", 0, 20)
+		TNT1 A 0 A_Playsound("Terminator/terstepA")
+       TERM R 0 Bright A_SpawnItemEx("TerminatorDemonHead", 15, 0, 90, 10, 0, 0, -170, 128)
+       TERM R 0 Bright A_SpawnItemEx("TerminatorDemonShoulder", 60, 0, 75, 8, 0, 0, -70, 128)
+       TERM R 4 Bright A_SpawnItemEx("TerminatorDemonArm", 60, 0, 0, 3, 0, 0, -90, 128)
+	   TNT1 AAA 0 A_CustomMissile ("Brutal_LiquidBlood", 50, 0, random (0, 360), 2, random (70, 90))
+	    TNT1 AAAAA 0 A_CustomMissile ("Brutal_LiquidBlood3", 40, 0, random (0, 360), 2, random (70, 90))
+		TNT1 AAAAA 0 A_CustomMissile ("Brutal_LiquidBlood", 50, 0, random (0, 360), 2, random (70, 90))
+	    TNT1 AAAAA 0 A_CustomMissile ("Brutal_LiquidBlood3", 60, 0, random (0, 360), 2, random (70, 90))
+		TNT1 AAAAA 0 A_CustomMissile ("BloodmistXXBig", 40, 0, random (0, 360), 2, random (70, 90))
+		TNT1 AAAAA 0 A_CustomMissile ("BloodmistXXBig", 45, 0, random (0, 360), 2, random (20, 90))
+		TNT1 A 0 A_SpawnItem ("GrowingBloodPool")
+       TERM STUV 4 Bright
+       TERM W 4 
+       TERM X 6 A_Fall
+       TERM Y 6
+       TERM Z 1 
+       TERM Z 5 
+       TERM [ -1   
+       Stop
+   } 
+}
+
+
+
+ACTOR TerminatorArm
+{
+	Radius 12
+	Height 15
+	Speed 3
+	Mass 1000
+	scale 2.05
+	+DOOMBOUNCE
+      States
+	{
+	Spawn:
+         TARM A 5
+         TARM B 5 A_Fall 
+         TARM CDE 5
+         TARM F -1
+         Stop
+	}
+}
+
+ACTOR TerminatorDemonArm : TerminatorArm
+{
+	Translation "16:47=48:79", "188:191=236:239", "64:79=160:167"
+	Scale 1.1
+}
+
+actor TerminatorHead
+{
+    Radius 6
+    Height 8
+    Speed 10
+    Mass 1000
+    +DOOMBOUNCE
+    +DROPOFF
+    +Missile
+    scale 2.05
+    
+    States
+    {
+    Spawn:
+    	THAD DEFGHABC 2
+        loop
+    Death:
+    	THAD I -1
+        loop
+    }
+}
+
+actor TerminatorDemonHead : TerminatorHead
+{
+    Translation "16:47=48:79", "188:191=236:239", "64:79=160:167"
+	Scale 1.1
+}
+
+actor TerminatorShoulder
+{
+    Radius 8
+    Height 8
+    Speed 8
+    Mass 1000
+    +DOOMBOUNCE
+    +DROPOFF
+    +Missile
+    scale 2.05
+    
+    States
+    {
+    Spawn:
+    	TSHO ABCDEFGH 2
+        loop
+    Death:
+    	TSHO I -1
+        loop
+    }
+}
+
+actor TerminatorDemonShoulder : TerminatorShoulder
+{
+    Translation "16:47=48:79", "188:191=236:239", "64:79=160:167"
+	Scale 1.1
+}
+
+ACTOR TerminatorBoss : TerminatorDemon
+{ 
+	//$Title "Terminator Boss"
+	//$Category XV117Monsters
+	Tag "Super Terminator"
+	Health 5050
+	Radius 40//43SpriteW(204%=88)
+	Height 147//72SpriteH(204%=147)
+	scale 2.04
+	Mass 5070
+	Speed 16
+	translation "64:79=160:167"
+	MaxStepHeight 24
+	MaxDropOffHeight 32
+	BloodType "CyberDemon_Blood", "CyberDemon_SawBlood", "CyberDemon_Blood"
+	PainChance 20
+	SeeSound "monster/termsit" 
+	PainSound "monster/termpin" 
+	DeathSound "monster/termdth"
+	ActiveSound "Terminator/termact"
+	painchance "kick", 255
+	painchance "Fire", 60
+	PainChance "Head", 40
+	PainChance "KillMe", 64
+	PainChance "Taunt", 255
+	PainChance "Cut", 5
+	Painchance "Fatality", 90
+	damagefactor "HKFT", 0.05
+	damagefactor "HKFT", 0.05
+	damagefactor "Decaptate", 5.0
+	damagefactor "Avoid", 0.0
+	damagefactor "GibRemoving", 0.0
+	damagefactor "TeleportRemover", 0.0
+	DamageFactor "CauseSplash", 0.0 DamageFactor "CauseObjectsToSplashSlime", 0.0 DamageFactor "CauseObjectsToSplashNukage", 0.0
+	DamageFactor "CauseObjectsToSplashBlood", 0.0 DamageFactor "CauseObjectsToSplashLava", 0.0
+	damagefactor "Crush", 20.0
+	damagefactor "Blood", 0.0 damagefactor "BlueBlood", 0.0 damagefactor "GreenBlood", 0.0
+	DropItem "DemonStrengthRune", 32
+	Species "CyberDemon"
+	+NOICEDEATH
+	+MISSILEMORE
+	+MISSILEEVENMORE
+    +DONTRIP
+    +NORADIUSDMG
+	+QUICKTORETALIATE
+	+FLOORCLIP
+	+BOSS
+	+BOSSDEATH
+	+DONTMORPH
+	+DONTHARMSPECIES
+	states
+	{
+	Spawn: 
+       TERM AB 10 A_Look 
+	   TNT1 A 0 A_TakeInventory("TMGAmmo", 32)
+	   TNT1 A 0 A_GiveInventory("TMGAmmo", random(0,4))
+	   TNT1 A 0 A_TakeInventory("TRAmmo", 3)
+	   TNT1 A 0 A_GiveInventory("TRAmmo", random(0,1))
+       Loop 
+	   
+	See:
+       TNT1 A 0 A_Playsound("Terminator/terstepA")
+       TERM AAAA 2 A_Chase
+	   TERM BBBB 2 A_Chase
+	   TNT1 A 0 A_Playsound("Terminator/terstepA")
+	   TERM CCCC 2 A_Chase
+	   TERM DDDD 2 A_Chase
+       Loop  
+	   
+	Missile:
+		TNT1 A 0 A_Jump(128, "RTshot")
+		
+	Machinegun://Y=42 | X=-14
+		TERM G 2 A_Facetarget
+		TERM H 2 BRIGHT A_CustomMissile("OrangeLensFlareAlt", 86, -29, 0, 0)
+		TNT1 A 0 A_CustomMissile("MonsterMinigunTracer", 86, -29, random(-4, 3), 0)
+		TNT1 A 0 A_PlaySound("FARHMG", 6)
+		TNT1 A 0 A_PlaySound("HMGFIRE", 1)
+		TNT1 A 0 A_GiveInventory("TMGAmmo", 1)
+		TNT1 A 0 A_JumpIfInventory("TMGAmmo", 32, "Cooldown")
+		TNT1 A 0 A_CheckSight("see")
+		Goto Machinegun
+		
+	RTshot://Y=39 | X=17
+		TERM E 5 A_FaceTarget
+		TNT1 A 0 A_JumpIfCloser(168, "Machinegun")//avoid it's own splash damage
+		TNT1 A 0 A_Playsound("Terminator/tershotA")
+		TERM F 5 Bright A_CustomMissile("CyberBalls",80,35,0,0)
+		TERM E 5
+		TNT1 A 0 A_GiveInventory("TRAmmo", 1)
+		TNT1 A 0 A_JumpIfInventory("TRAmmo", 3, "Cooldown")
+		TNT1 A 0 A_CheckSight("see")
+		Goto RTshot
+		
+	Cooldown:
+		TNT1 A 0
+		TNT1 A 0 A_TakeInventory("TMGAmmo", 32)
+		TNT1 A 0 A_TakeInventory("TRAmmo", 3)
+		Goto See
+Fatality:		
+	Death:
+       TERM M 6 A_Scream 
+	   TNT1 A 0 A_CustomMissile ("MuchBlood", 50, 0, random (0, 360), 2, random (70, 90))
+		TNT1 A 0 A_CustomMissile ("MuchBlood", 50, 0, random (0, 360), 2, random (70, 90))
+		TNT1 A 0 A_CustomMissile ("MuchBlood", 50, 0, random (0, 360), 2, random (70, 90))
+		TNT1 AAA 0 A_CustomMissile ("BloodmistXXBig", 50, 0, random (0, 360), 2, random (70, 90))
+	    TNT1 AAA 0 A_CustomMissile ("BloodmistXXBig", 40, 0, random (0, 360), 2, random (70, 90))
+		TNT1 A 0 A_CustomMissile ("SuperGoreSPawner", 50, 0, random (0, 360), 2, random (0, 180))
+		TNT1 A 0 A_CustomMissile ("UltraGoreSPawner", 40, 0, random (0, 360), 2, random (0, 180))
+		TNT1 A 0 A_CustomMissile ("Brutal_LiquidBlood2", 40, 0, random (0, 360), 2, random (0, 180))
+       TERM N 4 
+       TERM OPQ 4 Bright 
+	   TERM R 0 Bright A_FaceTarget
+	   	  TNT1 AAAAAA 0 A_CustomMissile ("Xdeath1", 82, 0, random (0, 360), 2, random (0, 160))
+		TNT1 AA 0 A_CustomMissile ("Brains2", 82, 0, random (0, 360), 2, random (0, 160))
+		TNT1 AA 0 A_CustomMissile ("Brains3", 82, 0, random (0, 360), 2, random (0, 160))
+		TNT1 AA 0 A_CustomMissile ("Brains4", 82, 0, random (0, 360), 2, random (0, 160))
+		TNT1 AA 0 A_CustomMissile ("Brains5", 82, 0, random (0, 360), 2, random (0, 160))
+		TNT1 AA 0 A_CustomMissile ("Brutal_LiquidBlood", 35, 0, random (0, 360), 2, random (0, 160))
+		TNT1 AAAAA 0 A_CustomMissile ("Brutal_LiquidBlood", 35, 0, random (0, 360), 2, random (20, 90))
+		TNT1 AAAAA 0 A_CustomMissile ("Brutal_LiquidBlood", 40, 0, random (0, 360), 2, random (70, 90))
+		TNT1 AAAAA 0 A_CustomMissile ("Brutal_LiquidBlood", 45, 0, random (0, 360), 2, random (20, 90))
+		 TNT1 A 0 A_CustomMissile ("Guts2", 24, 0, random (0, 360), 2, random (0, 160))
+		 TNT1 A 0 A_CustomMissile ("Guts2", 24, 0, random (0, 360), 2, random (0, 160))
+		 TNT1 A 0 A_SpawnItem ("Brutal_BloodSpot")
+		TNT1 A 0 A_SpawnItem ("BarrelExplosion", 0, 20)
+		TNT1 A 0 A_Playsound("Terminator/terstepA")
+       TERM R 0 Bright A_SpawnItemEx("TerminatorHead", 15, 0, 90, 10, 0, 0, -170, 128)
+       TERM R 0 Bright A_SpawnItemEx("TerminatorShoulder", 60, 0, 75, 8, 0, 0, -70, 128)
+       TERM R 4 Bright A_SpawnItemEx("TerminatorArm", 60, 0, 0, 3, 0, 0, -90, 128)
+	   TNT1 AAA 0 A_CustomMissile ("Brutal_LiquidBlood", 50, 0, random (0, 360), 2, random (70, 90))
+	    TNT1 AAAAA 0 A_CustomMissile ("Brutal_LiquidBlood3", 40, 0, random (0, 360), 2, random (70, 90))
+		TNT1 AAAAA 0 A_CustomMissile ("Brutal_LiquidBlood", 50, 0, random (0, 360), 2, random (70, 90))
+	    TNT1 AAAAA 0 A_CustomMissile ("Brutal_LiquidBlood3", 60, 0, random (0, 360), 2, random (70, 90))
+		TNT1 AAAAA 0 A_CustomMissile ("BloodmistXXBig", 40, 0, random (0, 360), 2, random (70, 90))
+		TNT1 AAAAA 0 A_CustomMissile ("BloodmistXXBig", 45, 0, random (0, 360), 2, random (20, 90))
+		TNT1 A 0 A_SpawnItem ("GrowingBloodPool")
+       TERM STUV 4 Bright
+       TERM W 4 
+       TERM X 6 A_Fall
+       TERM Y 6
+       TERM Z 1 
+       TERM Z 5 
+       TERM [ -1   
+       Stop
+	}
+}
+
+
+
+ACTOR TMGAmmo: Ammo
+{
+     Inventory.MaxAmount 32
+}
+
+ACTOR TRAmmo: Ammo
+{
+     Inventory.MaxAmount 3
+}
+
+
+
+ACTOR AGLMissileMonster
+{
+	Radius 4
+	Height 4
+	Speed 50
+	Damage 30
+	+MISSILE
+	+BLOODSPLATTER
+	+SKYEXPLODE
+	//+DOOMBOUNCE
+	+EXPLODEONWATER
+	+NOTELEPORT
+	-BOUNCEONACTORS
+	DamageType ExplosiveImpact
+	Gravity 0.7
+	Scale 0.6
+	SeeSound "Weapons/GrenadeBounce"
+	DeathSound "none"
+	Obituary "%o was exploded by %k's grenade."
+	States
+	{
+	Spawn:
+		TNT1 A 0 A_JumpIf(waterlevel > 1,"SpawnUnderwater")
+		GRNP AAAAAAAA 1 A_CustomMissile("AGLTrailMonster",2,0,random(160,210),2,random(-30,30))
+		TNT1 A 0 A_GiveInventory("GrenadeTime",1)
+		TNT1 A 0 A_JumpIfInventory("GrenadeTime",6,"Death")
+		Loop
+	SpawnUnderwater:
+		GRNP AAAA 2
+		TNT1 A 0 A_GiveInventory("GrenadeTime",1)
+		TNT1 A 0 A_JumpIfInventory("GrenadeTime",6,"Death")
+		Loop
+	Death:
+		TNT1 A 0 A_NoBlocking
+		TNT1 A 0 A_SpawnItem("AGLMissileExplosionMonster")
+		Stop
+	}
+}
+
+
+ACTOR AGLMissileExplosionMonster
+{
+	Game Doom
+	Speed 1
+	Gravity 0.0
+	BounceFactor 0.1
+	WallBounceFactor 0.1
+	Radius 1
+	Height 1
+	Damage 0
+	+MISSILE
+	+NOTELEPORT
+	+NOBLOCKMAP
+	+BLOODLESSIMPACT 
+	+FORCEXYBILLBOARD
+	+MOVEWITHSECTOR
+	+DOOMBOUNCE
+	+DONTSPLASH
+	+THRUACTORS
+	+THRUGHOST
+	+GHOST
+	//+NOBLOCKMAP
+	//+NOGRAVITY
+	//+MISSILE
+	//+DoomBounce
+	//BounceFactor 0.1
+	//WallBounceFactor 0.1
+	Damagetype ExplosiveImpact
+	//DeathSound "Explosion"
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 0 Radius_Quake(3,8,0,15,0)
+		TNT1 A 1
+		TNT1 A 0 A_CustomMissile("ExplosionSplashSpawner")
+		TNT1 A 0 A_SpawnItemEx("DetectFloorCrater",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION,0)
+		TNT1 A 0 A_SpawnItemEx("DetectCeilCrater",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION,0)
+		TNT1 A 0 A_SpawnItemEx("UnderwaterExplosion",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION,0)
+		TNT1 A 0 A_SpawnItemEx("ExplosionFlareSpawner",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION,0)
+		TNT1 A 0 A_Scream
+		TNT1 A 0 A_SpawnItem("ExplosionLight")
+		TNT1 A 0 A_CustomMissile("MetalShardz1",5,0,random(0,360),2,random(0,360))
+		TNT1 A 0 A_CustomMissile("MetalShardz2",5,0,random(0,360),2,random(0,360))
+		TNT1 A 0 A_CustomMissile("MetalShardz3",5,0,random(0,360),2,random(0,360))
+		TNT1 A 0 A_Explode(50,200)
+		TNT1 AAAAAAAAA 0 A_CustomMissile("ExplosionParticleHeavy",0,0,random(0,360),2,random(0,180))
+		TNT1 AAAAAAAAA 0 A_CustomMissile("ExplosionParticleHeavy",0,0,random(0,360),2,random(0,360))
+		TNT1 AAAAAAAAA 0 A_CustomMissile("ExplosionParticleVeryFast",0,0,random(0,360),2,random(0,360))
+		TNT1 AAAAA 0 A_CustomMissile("SmallExplosionFlames",0,0,random(0,360),2,random(0,360))
+		TNT1 AAAAA 0 A_CustomMissile("ExplosionSmokeFast22",0,0,random(0,360),2,random(0,360))
+		TNT1 A 0 A_AlertMonsters
+		TNT1 A 0 A_SpawnItemEx("LiquidExplosionEffectSpawner",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION,0)
+		TNT1 A 0 A_PlaySound("FAREXPL",3)
+		TNT1 AAAAA 4 A_CustomMissile("AGLMissileClusterMonster",2,0,random(0,360),2,random(0,60))
+		TNT1 AAAAA 35
+		Stop
+	}
+}
+
+ACTOR AGLMissileClusterMonster
+{
+	Game Doom
+	Speed 20
+	Gravity 0.0
+	BounceFactor 0.1
+	WallBounceFactor 0.1
+	Radius 1
+	Height 1
+	Damage 0
+	+MISSILE
+	+NOTELEPORT
+	+NOBLOCKMAP
+	+BLOODLESSIMPACT 
+	+FORCEXYBILLBOARD
+	+MOVEWITHSECTOR
+	+DOOMBOUNCE
+	+DONTSPLASH
+	+THRUACTORS
+	+THRUGHOST
+	+GHOST
+	States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 0 A_ScaleVelocity(frandom(0.1,1.0))
+		TNT1 A 2
+		//TNT1 A 0 A_CustomMissile("DummyParticle",0,0,0,0,0)
+		TNT1 A 0 A_Scream
+		TNT1 AAAAA 0 A_CustomMissile("ExplosionParticleHeavy",0,0,random(0,360),2,random(0,180))
+		TNT1 AAAAA 0 A_CustomMissile("ExplosionParticleHeavy",0,0,random(0,360),2,random(0,360))
+		TNT1 AAAAA 0 A_CustomMissile("ExplosionParticleVeryFast",0,0,random(0,360),2,random(0,360))
+		TNT1 AA 0 A_CustomMissile("TinyExplosionFlames",0,0,random(0,360),2,random(0,360))
+		TNT1 AA 0 A_CustomMissile("ExplosionSmokeFast22",0,0,random(0,360),2,random(0,360))
+		TNT1 A 7
+		Stop
+	}
+}
+
+ACTOR AGLTrailMonster : OldschoolRocketSmokeTrail2
+{
+	Scale 0.2
+	Alpha 0.5
+}
