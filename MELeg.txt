@@ -1,0 +1,6 @@
+ACTOR LegTarget4b: LegTarget4
+{
+	BloodType "Green_Blood", "GreenSawBlood", "GreenSawBlood"
+	BloodColor "DarkGreen"
+	+DONTRIP
+}
