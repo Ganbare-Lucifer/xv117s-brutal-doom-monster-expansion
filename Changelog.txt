@@ -2,7 +2,7 @@ Changelog for patch and spawners.
 ProfessonExistential aka Doom Dr.
 v69+70 
 - bugfixes & compatibility with 40k Lasgun
-- ~~Blue Nazis, Seig Heil bitches!~~ Not anymore, planning to restore the nazis to the previous version.
+- ~~Blue Nazis, Seig Heil bitches!~~ Not anymore, planning to restore the nazis to the previous version. -Ganbare-Lucifer
 v66+67+68
 - Added minimastermind and minidemolisher to spawn occasianally replacing big monsters
 - Fixed spawners omitting some enemies
