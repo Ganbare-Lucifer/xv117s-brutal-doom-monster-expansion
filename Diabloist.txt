@@ -1,0 +1,272 @@
+Actor DIABloist : Archvile
+{
+    Obituary "%o was set ablaze by a D1ABloist."
+    Health 1200
+    Radius 20
+    Height 56
+    Mass 500
+    Speed 15
+    PainChance 10
+PainChance "Kick", 128
+Painchance "Saw", 52
+Painchance "Cut", 52
+    BloodColor "08 08 08"
+BloodType "Brutal_Blood", "SawBlood", "SawBlood"
+    SeeSound "Monster/diasit"
+    PainSound "Monster/diapai"
+    DeathSound "Monster/diadth"
+    ActiveSound "Monster/diaact"
+    Monster
+    DamageType Burn
+	DropItem "DemonRuneMix", 5
+    +FireResist
+    +FloorClip
+    +NoTarget
+    +NoRadiusDmg
+    +MissileMore
+    +Boss
+    +DontHarmClass
+    States
+  {
+  Spawn:
+    D1AB AB 10 A_Look
+    Loop
+  See:
+    D1AB AABBCCDDEEFF 2 A_Chase
+    Loop
+  Missile:
+    D1AB GH 3 Bright A_FaceTarget
+    D1AB I 3 //A_CustomMissile("DFire", 32, 0, 0)
+
+D1AB G 0 Bright A_Jump(12, "Missile2")
+
+    D1AB HGHI 3 Bright A_FaceTarget
+        TNT1 A 0 A_CustomMissile ("SmallFlameTrails", 85, 35, random (0, 40), 2, random (0, 160))
+        TNT1 A 0 A_CustomMissile ("SmallFlameTrails", 85, -35, random (0, 40), 2, random (0, 160))
+
+
+D1AB G 0 Bright A_Jump(54, "Missile2")
+
+
+D1AB HGHI 3 Bright A_FaceTarget
+        TNT1 A 0 A_CustomMissile ("SmallFlameTrails", 85, 35, random (0, 40), 2, random (0, 160))
+        TNT1 A 0 A_CustomMissile ("SmallFlameTrails", 85, -35, random (0, 40), 2, random (0, 160))
+
+
+    D1AB G 0 Bright A_Jump(38, "Missile2")
+ 
+
+    D1AB HGHI 3 Bright A_FaceTarget
+        TNT1 A 0 A_CustomMissile ("SmallFlameTrails", 85, 35, random (0, 40), 2, random (0, 160))
+        TNT1 A 0 A_CustomMissile ("SmallFlameTrails", 85, -35, random (0, 40), 2, random (0, 160))
+
+
+D1AB G 0 Bright A_Jump(33, "Missile2")
+
+
+D1AB HGHI 3 Bright A_FaceTarget
+        TNT1 A 0 A_CustomMissile ("SmallFlameTrails", 85, 35, random (0, 40), 2, random (0, 160))
+        TNT1 A 0 A_CustomMissile ("SmallFlameTrails", 85, -35, random (0, 40), 2, random (0, 160))
+
+D1AB G 0 Bright A_Jump(96, "Missile3") //128
+    D1AB G 0 Bright A_Jump(154, "Missile4")
+    Goto See
+  Missile2:
+    D1AB N 5 Bright A_FaceTarget
+    D1AB O 5 Bright A_Custommissile("DFlare", 40, 0, Random(-4, 4))
+    D1AB P 0 Bright A_FaceTarget
+    D1AB P 5 Bright A_Custommissile("DFlare", 40, 0, Random(-4, 4))
+    D1AB N 0 Bright A_FaceTarget
+    D1AB N 5 Bright A_Custommissile("DFlare", 40, 0, Random(-4, 4))
+    D1AB O 0 Bright A_FaceTarget
+    D1AB O 5 Bright A_Custommissile("DFlare", 40, 0, Random(-4, 4))
+    D1AB P 0 Bright A_FaceTarget
+    D1AB P 5 Bright A_Custommissile("DFlare", 40, 0, Random(-4, 4))
+    D1AB N 0 Bright A_FaceTarget
+    D1AB N 5 Bright A_Custommissile("DFlare", 40, 0, Random(-4, 4))
+    D1AB O 0 Bright A_FaceTarget
+    D1AB O 5 Bright A_Custommissile("DFlare", 40, 0, Random(-4, 4))
+    D1AB P 0 Bright A_FaceTarget
+    D1AB P 5 Bright A_Custommissile("DFlare", 40, 0, Random(-4, 4))
+    D1AB N 0 Bright A_FaceTarget
+    D1AB N 5 Bright A_Custommissile("DFlare", 40, 0, Random(-4, 4))
+    D1AB O 0 Bright A_FaceTarget
+    D1AB O 5 Bright A_Custommissile("DFlare", 40, 0, Random(-4, 4))
+    D1AB P 0 Bright A_FaceTarget
+    D1AB P 5 Bright A_Custommissile("DFlare", 40, 0, Random(-4, 4))
+    D1AB N 0 Bright A_FaceTarget
+    D1AB N 5 Bright A_Custommissile("DFlare", 40, 0, Random(-4, 4))
+    D1AB O 0 Bright A_FaceTarget
+    D1AB P 5 Bright
+   // D1AB P 0 Bright A_Jump(64, "Missile3")
+    D1AB P 0 Bright A_Jump(128, "Missile4")
+    Goto See
+  Missile3:
+    D1AB GHIJKL 5 Bright A_FaceTarget
+    D1AB M 5 Bright A_VileStart
+    D1AB N 5 Bright A_VileTarget
+    D1AB O 1 Bright A_Playsound ("weapons/firbfi")
+    D1AB O 4 Bright A_Custommissile ("DMissile",32,0,0)
+    D1AB P 5 Bright A_VileAttack
+   // D1AB P 0 Bright A_Jump (64,"Missile4")
+    Goto See
+  Missile4:
+    D1A2 A 10 Bright A_FaceTarget
+    D1A2 B 10 Bright A_FaceTarget
+    D1A2 C 2 Bright
+    D1A2 C 0 Bright A_Custommissile ("DTracer",0,-40,0)
+    D1A2 C 0 Bright A_Custommissile ("DTracer",0, 40,0)
+    D1A2 C 12
+    Goto See
+  Pain:
+    D1AB Q 5
+    D1AB Q 5 A_Pain
+    Goto See
+
+Death.Cut:
+Death.Saw:
+TNT1 A 0 A_SpawnItemEx("HealthCrueltyBonus", 0, 0, 4, random (-2.5, 2.5), random (-2.5, 2.5), 5)
+TNT1 AA 0 A_SpawnItemEx("ArmorCrueltyBonus", 0, 0, 32, random (-2.5, 2.5), random (-2.5, 2.5), 5)
+TNT1 A 0 A_SpawnItemEx("HealthCrueltyBonus", 0, 0, 4, random (-2.5, 2.5), random (-2.5, 2.5), 5)
+TNT1 AA 0 A_SpawnItemEx("ArmorCrueltyBonus", 0, 0, 32, random (-2.5, 2.5), random (-2.5, 2.5), 5)
+  
+Death:
+    D1AB Q 7
+    D1AB R 7 A_Scream
+    D1AB S 7 A_NoBlocking
+    D1AB TUVW 7
+    D1AB XY 5
+    D1AB Z -1
+    Stop
+  }
+}
+
+ACTOR DFire 
+{
+      Obituary "%o was set ablaze by a D1ABloist."
+    Radius 0
+    Height 1
+    Speed 0
+    RenderStyle "Add"
+    DamageType "Fire"
+    Alpha 1.00
+    +NoGravity
+    +SeekerMissile
+    +NoTarget
+    +NoDamageThrust
+  
+  States
+  {
+  Spawn:
+    HLFR A 2 Bright A_StartFire
+    HLFR BAB 2 Bright  //D1ABolistFire
+    HLFR C 2 Bright  //D1ABolistCrackle
+    HLFR B 2 Bright  //D1ABolistFire
+    HLFR CBCDCDCDEDED 2 Bright //D1ABolistFire
+    HLFR E 2 Bright  //D1ABolistCrackle
+    HLFR F 2 Bright  //D1ABolistFire
+    HLFR EFE 2 Bright  //D1ABolistFire
+    HLFR FGH 2 Bright  //D1ABolistFire
+    HLFR GHGH 2 Bright  //D1ABolistFire
+    Stop
+  }
+}
+
+ACTOR DFlare
+{
+      Radius 5
+    Height 5
+    Speed 25
+    Damage 3
+    RenderStyle "Add"
+    DamageType "Fire"
+    Alpha 0.85
+    Obituary "%o was set ablaze by a D1ABloist."
+    Seesound "weapons/firmfi"
+    DeathSound "weapons/firex4"
+    Projectile
+    +ThruGhost
+  
+  States
+  {
+  Spawn:
+    VBAL AB 3 Bright A_SpawnItemEx("MFlareFX", 0, 0, 0, 0, 0, 0, 0, 128)
+    Loop
+  Death:
+    CBAL CDEFG 3 Bright
+    Stop
+  }
+}
+
+
+ACTOR DTracer 
+{
+      Radius 5
+    Height 5
+    Speed 15
+    ReactionTime 175
+    Damage 3
+    DamageType "Fire"
+    RenderStyle "Add"
+    Alpha 0.67
+    Obituary "%o was set ablaze by a D1ABloist."
+    Seesound "weapons/diasht"
+    DeathSound "weapons/firex3"
+    Projectile
+    +SeekerMissile
+    +FloorHugger
+    +ThruGhost
+    -NoGravity
+  
+  States
+  {
+  Spawn:
+    TNT1 A 1 Bright A_SeekerMissile(10, 15)
+    TNT1 A 0 Bright A_Countdown
+    TNT1 A 0 Bright A_SpawnItemEx("DTracerPuff", 0, 0, 0, 0, 0, 0, 0, 128)
+    Loop
+  Death:
+    FTRA K 4 Bright
+    FTRA L 4 Bright A_Explode(32, 32)
+    FTRA MNO 3 Bright
+    Stop
+  }
+}
+
+ACTOR MFlareFX 
+{
+      Radius 0
+    Height 1
+    Speed 0
+    RenderStyle "Add"
+    Alpha 0.67
+    Projectile
+  
+  States
+  {
+  Spawn:
+    FDFX ABCDEF 4 Bright
+    Stop
+  }
+}
+
+ACTOR DTracerPuff 
+{
+      Radius 1
+    Height 1
+    Speed 0
+    RenderStyle "Add"
+    DamageType "Fire"
+    Alpha 0.67
+    Projectile
+    +FloorHugger
+    -NoGravity
+  
+  States
+  {
+  Spawn:
+    FTRA ABCDEFGHIJ 3 Bright A_Explode(4, 8)
+    stop
+  }
+}
+
