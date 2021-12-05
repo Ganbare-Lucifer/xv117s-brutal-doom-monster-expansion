@@ -1,0 +1,155 @@
+Changelog for patch and spawners. 
+ProfessonExistential aka Doom Dr.
+v69+70 
+- bugfixes & compatibility with 40k Lasgun
+- ~~Blue Nazis, Seig Heil bitches!~~ Not anymore, planning to restore the nazis to the previous version.
+v66+67+68
+- Added minimastermind and minidemolisher to spawn occasianally replacing big monsters
+- Fixed spawners omitting some enemies
+- Fixed missing Chainsaw blood for some enemies
+
+v65.
+- Added ImpureElemental
+
+v61+62+63+64
+- bugfixes
+- Diabloist and new Imp variant
+
+v60
+- Increased health given from melee kills, updated sprite
+
+v58+59
+- many monsters have now frozen deaths added for ice weapon compatibility 
+- fixed revolver drop sprite issue
+- incinerate deaths for zombies
+
+v57
+- Zspecopsrail fixed shooting sprite visuals. Slowed down fire rate, reduced accuracy.
+- IMP3 idle sprites fixed
+
+v56 
+-Possibly fixed PyroZombie crashes
+-Tweaked respawn rates of zombies
+v55. 20.01.2020
+- Fixed Brown imp sprite freezes
+v54
+- New brown imp variant added (Imp3). Slightly tougher than common Imp (climbs on ceiling) 
+v53
+-Cyberbaron and Terminatordemon fire and drop AutoGrenadeLauncher
+
+v51+52 3/1/2020
+-Thamuz spawns weakened Dark Cardinal 35% of normal deaths
+-Added Chaingun Arachnotron (CGSpider)
+-Added AracnorbQueen (summons Aracnorbs)
+-Reduced HP of Aracnorbs
+-Added AracnorbQueenBOSS (summons more Aracnorbs)
+-Reduced frequency of power attacks from Overlord
+-Removed Motherdemon from spawning instead of cyberdemon
+- Demolisher and mastermind drop Autocannon
+
+v49+50 20/12/2019
+-Added grabbing and throwing functionality to Labgal
+-Fixed fatality and added grabbing functionality to Dark imps
+-Thamuz Green blood added
+v47+v48
+-Grab and stealthkills added for LabguyB
+
+v46 16/12/2019
+-Black Labguy added (spawns as 15% of male scientists)
+-Thamuz added (rare spawn)
+-Sniper zombie sounds
+-Arachnoatron blade/saw finishing sprites fixed
+-Zspecops grab fixed
+
+v45 01/12/2019
+- Fatality and StealthKill added for LabGal
+-Fatalities fixed for VoidSpectre, BloodDemon, Dark Imps (Void, Nether, Nami, Dark). Arahnoorb, PlasmaZombie, Zspecops Zombies (Railgun, Rifle and CMG) and Phantasm
+-StealthKills fixed PlasmaZombie
+
+v44 28/11/2019
+-Added HellTrooper 
+
+v42 21/11/2019
+-Riotshield zombie reload time increased, time between shots increased, damage increased
+-Added ZSpecOpsRifle , who drops a Tactical Rifle (see -bdv21mut_EWM&Tomtefars-Light.pk3)
+
+
+v40 15/11/2019
+-Draugr enhanced, fixed missing flames/damage from unmaker beam
+-Fixed issues with Labgals head shot sprite
+-Skips fatalities that bug out (dark imps, Zspecops, plasmaguy)
+-Fixed fatality bug for pistol and rifle zombies
+
+10/11/2019
+v38
+- Added railgun wielding Zspecops zombie
+- Roitshieldguy is vulnerable to powerful weapons/explosions/plasma/beserk (only tough against bullets)
+- Riotguy shoots revolver, reloads after 6 shots, drops revolver cases and drops the revolver (c'mon who really uses the riot shield?)
+- Daedabus sprite flicker to Mancubus when hit by railgun fixed
+- Helmet zombie & zombiemans: Fixed missing sprites during blast & railgun deaths as well as no arm death
+- Sniperzombie: Fixed missing death animations for blast & railgun deaths
+- Doom Imps crawl on ceiling
+
+
+30/10/2019
+- Fixed many missing death animations, gore and sprites in Labgal
+- Fixed missing and broken animations in Labguy
+- Fixed civillian zombie death animations in ZombieCivillianShield.txt
+- Added female burning pain sound for Labgal
+- Fixed Labgal kicking crash
+
+28/10/2019
+- Removed unused sprites for Labgal & HelmetZombieman
+- Added missing death sprites for Blood Demon (Mech Demon)
+- Fixed/added Daedabus flame thrower/acid spit attack, added green flame sprites
+- Daedabus sounds added
+- Slightly increased spawn rate of Daedabus to 17%, and alternate pinkies
+
+
+As of 25/10/2019
+
+ADDED MONSTERS
+- Chainsaw Zombie Scientist (replaces Chainsaw Zombie) 
+- Female Zombie scientist (LabGAL) 
+- Added BloodDemon (Mech Demon)
+- VoidSpectre
+- Daedabus (slime Mancubus)
+- Suffering elemental
+- Phanstasm
+- Overlord (reduced health to 2/3)
+- Pyrodemon 
+- Incarnate (very small chance of spawning) 
+- Volcabus 
+- Ancient Arachnotron
+- Helmet Zombieman 
+- Revenant variant Draugr added, made him fire and drop unmaker
+
+
+ADDED BOSSES
+- Annihilator
+- Demolisher (SuperSpiderMastermind) 
+- MotherDemon (very small chance of replacing Cyberdemon, 1%)
+
+
+WEAPON EDITS
+- Cruelty Bonus added for Chainsaw kills you phsychos! 
+Bigger monsters give more bonuses.
+- Slightly higher 'weak' monster HP (Imps and Zombies)
+- Grenade damage and armour save modifier closer to Vanilla Brutal Doom 21 (pre-patch)
+
+
+FIXES
+- Fixed rocket, pyro, ssg, qsg, plasma & ZSpecOps Zombie heights (they arn't too tall now)
+- Added gore/blood for Superdemon death from Cyberdemon
+- Fixed missing pain sprites during chainsaw/axe attacks for ZspecOps
+- Fixed SSG from giving too much ammo (12), back to default 4
+- Fixed missing fatality from VoidDemon. 
+- Fixed no fatality limbo glitch from Daedabus. (still no fatality, just normal death when beserked)
+- Fixed missing death animation for Zombie Scientist (with axe), an error from Brutal Doom 21
+- Added Voidspectre fatality and missing sprites
+- Fixed SSGzombie and QSGzombie dying animations (missing sprites, frozen sprites)
+
+
+MISC.
+- Removed giant sword from the 21.0.3 patch included.
+
