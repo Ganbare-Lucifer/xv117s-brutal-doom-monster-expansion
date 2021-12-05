@@ -1,0 +1,285 @@
+// --------------------------------------------------------------------------------------------------------------------------
+//
+//	   Version History
+//
+//	(Developed by XV117)
+//	Modified by BLOODWOLF
+//
+// --------------------------------------------------------------------------------------------------------------------------
+//
+//  Upcoming Releases
+//  Decorate.txt: Reimplementation of Satyr in works.
+//
+//	v1.3.0 07/10/2019
+//
+//	Decorate.txt:				Removed SuicideBomber, Shadow, Fleshspawn, Trite, Wraith, Satyr, Pyrodemon, HS, SmokeMonster, and Incarnate lines
+//	TomtefarsCompat.txt:		Removed Trite actor
+//	Player.txt:					Updated to bd21.0.2 Patch
+//	WeaponDrops.txt:			Added ChainsawSpawnerDropped actor for ChainsawZombie (no EvidenceCheckerChainsaw spawn)
+//								Removed unnecessary EmptyPistolClipSpawn and AssaultShotgunSpawner actors
+//								Moved RiotShieldDrop from RiotSergeant into WeaponDrops and set it to spawn the PistolSpawner & an ArmorShard
+//	Aracnorb.txt:				Changed properties to be similar to a cacodemon
+//	ASGGuy.txt:					Changed drop from AssaultShotgunSpawner to AssaultShotgun (does the same thing)
+//	BruiserDemon.txt:			Added SeeSound "vile/firecrkl" to BruiserFire projectile
+//	ChainsawZombie.txt:			Changed DropItem to ChainsawSpawnerDropped
+//	-Fleshspawn.txt:			Deleted (Brutal Heretic)
+//	-HS.txt:					Deleted (Brutal Heretic)
+//	-Incarnate.txt:				Deleted (Brutal Heretic)
+//	-Pyrodemon.txt:				Deleted (Brutal Heretic)
+//	RiotSergeant.txt:			Changed EmptyPistolClipSpawn to EmptyClipSpawn (same exact thing)
+//								Moved RiotShieldDrop into WeaponDrops.txt
+//	-Satyr.txt:					Deleted (Brutal Heretic)
+//	-Shadow.txt:				Deleted (Brutal Heretic)
+//	-SmokeMonster.txt:			Deleted (Brutal Heretic)
+//	-SuicideBomber.txt:			Deleted
+//	-Trite.txt:					Deleted
+//	-Wraith.txt:				Deleted
+//	StealthMonsters.txt:		Removed SuicideBomber, Shadow, Fleshspawn, Trite, Wraith, Satyr, Pyrodemon, HS, SmokeMonster, and Incarnate lines
+//	GLDEFS.txt:					Removed SuicideBomber, Shadow, Fleshspawn, Trite, Wraith, Satyr, Pyrodemon, HS, SmokeMonster, and Incarnate lines
+//								Removed non-existant TerminatorBlaster, RedStar, RedGrenade, GrenadeBlast, TerminatorPuff, and CyberAttack2 actors
+//								Added in missing filepaths and corrected the naming format for brightmaps
+//	SNDINFO.txt:				Removed SuicideBomber, Shadow, Fleshspawn, Trite, Wraith, Satyr, Pyrodemon, HS, SmokeMonster, and Incarnate lines
+//
+//	v1.2-Pre6 05/09/2019
+//
+//	Player.txt:					Updated to RC10
+//
+//	v1.2-Pre5 05/03/2019
+//
+//	Decorate.txt:				Notated SuicideBomber out from inclusion (finds it annoying).
+//	Player.txt:					Updated Land: state to RC9 and removed A_GiveInventory("IsFloating", 1) from SubMGIsJumping state.
+//	StealthMonsters.txt:		Notated-out SuicideBomber stealth actor.
+//	All Actors:					Adjusted actor flags and species to prevent infighting
+//								Removed all "BDCheckClassicMonsters", vanilla states, and vanilla spawns.  This isn't for vanilla.
+//
+//	v1.2-Pre4 04/27/2019
+//
+//	Decorate.txt:		Removed XV117 RifleZombie.txt and added BurnME.txt to #includes
+//	Player.txt:			Sets Player.Face to "STF"
+//						Replaced with bd21rc8 Player.txt then added the xvme12 extra fatalities, stealth kills, and fatality checker
+//						Removed script calls 582 (Green blood) and 583 (Blue Blood) from fatalities of monsters who have red blood.
+//						Added NetherDarkImp fatality (green)
+//	All files:			Changed all old numbered script calls to the new NamedExecuteAlways("") scripts in rc8
+//						Changed all old gore and particle names to the rc8 equivalents.
+//	Tokens.txt:			Added NetherDarkImpFatality1 and 2
+//	+BurnME.txt:			Added Monster Expansion's own Burn.txt for the NetherDarkImp's green-blood death animations.
+//	DyingGuys.txt:		Added in NetherDarkImp specific actors (green-blood)
+//	Gore.txt:			Added in NetherDarkImp specific actors (green-blood)
+//	+LegME.txt:			Added a green blood LegTarget4 actor for the NetherDarkImp.
+//	SuperDemon.txt:		Added custom sprites and new attacks.
+//	All Actors:			Many tweaks to all actor properties and animations.
+//						Set all actor sizes to that of the parent monster.
+//
+//	v1.2-Pre3 (Public Pre-Release) - 03/09/2018
+//
+//	Tested on Zandronum 3.0
+//
+//	You Need a version RC1 or lastest to work Correctly
+//
+//	Added Internal Compatibility to Work whitout Enhanced Weapons Mutators
+//	Added Nametags for All Monsters
+//	Added New Reload Animations for monsters, thanks to mryayayify for Sprites
+//	Added Proper Fatality for Pistol Zombieman
+//	Added Proper Fatality for Riot Shield Sergeant
+//	Added Smart Reloading System for Monsters
+//	Added New Definition for Pistol Zombieman
+//	Added More Last Stands Monsters, thanks to mryayayify for sprites
+//	Added Silenced Attack for Stealth ZSpec Ops
+//	Changed Re-code Chainsaw Zombie
+//	Changed Chainsaw Zombie Speed Function
+//	Changed Fatality Module converted to RC Test Build
+//	Changed "Flamethrower" dropitem to "Flamothrower2" in Pyro Sergeant
+//	Enhanced Gore System for Satyr, thanks mryayayify for Sprites
+//	Enhanced Gore System for ZSpec Ops, ASGGuy, Major, QuadSSG Guy
+//	Enhanced ZSpec Ops AI and attack functions
+//	Fixed Some Functions in Tomtefars Extension Compatibility Patch
+//	Fixed Missing Dismenber Animation for ASGGuy,Major,DarkImps,QSSGGuy,SSGGuy and ZSpecOps
+//	Fixed Missing "ShakeShakeShake" Actor used in Fatality Module
+//
+//  	v1.2-Pre2 (Private Pre-Release) - 11/08/2018
+//
+//	Updated to work whit Aug 09 Test Build of Brutal DOOM v21
+//
+//	Changed Now requires Enhanced Weapons Mutators
+//	Changed Fatality Module converted to Aug 09 Test Build
+//	Changed Pyro Sergeant Now Drops Flamethrower
+//  	Fixed Few Errors
+//	Fixed Some Bugs whit MinigunGuy and Major
+//
+//	v1.2-Pre1 (Public Pre-Release) - 04/08/2018
+//
+//	Added Dark Imps
+//	Added Dark Imps Variants
+//	Added Plasma Zombie
+//	Added Sniper Zombie
+//	Added Stealth ZSpecOps Sub-Variant on ZSpec Ops Preset
+//	Changed Terminator has now been divided into 2 versions, the boss variant that has more life appears in the Cyberdemon preset, and the normal appears in the baron but has 1500 instead of 7000
+//	Changed The fucking instakill from Chainsaw Zombie
+//	Changed The random spawners have been restructured
+//	Changed ZSpec Ops now also appears as a sub-variant of the SMGGuy
+//	Changed The random spawner has been divided into 2, one for the iwad DOOM 1 and Ultimate DOOM and the other for DOOM 2 and Final DOOM
+//	Changed The flamethrower fire that triggers the Pyro Sergeant is now called "XV_FlamethrowerMissile" to avoid conflicts
+//	Fixed vanilla death animation in the Chainsaw Zombie variant
+//	Fixed Super Demon no longer flashes in cyberdemon every time he walks or does something else
+//	Fixed Z-Spec Ops/Black Ops they generate a pool of blood instead of particles, now when they are hurt they will release blood like any other enemy
+//	Fixed Fixed Sound of the new animation for the Pistol Zombieman
+//	Fixed The HW Major becomes a Commando to be destroyed with a Minigun, now used as base RifleZombie for fewer errors
+//	Enhanced It has improved the Shotgun Guy sprites, so now this has a strap to resemble the shotgun we use, of course thanks to Xamp for the skin for v20b.
+//	Enhanced D3Wraith can now be massacred and also killed with plasmagun.
+//	Removed Sprite of Sergeant variant with SMG
+//	Removed Unnecessary actors that replace the current BDv 21
+//
+//	v1.1 Overpowered Update - 24/06/2018
+//
+//	Updated Fatality Module to work whit lastest BDv21 Version
+//	Added Aracnorb
+//	Added Cyber Baron
+//	Added Cyber Knight
+//	Added Major
+//	Added Super Demon
+//	Added Lost Smoke Monster for Death Incarnate
+//	Added A proper reload animation for Pistol Zombieman
+//	Added Frozen Death for Monsters
+//	Added Stealth versions of Monsters
+//	Added Main Library for Gore related Actors
+//	Added Last Stand Monsters
+//	Changed Terminator actor name to TerminatorDemon to prevent conflict whit Zandronum and old Skulltag Content
+//	Changed Some Custom DOOM Editor Spawn IDs
+//	Changed Trites can now fatalize Marines
+//	Changed Trites now bleed green blood instead of red
+//	Changed Riot Shield Sergeant shooting mode
+//	Enhanced Tomtefars Extension Support, now ASGGuy and Riot Shield Guy drops 20% Assault-Shotgun-(ASGGuy) and Revolver-(RiotShieldGuy).
+//	Enhanced Gore System for New Monsters
+//	Fixed Missing Sprites for Rolling animation of Assault-Shotgun Zombie
+//	Fixed the fucking vanilla dead on Chainsaw Zombie
+//	Fixed massive errors in the actors in the monsters
+//	Reorganized file system to MonsterExtension for more compatibility and prevent file conflicts
+//	Reajusted Monster Randomizer
+//	Replaced the old Zombie_Man Actors to RifleZombie to work correctly
+//	Removed All innecesary Actors
+//
+//	Note: This version has taken a long time to be 
+//	made, plus there are many notable changes and 
+//	corrections of major errors in the next version 
+//	will add dark Imps.
+//
+//	v1.0 
+//	
+//	Added Proper Skin for Sergeant SMG Guy
+//	Added Rifle Commando
+//	Added Terminator
+//	Added ZombieMan Voices from Project Brutality
+//	Added Commandos Voices from Project Brutality
+//	Added A Proper Spawn Category for Doom Builder
+//	Changed Bruiser Demon Name Actor to BruiserDemon
+//	Changed Z-Spec Ops Name Actor to ZSpecOps
+//	Changed Wraith Name Actor to D3Wraith
+//	Changed Trite Name Actor to D3Trite
+//	Fixed Terminator Scale and Projecticle Position
+//	Fixed Quad-Shotgun Guy Tracers
+//	Fixed Minigun Zombieman Bugged
+//	Extra Compatibility Patches for Hell Rising and DOOM Tribute Project
+//	Reorganized Decorate File System
+//
+//	v0.9.9 Alpha (Dev Build)
+//
+//	Fixed Critical Bug Errors
+//	Fixed Tracers for Terminator
+//	Fixed Wraith Teleport
+//
+//	v0.9.8 Alpha (Dev Build)
+//
+//	Requires a BDv21 Test Apr 25 or Lastest
+//
+//	Added Death Incarnate
+//	Added Pyro Demon
+//	Added Sergeant Stealth Kills for Z-Spec Ops
+//	Changed Z-Spec Ops Decorate Base to Quad-Shotgun Zombie
+//	Resized Trite Scale and Positions
+//
+//	v0.9.6 - 0.9.7 Alphas (Very Bugged Versions)
+//
+//	Fixed Crashes whit using the last BDv21 Test Apr 25 Build
+//	Fixed major and minor errors
+//
+//	v0.9.5	Alpha (Dev Build)
+//
+//	Some Corrections of Bugs
+//
+//	v0.9.4  Alpha (Dev Build)
+//
+//	Added DOOM 3 Monsters (Trite and Wraith)
+//	Added Satyr
+//	Added Minigun Guy (Useful for Ultimate Doom, Register Doom and Freedoom Phase 1 IWADS)
+//	Fixed Related Bug whit Bruiser Demon
+//	Fixed Quad-Shotgun Zombie IA	
+//
+//	v0.9.3 Alpha (Dev Build)
+//
+//	Fixed Critical Error whit SuperShotgunZombie v2
+//	Fixed Bug whit Suicide Bomber
+//	Changed SuperShotgunZombie Base to ShotgunGuy1
+//	Changed Some Thigs of Monsters
+//
+//	v0.9.2 Alpha (Dev Build)
+//
+//	Added Sergeant Fatalities for Z-Spec Ops and Assault Shotgun Guy
+//	Added Quad-Shotgun Zombie
+//	Reajust Random Spawner
+//	Fixed DOOM Builder Spawn IDs
+//	Fixed DOOM Builder Spawn Category
+//	Enhanced Z-Spec Ops Gore
+//
+//	v0.9.1c Alpha (Open Beta Finally) - Emergency Update
+//
+//	Tested on ZDOOM LE 2.8.1b and Zandronum 3.0
+//
+//	Requires a BDv21 Test Mar 27 or superior to Run
+//
+//	Added Sub Compatibility Patch for Maps
+//	Added SpawnIDs for DOOM Builder, View on the Readme File
+//	Added Missing Sprites for Fleshspawn and Z-Spec Ops
+//	Fixed Auto Shotgun Guy IA
+//	Fixed Shadow Death Particles
+//	Fixed Pyro Sergeant InstaKill
+//	Fixed Super Shotgun Zombie Gore
+//	Changed the Bruiser Demon Actor Name to BruiserDemon2
+//	Changed the Riot Sergeant Firemode to Burst Firing Style
+//	Changed the WeaponDrops in the Decorate on Monsters to Use Weapon Spawners
+//	Removed Tactical Shield Weapon for compatibility Whit Other Addons
+//	Update to Specifications of new IA of Zombieman and Sergeants
+//	Deactivated Extra StealthKills and Fatalities for Crashes (Need Help Please)
+//	Release Random Spawner as Separate .PK3 for use in normal DOOM Maps and EDay Beta
+//
+//
+//	V0.9.1 Alpha (Closed Beta) - Betatester Only
+//
+//	Recoded Auto Shotgun Guy
+//	Added Bruiser Demon
+//	Added Shadow
+//	Added Super Shotgun Zombie
+//	Added Chainsaw Zombie
+//	Added FleshSpawn
+//	Enhanced Z-Spec Ops IA
+//	Fixed Potential Bug on Riot Sergeant that causes infinity firing continue
+//
+//	V 0.9.0 Alpha (Post Release) - Betatester Only
+//
+//	Conversion to Brutal DOOM version v21
+//	Requires a BDv21 Test December 09 or Superior
+//
+//	v 0.8.9 Alpha (BDv20 Build)
+//
+//	Brutal DOOM v20c Version Only
+//
+//	Enhanced Extra Fatalities
+//	Hotfix for some issues
+//
+//	V 0.8.8 or inferior are a Developer Versions
+//
+//	V 0.1.0
+//
+//	Intitial Release
+//
+//
+// --------------------------------------------------------------------------------------------------------------------------
