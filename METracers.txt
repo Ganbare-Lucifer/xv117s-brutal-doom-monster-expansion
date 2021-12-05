@@ -1,0 +1,55 @@
+ACTOR MonsterRiotTracer: Tracer
+{
++BLOODSPLATTER 
++THRUGHOST
+-DONTSPLASH
++THRUACTORS
+speed 90
+damage (random(2,4))
+seesound ""
+damagetype Bullet
+Decal "BulletChip"
+States
+{
+Spawn:
+	TRAC A 1 BRIGHT
+	TNT1 A 0 A_ChangeFlag("THRUACTORS", 0)
+Fly:
+	TRAC A 1 BRIGHT
+	Loop
+Death:
+    TNT1 A 1 A_SpawnItem("HitPuff")
+    Stop
+	}
+}
+
+ACTOR QuadTracer: MonsterTracer
+{
+speed 60
+damage (random(1,2))
+	+FORCEXYBILLBOARD
+	+THRUGHOST
+DamageType SSG
+States
+{
+Death:
+    TNT1 A 1 A_SpawnItem("HitPuff")
+    Stop
+	}
+}
+
+ACTOR QuadSingeTracer: MonsterTracer
+{
+speed 65
+damage 2
++FORCEXYBILLBOARD
++THRUGHOST
+Decal "BulletChip"
+DamageType Arm
+States
+{
+Death:
+    TNT1 A 1 A_SpawnItem("HitPuff")
+    Stop
+	}
+}
