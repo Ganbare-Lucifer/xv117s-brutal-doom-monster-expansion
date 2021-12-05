@@ -1,0 +1,771 @@
+ACTOR HFQSZLastStand1: DyingHFQSZNoLeg
+{
+Health 20
+Speed 0
+MONSTER
++MISSILEMORE
++MISSILEEVENMORE
++LOOKALLAROUND
++GHOST
++THRUGHOST
+-SOLID
++LOOKALLAROUND
+-COUNTKILL
+-FRIENDLY
+Tag "Last Stand Zombie"
+BloodType "Brutal_Blood", "BloodSPlatterReplacer", "SawBlood"
+States
+	{
+	Spawn:
+	ZQLS A 1 A_Look
+	Loop
+	
+	See:
+	ZQLS AAAAA 1 A_Chase
+	Loop
+	
+	Missile:
+	TNT1 A 0
+	
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	ZQLS A 10 A_FaceTarget
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	ZQLS A 10 A_FaceTarget
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	ZQLS A 10 A_FaceTarget
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	ZQLS A 10 A_FaceTarget
+    TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	TNT1 AA 0 A_CustomMissile("OrangeLensFlareAlt", 24, 10, 15, 0)
+    TNT1 A 0 A_PlaySound("pfire")
+	ZQLS B 6 BRIGHT A_CustomMissile("ZombieManTracer", 28, 0, random(-12, 12), 0)
+    //TNT1 A 0 A_SpawnItem ("EmptyHellfestPistolThingSpawn", 0, 20,0)
+	
+	
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	ZQLS A 10 A_FaceTarget
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	ZQLS A 10 A_FaceTarget
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	ZQLS A 10 A_FaceTarget
+    TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	TNT1 AA 0 A_CustomMissile("OrangeLensFlareAlt", 24, 10, 15, 0)
+    TNT1 A 0 A_PlaySound("pfire")
+	ZQLS B 6 BRIGHT A_CustomMissile("ZombieManTracer", 28, 0, random(-12, 12), 0)
+    //TNT1 A 0 A_SpawnItem ("EmptyHellfestPistolThingSpawn", 0, 20,0)
+	
+	
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	ZQLS A 10 A_FaceTarget
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	ZQLS A 10 A_FaceTarget
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	ZQLS A 10 A_FaceTarget
+    TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	TNT1 AA 0 A_CustomMissile("OrangeLensFlareAlt", 24, 10, 15, 0)
+    TNT1 A 0 A_PlaySound("pfire")
+	ZQLS B 6 BRIGHT A_CustomMissile("ZombieManTracer", 28, 0, random(-12, 12), 0)
+    //TNT1 A 0 A_SpawnItem ("EmptyHellfestPistolThingSpawn", 0, 20,0)
+	
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	ZQLS A 10 A_FaceTarget
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	ZQLS A 10 A_FaceTarget
+    TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	TNT1 AA 0 A_CustomMissile("OrangeLensFlareAlt", 24, 10, 15, 0)
+    TNT1 A 0 A_PlaySound("pfire")
+	ZQLS B 6 BRIGHT A_CustomMissile("ZombieManTracer", 28, 0, random(-12, 12), 0)
+    //TNT1 A 0 A_SpawnItem ("EmptyHellfestPistolThingSpawn", 0, 20,0)
+	
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	ZQLS A 10 A_FaceTarget
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	ZQLS A 10 A_FaceTarget
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	ZQLS A 10 A_FaceTarget
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	ZQLS A 10 A_FaceTarget
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	ZQLS A 10 A_FaceTarget
+    TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	TNT1 AA 0 A_CustomMissile("OrangeLensFlareAlt", 24, 10, 15, 0)
+    TNT1 A 0 A_PlaySound("pfire")
+	ZQLS B 6 BRIGHT A_CustomMissile("ZombieManTracer", 28, 0, random(-12, 12), 0)
+    //TNT1 A 0 A_SpawnItem ("EmptyHellfestPistolThingSpawn", 0, 20,0)
+	
+	
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	ZQLS A 10 A_FaceTarget
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	ZQLS A 10 A_FaceTarget
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	ZQLS A 10 A_FaceTarget
+    TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	TNT1 AA 0 A_CustomMissile("OrangeLensFlareAlt", 24, 10, 15, 0)
+    TNT1 A 0 A_PlaySound("pfire")
+	ZQLS B 6 BRIGHT A_CustomMissile("ZombieManTracer", 28, 0, random(-12, 12), 0)
+    //TNT1 A 0 A_SpawnItem ("EmptyHellfestPistolThingSpawn", 0, 20,0)
+	
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	ZQLS A 10 A_FaceTarget
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	ZQLS A 10 A_FaceTarget
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	ZQLS A 10 A_FaceTarget
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	ZQLS A 10 A_FaceTarget
+	Goto GotoDeath
+	
+	
+	Death.MinorHead:
+        TNT1 A 0 A_PlaySound("misc/xdeath4")
+		TNT1 AA 0 A_CustomMissile ("SmallBrainPiece", 32, 0, random (0, 360), 2, random (0, 160))
+		TNT1 A 0 A_Scream
+        TNT1 AAAA 0 A_CustomMissile ("BrainBlood", 37, 0, random (0, 360), 2, random (0, 160))
+		TNT1 A 0 A_NoBlocking
+		POS7 GHI 6
+        TNT1 A 0 A_SpawnItem ("DeadHFQSZ_NoLeg", 1)
+		Stop
+	}
+}
+
+ACTOR HFQSZLastStand2: DyingHFQSZ
+{
+Health 20
+Speed 0
+MONSTER
++MISSILEMORE
++MISSILEEVENMORE
++LOOKALLAROUND
++GHOST
++THRUGHOST
+-SOLID
++LOOKALLAROUND
+-COUNTKILL
+-FRIENDLY
+Tag "Last Stand Zombie"
+BloodType "Brutal_Blood", "BloodSPlatterReplacer", "SawBlood"
+States
+	{
+	Spawn:
+	ZQLS C 1 A_Look
+	Loop
+	
+	See:
+	ZQLS CCCCC 1 A_Chase
+	Loop
+	
+	Missile:
+	TNT1 A 0
+	
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	ZQLS C 10 A_FaceTarget
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	ZQLS C 10 A_FaceTarget
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	ZQLS C 10 A_FaceTarget
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	ZQLS C 10 A_FaceTarget
+    TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	TNT1 AA 0 A_CustomMissile("OrangeLensFlareAlt", 24, 10, 15, 0)
+    TNT1 A 0 A_PlaySound("pfire")
+	ZQLS D 6 BRIGHT A_CustomMissile("ZombieManTracer", 28, 0, random(-12, 12), 0)
+    //TNT1 A 0 A_SpawnItem ("EmptyHellfestPistolThingSpawn", 0, 20,0)
+	
+	
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	ZQLS C 10 A_FaceTarget
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	ZQLS C 10 A_FaceTarget
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	ZQLS C 10 A_FaceTarget
+    TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	TNT1 AA 0 A_CustomMissile("OrangeLensFlareAlt", 24, 10, 15, 0)
+    TNT1 A 0 A_PlaySound("pfire")
+	ZQLS D 6 BRIGHT A_CustomMissile("ZombieManTracer", 28, 0, random(-12, 12), 0)
+    //TNT1 A 0 A_SpawnItem ("EmptyHellfestPistolThingSpawn", 0, 20,0)
+	
+	
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	ZQLS C 10 A_FaceTarget
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	ZQLS C 10 A_FaceTarget
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	ZQLS C 10 A_FaceTarget
+    TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	TNT1 AA 0 A_CustomMissile("OrangeLensFlareAlt", 24, 10, 15, 0)
+    TNT1 A 0 A_PlaySound("pfire")
+	ZQLS D 6 BRIGHT A_CustomMissile("ZombieManTracer", 28, 0, random(-12, 12), 0)
+    //TNT1 A 0 A_SpawnItem ("EmptyHellfestPistolThingSpawn", 0, 20,0)
+	
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	ZQLS C 10 A_FaceTarget
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	ZQLS C 10 A_FaceTarget
+    TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	TNT1 AA 0 A_CustomMissile("OrangeLensFlareAlt", 24, 10, 15, 0)
+    TNT1 A 0 A_PlaySound("pfire")
+	ZQLS D 6 BRIGHT A_CustomMissile("ZombieManTracer", 28, 0, random(-12, 12), 0)
+    //TNT1 A 0 A_SpawnItem ("EmptyHellfestPistolThingSpawn", 0, 20,0)
+	
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	ZQLS C 10 A_FaceTarget
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	ZQLS C 10 A_FaceTarget
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	ZQLS C 10 A_FaceTarget
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	ZQLS C 10 A_FaceTarget
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	ZQLS C 10 A_FaceTarget
+    TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	TNT1 AA 0 A_CustomMissile("OrangeLensFlareAlt", 24, 10, 15, 0)
+    TNT1 A 0 A_PlaySound("pfire")
+	ZQLS D 6 BRIGHT A_CustomMissile("ZombieManTracer", 28, 0, random(-12, 12), 0)
+    //TNT1 A 0 A_SpawnItem ("EmptyHellfestPistolThingSpawn", 0, 20,0)
+	
+	
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	ZQLS C 10 A_FaceTarget
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	ZQLS C 10 A_FaceTarget
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	ZQLS C 10 A_FaceTarget
+    TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	TNT1 AA 0 A_CustomMissile("OrangeLensFlareAlt", 24, 10, 15, 0)
+    TNT1 A 0 A_PlaySound("pfire")
+	ZQLS D 6 BRIGHT A_CustomMissile("ZombieManTracer", 28, 0, random(-12, 12), 0)
+    //TNT1 A 0 A_SpawnItem ("EmptyHellfestPistolThingSpawn", 0, 20,0)
+	
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	ZQLS C 10 A_FaceTarget
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	ZQLS C 10 A_FaceTarget
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	ZQLS C 10 A_FaceTarget
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	ZQLS C 10 A_FaceTarget
+	Goto GotoDeath
+	
+	
+	Death.MinorHead:
+	    TNT1 A 0
+        Goto Death.Head
+	}
+}		
+
+// ASGGUY
+
+ACTOR ASGGuyLastStand1: DyingASGGuyNoLeg
+{
+Health 20
+Speed 0
+MONSTER
++MISSILEMORE
++MISSILEEVENMORE
++LOOKALLAROUND
++GHOST
++THRUGHOST
+-SOLID
++LOOKALLAROUND
+-COUNTKILL
+-FRIENDLY
+Tag "Last Stand Zombie"
+BloodType "Brutal_Blood", "BloodSPlatterReplacer", "SawBlood"
+States
+	{
+	Spawn:
+	AGLS A 1 A_Look
+	Loop
+	
+	See:
+	AGLS AAAAA 1 A_Chase
+	Loop
+	
+	Missile:
+	TNT1 A 0
+	
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	AGLS A 10 A_FaceTarget
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	AGLS A 10 A_FaceTarget
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	AGLS A 10 A_FaceTarget
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	AGLS A 10 A_FaceTarget
+    TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	TNT1 AA 0 A_CustomMissile("OrangeLensFlareAlt", 24, 10, 15, 0)
+    TNT1 A 0 A_PlaySound("pfire")
+	AGLS B 6 BRIGHT A_CustomMissile("ZombieManTracer", 28, 0, random(-12, 12), 0)
+    //TNT1 A 0 A_SpawnItem ("EmptyHellfestPistolThingSpawn", 0, 20,0)
+	
+	
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	AGLS A 10 A_FaceTarget
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	AGLS A 10 A_FaceTarget
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	AGLS A 10 A_FaceTarget
+    TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	TNT1 AA 0 A_CustomMissile("OrangeLensFlareAlt", 24, 10, 15, 0)
+    TNT1 A 0 A_PlaySound("pfire")
+	AGLS B 6 BRIGHT A_CustomMissile("ZombieManTracer", 28, 0, random(-12, 12), 0)
+    //TNT1 A 0 A_SpawnItem ("EmptyHellfestPistolThingSpawn", 0, 20,0)
+	
+	
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	AGLS A 10 A_FaceTarget
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	AGLS A 10 A_FaceTarget
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	AGLS A 10 A_FaceTarget
+    TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	TNT1 AA 0 A_CustomMissile("OrangeLensFlareAlt", 24, 10, 15, 0)
+    TNT1 A 0 A_PlaySound("pfire")
+	AGLS B 6 BRIGHT A_CustomMissile("ZombieManTracer", 28, 0, random(-12, 12), 0)
+    //TNT1 A 0 A_SpawnItem ("EmptyHellfestPistolThingSpawn", 0, 20,0)
+	
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	AGLS A 10 A_FaceTarget
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	AGLS A 10 A_FaceTarget
+    TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	TNT1 AA 0 A_CustomMissile("OrangeLensFlareAlt", 24, 10, 15, 0)
+    TNT1 A 0 A_PlaySound("pfire")
+	AGLS B 6 BRIGHT A_CustomMissile("ZombieManTracer", 28, 0, random(-12, 12), 0)
+    //TNT1 A 0 A_SpawnItem ("EmptyHellfestPistolThingSpawn", 0, 20,0)
+	
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	AGLS A 10 A_FaceTarget
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	AGLS A 10 A_FaceTarget
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	AGLS A 10 A_FaceTarget
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	AGLS A 10 A_FaceTarget
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	AGLS A 10 A_FaceTarget
+    TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	TNT1 AA 0 A_CustomMissile("OrangeLensFlareAlt", 24, 10, 15, 0)
+    TNT1 A 0 A_PlaySound("pfire")
+	AGLS B 6 BRIGHT A_CustomMissile("ZombieManTracer", 28, 0, random(-12, 12), 0)
+    //TNT1 A 0 A_SpawnItem ("EmptyHellfestPistolThingSpawn", 0, 20,0)
+	
+	
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	AGLS A 10 A_FaceTarget
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	AGLS A 10 A_FaceTarget
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	AGLS A 10 A_FaceTarget
+    TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	TNT1 AA 0 A_CustomMissile("OrangeLensFlareAlt", 24, 10, 15, 0)
+    TNT1 A 0 A_PlaySound("pfire")
+	AGLS B 6 BRIGHT A_CustomMissile("ZombieManTracer", 28, 0, random(-12, 12), 0)
+    //TNT1 A 0 A_SpawnItem ("EmptyHellfestPistolThingSpawn", 0, 20,0)
+	
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	AGLS A 10 A_FaceTarget
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	AGLS A 10 A_FaceTarget
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	AGLS A 10 A_FaceTarget
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	AGLS A 10 A_FaceTarget
+	Goto GotoDeath
+	
+	
+	Death.MinorHead:
+        TNT1 A 0 A_PlaySound("misc/xdeath4")
+		TNT1 AA 0 A_CustomMissile ("SmallBrainPiece", 32, 0, random (0, 360), 2, random (0, 160))
+		TNT1 A 0 A_Scream
+        TNT1 AAAA 0 A_CustomMissile ("BrainBlood", 37, 0, random (0, 360), 2, random (0, 160))
+		TNT1 A 0 A_NoBlocking
+		POS7 GHI 6
+        TNT1 A 0 A_SpawnItem ("DeadHFQSZ_NoLeg", 1)
+		Stop
+	}
+}
+
+ACTOR ASGGuyLastStand2: DyingASGGuy
+{
+Health 20
+Speed 0
+MONSTER
++MISSILEMORE
++MISSILEEVENMORE
++LOOKALLAROUND
++GHOST
++THRUGHOST
+-SOLID
++LOOKALLAROUND
+-COUNTKILL
+-FRIENDLY
+Tag "Last Stand Zombie"
+BloodType "Brutal_Blood", "BloodSPlatterReplacer", "SawBlood"
+States
+	{
+	Spawn:
+	AGLS C 1 A_Look
+	Loop
+	
+	See:
+	AGLS CCCCC 1 A_Chase
+	Loop
+	
+	Missile:
+	TNT1 A 0
+	
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	AGLS C 10 A_FaceTarget
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	AGLS C 10 A_FaceTarget
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	AGLS C 10 A_FaceTarget
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	AGLS C 10 A_FaceTarget
+    TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	TNT1 AA 0 A_CustomMissile("OrangeLensFlareAlt", 24, 10, 15, 0)
+    TNT1 A 0 A_PlaySound("pfire")
+	AGLS D 6 BRIGHT A_CustomMissile("ZombieManTracer", 28, 0, random(-12, 12), 0)
+    //TNT1 A 0 A_SpawnItem ("EmptyHellfestPistolThingSpawn", 0, 20,0)
+	
+	
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	AGLS C 10 A_FaceTarget
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	AGLS C 10 A_FaceTarget
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	AGLS C 10 A_FaceTarget
+    TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	TNT1 AA 0 A_CustomMissile("OrangeLensFlareAlt", 24, 10, 15, 0)
+    TNT1 A 0 A_PlaySound("pfire")
+	AGLS D 6 BRIGHT A_CustomMissile("ZombieManTracer", 28, 0, random(-12, 12), 0)
+    //TNT1 A 0 A_SpawnItem ("EmptyHellfestPistolThingSpawn", 0, 20,0)
+	
+	
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	AGLS C 10 A_FaceTarget
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	AGLS C 10 A_FaceTarget
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	AGLS C 10 A_FaceTarget
+    TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	TNT1 AA 0 A_CustomMissile("OrangeLensFlareAlt", 24, 10, 15, 0)
+    TNT1 A 0 A_PlaySound("pfire")
+	AGLS D 6 BRIGHT A_CustomMissile("ZombieManTracer", 28, 0, random(-12, 12), 0)
+    //TNT1 A 0 A_SpawnItem ("EmptyHellfestPistolThingSpawn", 0, 20,0)
+	
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	AGLS C 10 A_FaceTarget
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	AGLS C 10 A_FaceTarget
+    TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	TNT1 AA 0 A_CustomMissile("OrangeLensFlareAlt", 24, 10, 15, 0)
+    TNT1 A 0 A_PlaySound("pfire")
+	AGLS D 6 BRIGHT A_CustomMissile("ZombieManTracer", 28, 0, random(-12, 12), 0)
+    //TNT1 A 0 A_SpawnItem ("EmptyHellfestPistolThingSpawn", 0, 20,0)
+	
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	AGLS C 10 A_FaceTarget
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	AGLS C 10 A_FaceTarget
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	AGLS C 10 A_FaceTarget
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	AGLS C 10 A_FaceTarget
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	AGLS C 10 A_FaceTarget
+    TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	TNT1 AA 0 A_CustomMissile("OrangeLensFlareAlt", 24, 10, 15, 0)
+    TNT1 A 0 A_PlaySound("pfire")
+	AGLS D 6 BRIGHT A_CustomMissile("ZombieManTracer", 28, 0, random(-12, 12), 0)
+    //TNT1 A 0 A_SpawnItem ("EmptyHellfestPistolThingSpawn", 0, 20,0)
+	
+	
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	AGLS C 10 A_FaceTarget
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	AGLS C 10 A_FaceTarget
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	AGLS C 10 A_FaceTarget
+    TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	TNT1 AA 0 A_CustomMissile("OrangeLensFlareAlt", 24, 10, 15, 0)
+    TNT1 A 0 A_PlaySound("pfire")
+	AGLS D 6 BRIGHT A_CustomMissile("ZombieManTracer", 28, 0, random(-12, 12), 0)
+    //TNT1 A 0 A_SpawnItem ("EmptyHellfestPistolThingSpawn", 0, 20,0)
+	
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	AGLS C 10 A_FaceTarget
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	AGLS C 10 A_FaceTarget
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	AGLS C 10 A_FaceTarget
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	AGLS C 10 A_FaceTarget
+	Goto GotoDeath
+	
+	
+	Death.MinorHead:
+	    TNT1 A 0
+        Goto Death.Head
+	}
+}		
+
+// Z-Spec Ops
+
+ACTOR ZSpecOpsLastStand1: DyingZSPECLegBlewedOff
+{
+Health 20
+Speed 0
+MONSTER
++MISSILEMORE
++MISSILEEVENMORE
++LOOKALLAROUND
++GHOST
++THRUGHOST
+-SOLID
++LOOKALLAROUND
+-COUNTKILL
+-FRIENDLY
+Tag "Last Stand Zombie"
+BloodType "Brutal_Blood", "BloodSPlatterReplacer", "SawBlood"
+States
+	{
+	Spawn:
+	ZOLS A 1 A_Look
+	Loop
+	
+	See:
+	ZOLS AAAAA 1 A_Chase
+	Loop
+	
+	Missile:
+	TNT1 A 0
+	
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	ZOLS A 10 A_FaceTarget
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	ZOLS A 10 A_FaceTarget
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	ZOLS A 10 A_FaceTarget
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	ZOLS A 10 A_FaceTarget
+    TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	TNT1 AA 0 A_CustomMissile("OrangeLensFlareAlt", 24, 10, 15, 0)
+    TNT1 A 0 A_PlaySound("CMGSIL")
+	ZOLS B 6 BRIGHT A_CustomMissile("ZombieManTracer", 28, 0, random(-12, 12), 0)
+    //TNT1 A 0 A_SpawnItem ("EmptyHellfestPistolThingSpawn", 0, 20,0)
+	
+	
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	ZOLS A 10 A_FaceTarget
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	ZOLS A 10 A_FaceTarget
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	ZOLS A 10 A_FaceTarget
+    TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	TNT1 AA 0 A_CustomMissile("OrangeLensFlareAlt", 24, 10, 15, 0)
+    TNT1 A 0 A_PlaySound("CMGSIL")
+	ZOLS B 6 BRIGHT A_CustomMissile("ZombieManTracer", 28, 0, random(-12, 12), 0)
+    //TNT1 A 0 A_SpawnItem ("EmptyHellfestPistolThingSpawn", 0, 20,0)
+	
+	
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	ZOLS A 10 A_FaceTarget
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	ZOLS A 10 A_FaceTarget
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	ZOLS A 10 A_FaceTarget
+    TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	TNT1 AA 0 A_CustomMissile("OrangeLensFlareAlt", 24, 10, 15, 0)
+    TNT1 A 0 A_PlaySound("CMGSIL")
+	ZOLS B 6 BRIGHT A_CustomMissile("ZombieManTracer", 28, 0, random(-12, 12), 0)
+    //TNT1 A 0 A_SpawnItem ("EmptyHellfestPistolThingSpawn", 0, 20,0)
+	
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	ZOLS A 10 A_FaceTarget
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	ZOLS A 10 A_FaceTarget
+    TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	TNT1 AA 0 A_CustomMissile("OrangeLensFlareAlt", 24, 10, 15, 0)
+    TNT1 A 0 A_PlaySound("CMGSIL")
+	ZOLS B 6 BRIGHT A_CustomMissile("ZombieManTracer", 28, 0, random(-12, 12), 0)
+    //TNT1 A 0 A_SpawnItem ("EmptyHellfestPistolThingSpawn", 0, 20,0)
+	
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	ZOLS A 10 A_FaceTarget
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	ZOLS A 10 A_FaceTarget
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	ZOLS A 10 A_FaceTarget
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	ZOLS A 10 A_FaceTarget
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	ZOLS A 10 A_FaceTarget
+    TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	TNT1 AA 0 A_CustomMissile("OrangeLensFlareAlt", 24, 10, 15, 0)
+    TNT1 A 0 A_PlaySound("CMGSIL")
+	ZOLS B 6 BRIGHT A_CustomMissile("ZombieManTracer", 28, 0, random(-12, 12), 0)
+    //TNT1 A 0 A_SpawnItem ("EmptyHellfestPistolThingSpawn", 0, 20,0)
+	
+	
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	ZOLS A 10 A_FaceTarget
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	ZOLS A 10 A_FaceTarget
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	ZOLS A 10 A_FaceTarget
+    TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	TNT1 AA 0 A_CustomMissile("OrangeLensFlareAlt", 24, 10, 15, 0)
+    TNT1 A 0 A_PlaySound("CMGSIL")
+	ZOLS B 6 BRIGHT A_CustomMissile("ZombieManTracer", 28, 0, random(-12, 12), 0)
+    //TNT1 A 0 A_SpawnItem ("EmptyHellfestPistolThingSpawn", 0, 20,0)
+	
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	ZOLS A 10 A_FaceTarget
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	ZOLS A 10 A_FaceTarget
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	ZOLS A 10 A_FaceTarget
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	ZOLS A 10 A_FaceTarget
+	Goto GotoDeath
+	
+	
+	Death.MinorHead:
+        TNT1 A 0 A_PlaySound("misc/xdeath4")
+		TNT1 AA 0 A_CustomMissile ("SmallBrainPiece", 32, 0, random (0, 360), 2, random (0, 160))
+		TNT1 A 0 A_Scream
+        TNT1 AAAA 0 A_CustomMissile ("BrainBlood", 37, 0, random (0, 360), 2, random (0, 160))
+		TNT1 A 0 A_NoBlocking
+		POS7 GHI 6
+        TNT1 A 0 A_SpawnItem ("DeadHFQSZ_NoLeg", 1)
+		Stop
+	}
+}
+
+ACTOR ZSpecOpsLastStand2: DyingZSPEC
+{
+Health 20
+Speed 0
+MONSTER
++MISSILEMORE
++MISSILEEVENMORE
++LOOKALLAROUND
++GHOST
++THRUGHOST
+-SOLID
++LOOKALLAROUND
+-COUNTKILL
+-FRIENDLY
+Tag "Last Stand Zombie"
+BloodType "Brutal_Blood", "BloodSPlatterReplacer", "SawBlood"
+States
+	{
+	Spawn:
+	ZOLS C 1 A_Look
+	Loop
+	
+	See:
+	ZOLS CCCCC 1 A_Chase
+	Loop
+	
+	Missile:
+	TNT1 A 0
+	
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	ZOLS C 10 A_FaceTarget
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	ZOLS C 10 A_FaceTarget
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	ZOLS C 10 A_FaceTarget
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	ZOLS C 10 A_FaceTarget
+    TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	TNT1 AA 0 A_CustomMissile("OrangeLensFlareAlt", 24, 10, 15, 0)
+    TNT1 A 0 A_PlaySound("CMGSIL")
+	ZOLS D 6 BRIGHT A_CustomMissile("ZombieManTracer", 28, 0, random(-12, 12), 0)
+    //TNT1 A 0 A_SpawnItem ("EmptyHellfestPistolThingSpawn", 0, 20,0)
+	
+	
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	ZOLS C 10 A_FaceTarget
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	ZOLS C 10 A_FaceTarget
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	ZOLS C 10 A_FaceTarget
+    TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	TNT1 AA 0 A_CustomMissile("OrangeLensFlareAlt", 24, 10, 15, 0)
+    TNT1 A 0 A_PlaySound("CMGSIL")
+	ZOLS D 6 BRIGHT A_CustomMissile("ZombieManTracer", 28, 0, random(-12, 12), 0)
+    //TNT1 A 0 A_SpawnItem ("EmptyHellfestPistolThingSpawn", 0, 20,0)
+	
+	
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	ZOLS C 10 A_FaceTarget
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	ZOLS C 10 A_FaceTarget
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	ZOLS C 10 A_FaceTarget
+    TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	TNT1 AA 0 A_CustomMissile("OrangeLensFlareAlt", 24, 10, 15, 0)
+    TNT1 A 0 A_PlaySound("CMGSIL")
+	ZOLS D 6 BRIGHT A_CustomMissile("ZombieManTracer", 28, 0, random(-12, 12), 0)
+    //TNT1 A 0 A_SpawnItem ("EmptyHellfestPistolThingSpawn", 0, 20,0)
+	
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	ZOLS C 10 A_FaceTarget
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	ZOLS C 10 A_FaceTarget
+    TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	TNT1 AA 0 A_CustomMissile("OrangeLensFlareAlt", 24, 10, 15, 0)
+    TNT1 A 0 A_PlaySound("CMGSIL")
+	ZOLS D 6 BRIGHT A_CustomMissile("ZombieManTracer", 28, 0, random(-12, 12), 0)
+    //TNT1 A 0 A_SpawnItem ("EmptyHellfestPistolThingSpawn", 0, 20,0)
+	
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	ZOLS C 10 A_FaceTarget
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	ZOLS C 10 A_FaceTarget
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	ZOLS C 10 A_FaceTarget
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	ZOLS C 10 A_FaceTarget
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	ZOLS C 10 A_FaceTarget
+    TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	TNT1 AA 0 A_CustomMissile("OrangeLensFlareAlt", 24, 10, 15, 0)
+    TNT1 A 0 A_PlaySound("CMGSIL")
+	ZOLS D 6 BRIGHT A_CustomMissile("ZombieManTracer", 28, 0, random(-12, 12), 0)
+    //TNT1 A 0 A_SpawnItem ("EmptyHellfestPistolThingSpawn", 0, 20,0)
+	
+	
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	ZOLS C 10 A_FaceTarget
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	ZOLS C 10 A_FaceTarget
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	ZOLS C 10 A_FaceTarget
+    TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	TNT1 AA 0 A_CustomMissile("OrangeLensFlareAlt", 24, 10, 15, 0)
+    TNT1 A 0 A_PlaySound("CMGSIL")
+	ZOLS D 6 BRIGHT A_CustomMissile("ZombieManTracer", 28, 0, random(-12, 12), 0)
+    //TNT1 A 0 A_SpawnItem ("EmptyHellfestPistolThingSpawn", 0, 20,0)
+	
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	ZOLS C 10 A_FaceTarget
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	ZOLS C 10 A_FaceTarget
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	ZOLS C 10 A_FaceTarget
+	TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 28,0)
+	ZOLS C 10 A_FaceTarget
+	Goto GotoDeath
+	
+	
+	Death.MinorHead:
+	    TNT1 A 0
+        Goto Death.Head
+	}
+}		
