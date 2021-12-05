@@ -1,0 +1,85 @@
+// XV117 Brutalized Monsters for Brutal Doom v21
+// Compatible with v21 aka Gold
+
+// Compatibility Module
+#include TomtefarsCompat.txt
+
+// Fatality Module
+#include METokens.txt
+
+//Weapons
+#include METracers.txt
+#include WeaponDrops.txt
+
+//Monsters
+#include ANNIHILATOR.DEC
+#include Aracnorb.txt
+#include AracnorbQueen.txt
+#include AracnorbQueenBOSS.txt
+#include AracnorbQueenBOSSBOSS.txt
+#include ASGGuy.txt
+#include BloodDemon.txt
+#include BruiserDemon.txt
+#include CGSPIDER.txt
+#include ChainsawZombie.txt
+#include CyberBaron.txt
+#include CyberKnight.txt
+#include DarkCardinal.txt
+#include DarkCardinalBOSS.txt
+#include DarkImp.txt
+#include DarkImpNami.txt
+#include DarkImpNether.txt
+#include DarkImpVoid.txt
+#include Daedabus.DEC
+#include Demolisher.DEC
+#include DemolisherBOSS.DEC
+#include MastermindMini.txt
+#include DemolisherMini.DEC
+#include Diabloist.txt
+#include Draugr.DEC
+//#include IceVile.DEC   NOT WORKING AT ALL
+#include Imp3.txt
+#include Impureelemental.txt
+#include Incarnate.txt
+#include LabGAL.txt
+#include LabGUYB.txt
+#include LabGUYP.txt
+#include Major.txt
+//#include Meandemon.DEC
+#include MinigunGuy.txt
+#include Overlord.DEC
+#include Phantasm.DEC
+#include PistolZombiePatch.txt
+#include PlasmaZombie.txt
+#include PyroDemon.txt
+#include PyroSergeant.txt
+#include QuadShotgunZombie.txt
+#include RifleCommando.txt
+#include RiotSergeant.txt
+#include RocketGuy.txt
+#include SniperRifleGuy.txt
+#include SufferingElemental.DEC
+#include SuperDemon.txt
+#include SuperImp.txt
+#include SuperShotgunZombie.txt
+#include Terminator.txt
+#include Thamuz.txt
+#include Thamuzboss.txt
+#include Voidspectre.DEC
+#include ZSpecOps.txt
+#include ZSpecOpsRail.txt
+#include ZSpecOpsRifle.txt
+#include ZombiemanHelmets.DEC
+#include MEStealthMonsters.txt
+#include DemonTechTroop.DEC
+
+//Gore, Blood, Gibs
+#include MEBurn.txt
+#include MEDyingGuys.txt
+#include FrozenGuys.txt
+#include Gore.txt
+#include MELastStandMonsters.txt
+#include MELeg.txt
+#include BZombieCivilianShield.txt
+#include FZombieCivilianShield.txt
+#include DarkImpShield.txt
