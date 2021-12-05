@@ -1,0 +1,416 @@
+ACTOR XVStealthAracnorb : Aracnorb
+{
+	+STEALTH
+	RenderStyle Translucent
+	Alpha 0
+}
+
+
+ACTOR XVStealthASGGuy : ASGGuy
+{
+	+STEALTH
+	RenderStyle Translucent
+	Alpha 0
+}
+
+
+ACTOR XVStealthBruiser : BruiserDemon
+{
+	+STEALTH
+	RenderStyle Translucent
+	Alpha 0
+}
+
+ACTOR XVStealthChainsawGuy : ChainsawZombie
+{
+	+STEALTH
+	RenderStyle Translucent
+	Alpha 0
+}
+
+ACTOR XVStealthCyberBaron : CyberBaron
+{
+	+STEALTH
+	RenderStyle Translucent
+	Alpha 0
+}
+
+ACTOR XVStealthCyberKnight : PhasicKnightX
+{
+	+STEALTH
+	RenderStyle Translucent
+	Alpha 0
+}
+
+ACTOR XVStealthMajor : Major
+{
+	+STEALTH
+	RenderStyle Translucent
+	Alpha 0
+}
+
+ACTOR XVStealthMinigungGuy : MinigunGuy
+{
+	+STEALTH
+	RenderStyle Translucent
+	Alpha 0
+}
+
+ACTOR XVStealthPlasmaZombie : PlasmaZombie
+{
+	+STEALTH
+	RenderStyle Translucent
+	Alpha 0
+}
+
+ACTOR XVStealthPyroSergeant : PyroSergeant
+{
+	+STEALTH
+	RenderStyle Translucent
+	Alpha 0
+}
+
+ACTOR XVStealthQSGZombie : QuadShotgunZombie
+{
+	+STEALTH
+	RenderStyle Translucent
+	Alpha 0
+}
+
+ACTOR XVStealthRifleCommando : RifleCommando
+{
+	+STEALTH
+	RenderStyle Translucent
+	Alpha 0
+}
+
+ACTOR XVStealthRiotShieldGuy : RiotShieldGuy
+{
+	+STEALTH
+	RenderStyle Translucent
+	Alpha 0
+}
+
+ACTOR XVStealthRocketGuy : RocketGuy
+{
+	+STEALTH
+	RenderStyle Translucent
+	Alpha 0
+}
+
+ACTOR XVStealthSSGGuy : SuperShotgunZombie
+{
+	+STEALTH
+	RenderStyle Translucent
+	Alpha 0
+}
+
+ACTOR XVStealthTerminator : TerminatorDemon
+{
+	+STEALTH
+	RenderStyle Translucent
+	Alpha 0
+}
+
+ACTOR XVStealthZSpecOps : ZSpecOps
+{
+	+STEALTH
+	RenderStyle Translucent
+	Alpha 0
+	DropItem "CMGSpawner"
+	DropItem "SilencerSpawner" //CompactMGsilencer
+	DropItem "SuperBlurSphere" 4
+	States
+	     {
+	Missile:
+		TNT1 A 0 A_TakeInventory("SKZSpecOps", 1)
+		TNT1 A 0 A_JumpIfInventory("Enraged", 1, "Firing2")
+		TNT1 A 0 A_Jump(64,"Pain.Avoid")
+        TNT1 A 0 A_Jump(128, "Firing2", "CrouchFire", "ADSFire")
+		
+	Firing1:
+		ZSP2 E 2 A_FaceTarget
+		TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 51,0)
+		TNT1 A 0 A_SpawnItem ("LegTarget12", 20)
+		
+        TNT1 A 0 A_PlaySound("CMGSIL", 1)
+        TNT1 A 0 A_CustomMissile("OrangeLensFlareAlt", 40, 11, random(-8, 8), 0)
+        TNT1 A 0 A_CustomMissile("SmokeSpawner", 40, 11, 15, 0)
+		ZSP2 F 3 BRIGHT A_CustomMissile("ZombieManTracer", 40, 11, random(-15, 15), 0, random(-8, 8))
+		TNT1 A 0 A_GiveInventory("ZSpecOpsAmmo", 1)
+		TNT1 A 0 A_SpawnItem ("PistolCaseSpawn", 0, 30,0)
+        TNT1 A 0 A_JumpIfInventory("ZSpecOpsAmmo", 35, "Reload")
+		
+		ZSP2 E 2 A_FaceTarget
+		TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 51,0)
+		TNT1 A 0 A_SpawnItem ("LegTarget12", 20)
+		
+        TNT1 A 0 A_PlaySound("CMGSIL", 1)
+        TNT1 A 0 A_CustomMissile("OrangeLensFlareAlt", 40, 11, random(-8, 8), 0)
+        TNT1 A 0 A_CustomMissile("SmokeSpawner", 40, 11, 15, 0)
+		ZSP2 F 3 BRIGHT A_CustomMissile("ZombieManTracer", 40, 11, random(-15, 15), 0, random(-8, 8))
+		TNT1 A 0 A_GiveInventory("ZSpecOpsAmmo", 1)
+		TNT1 A 0 A_SpawnItem ("PistolCaseSpawn", 0, 30,0)
+        TNT1 A 0 A_JumpIfInventory("ZSpecOpsAmmo", 35, "Reload")
+		
+		ZSP2 E 2 A_FaceTarget
+		TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 51,0)
+		TNT1 A 0 A_SpawnItem ("LegTarget12", 20)
+		
+        TNT1 A 0 A_PlaySound("CMGSIL", 1)
+        TNT1 A 0 A_CustomMissile("OrangeLensFlareAlt", 40, 11, random(-8, 8), 0)
+        TNT1 A 0 A_CustomMissile("SmokeSpawner", 40, 11, 15, 0)
+		ZSP2 F 3 BRIGHT A_CustomMissile("ZombieManTracer", 40, 11, random(-15, 15), 0, random(-8, 8))
+		TNT1 A 0 A_GiveInventory("ZSpecOpsAmmo", 1)
+		TNT1 A 0 A_SpawnItem ("PistolCaseSpawn", 0, 30,0)
+        TNT1 A 0 A_JumpIfInventory("ZSpecOpsAmmo", 35, "Reload")
+		
+		ZSP2 E 2 A_FaceTarget
+		TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 51,0)
+		TNT1 A 0 A_SpawnItem ("LegTarget12", 20)
+		
+        TNT1 A 0 A_PlaySound("CMGSIL", 1)
+        TNT1 A 0 A_CustomMissile("OrangeLensFlareAlt", 40, 11, random(-8, 8), 0)
+        TNT1 A 0 A_CustomMissile("SmokeSpawner", 40, 11, 15, 0)
+		ZSP2 F 3 BRIGHT A_CustomMissile("ZombieManTracer", 40, 11, random(-15, 15), 0, random(-8, 8))
+		TNT1 A 0 A_GiveInventory("ZSpecOpsAmmo", 1)
+		TNT1 A 0 A_SpawnItem ("PistolCaseSpawn", 0, 30,0)
+        TNT1 A 0 A_JumpIfInventory("ZSpecOpsAmmo", 35, "Reload")
+		
+		ZSP2 E 2 A_FaceTarget
+		TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 51,0)
+		TNT1 A 0 A_SpawnItem ("LegTarget12", 20)
+		
+        TNT1 A 0 A_PlaySound("CMGSIL", 1)
+        TNT1 A 0 A_CustomMissile("OrangeLensFlareAlt", 40, 11, random(-8, 8), 0)
+        TNT1 A 0 A_CustomMissile("SmokeSpawner", 40, 11, 15, 0)
+		ZSP2 F 3 BRIGHT A_CustomMissile("ZombieManTracer", 40, 11, random(-15, 15), 0, random(-8, 8))
+		TNT1 A 0 A_GiveInventory("ZSpecOpsAmmo", 1)
+		TNT1 A 0 A_SpawnItem ("PistolCaseSpawn", 0, 30,0)
+        TNT1 A 0 A_JumpIfInventory("ZSpecOpsAmmo", 35, "Reload")
+		
+        TNT1 A 0 A_Jump(128, "Firing2", "CrouchFire", "ADSFire")
+		TNT1 A 0 A_Jump(64,"Pain.Avoid")
+        Goto See
+
+    Firing2:
+		ZSP2 E 2 A_FaceTarget
+		TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 51,0)
+		TNT1 A 0 A_SpawnItem ("LegTarget12", 20)
+		
+        TNT1 A 0 A_PlaySound("CMGSIL", 1)
+        TNT1 A 0 A_CustomMissile("OrangeLensFlareAlt", 40, 11, random(-8, 8), 0)
+        TNT1 A 0 A_CustomMissile("SmokeSpawner", 40, 11, 15, 0)
+		ZSP2 F 3 BRIGHT A_CustomMissile("ZombieManTracer", 40, 11, random(-15, 15), 0, random(-8, 8))
+		TNT1 A 0 A_GiveInventory("ZSpecOpsAmmo", 1)
+		TNT1 A 0 A_SpawnItem ("PistolCaseSpawn", 0, 30,0)
+        TNT1 A 0 A_JumpIfInventory("ZSpecOpsAmmo", 35, "Reload")
+
+		ZSP2 E 2 A_FaceTarget
+		TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 51,0)
+		TNT1 A 0 A_SpawnItem ("LegTarget12", 20)
+		
+        TNT1 A 0 A_PlaySound("CMGSIL", 1)
+        TNT1 A 0 A_CustomMissile("OrangeLensFlareAlt", 40, 11, random(-8, 8), 0)
+        TNT1 A 0 A_CustomMissile("SmokeSpawner", 40, 11, 15, 0)
+		ZSP2 F 3 BRIGHT A_CustomMissile("ZombieManTracer", 40, 11, random(-15, 15), 0, random(-8, 8))
+		TNT1 A 0 A_GiveInventory("ZSpecOpsAmmo", 1)
+		TNT1 A 0 A_SpawnItem ("PistolCaseSpawn", 0, 30,0)
+        TNT1 A 0 A_JumpIfInventory("ZSpecOpsAmmo", 35, "Reload")
+		
+		ZSP2 E 2 A_FaceTarget
+		TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 51,0)
+		TNT1 A 0 A_SpawnItem ("LegTarget12", 20)
+		
+        TNT1 A 0 A_PlaySound("CMGSIL", 1)
+        TNT1 A 0 A_CustomMissile("OrangeLensFlareAlt", 40, 11, random(-8, 8), 0)
+        TNT1 A 0 A_CustomMissile("SmokeSpawner", 40, 11, 15, 0)
+		ZSP2 F 3 BRIGHT A_CustomMissile("ZombieManTracer", 40, 11, random(-15, 15), 0, random(-8, 8))
+		TNT1 A 0 A_GiveInventory("ZSpecOpsAmmo", 1)
+		TNT1 A 0 A_SpawnItem ("PistolCaseSpawn", 0, 30,0)
+        TNT1 A 0 A_JumpIfInventory("ZSpecOpsAmmo", 35, "Reload")
+		
+		ZSP2 E 2 A_FaceTarget
+		TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 51,0)
+		TNT1 A 0 A_SpawnItem ("LegTarget12", 20)
+		
+        TNT1 A 0 A_PlaySound("CMGSIL", 1)
+        TNT1 A 0 A_CustomMissile("OrangeLensFlareAlt", 40, 11, random(-8, 8), 0)
+        TNT1 A 0 A_CustomMissile("SmokeSpawner", 40, 11, 15, 0)
+		ZSP2 F 3 BRIGHT A_CustomMissile("ZombieManTracer", 40, 11, random(-15, 15), 0, random(-8, 8))
+		TNT1 A 0 A_GiveInventory("ZSpecOpsAmmo", 1)
+		TNT1 A 0 A_SpawnItem ("PistolCaseSpawn", 0, 30,0)
+        TNT1 A 0 A_JumpIfInventory("ZSpecOpsAmmo", 35, "Reload")
+		
+		ZSP2 E 2 A_FaceTarget
+		TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 51,0)
+		TNT1 A 0 A_SpawnItem ("LegTarget12", 20)
+		
+        TNT1 A 0 A_PlaySound("CMGSIL", 1)
+        TNT1 A 0 A_CustomMissile("OrangeLensFlareAlt", 40, 11, random(-8, 8), 0)
+        TNT1 A 0 A_CustomMissile("SmokeSpawner", 40, 11, 15, 0)
+		ZSP2 F 3 BRIGHT A_CustomMissile("ZombieManTracer", 40, 11, random(-15, 15), 0, random(-8, 8))
+		TNT1 A 0 A_GiveInventory("ZSpecOpsAmmo", 1)
+		TNT1 A 0 A_SpawnItem ("PistolCaseSpawn", 0, 30,0)
+        TNT1 A 0 A_JumpIfInventory("ZSpecOpsAmmo", 35, "Reload")
+		
+		ZSP2 E 2 A_FaceTarget
+		TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 51,0)
+		TNT1 A 0 A_SpawnItem ("LegTarget12", 20)
+		
+        TNT1 A 0 A_PlaySound("CMGSIL", 1)
+        TNT1 A 0 A_CustomMissile("OrangeLensFlareAlt", 40, 11, random(-8, 8), 0)
+        TNT1 A 0 A_CustomMissile("SmokeSpawner", 40, 11, 15, 0)
+		ZSP2 F 3 BRIGHT A_CustomMissile("ZombieManTracer", 40, 11, random(-15, 15), 0, random(-8, 8))
+		TNT1 A 0 A_GiveInventory("ZSpecOpsAmmo", 1)
+		TNT1 A 0 A_SpawnItem ("PistolCaseSpawn", 0, 30,0)
+        TNT1 A 0 A_JumpIfInventory("ZSpecOpsAmmo", 35, "Reload")
+		
+		ZSP2 E 2 A_FaceTarget
+		TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 51,0)
+		TNT1 A 0 A_SpawnItem ("LegTarget12", 20)
+		
+        TNT1 A 0 A_PlaySound("CMGSIL", 1)
+        TNT1 A 0 A_CustomMissile("OrangeLensFlareAlt", 40, 11, random(-8, 8), 0)
+        TNT1 A 0 A_CustomMissile("SmokeSpawner", 40, 11, 15, 0)
+		ZSP2 F 3 BRIGHT A_CustomMissile("ZombieManTracer", 40, 11, random(-15, 15), 0, random(-8, 8))
+		TNT1 A 0 A_GiveInventory("ZSpecOpsAmmo", 1)
+		TNT1 A 0 A_SpawnItem ("PistolCaseSpawn", 0, 30,0)
+        TNT1 A 0 A_JumpIfInventory("ZSpecOpsAmmo", 35, "Reload")
+
+		TNT1 A 0 A_Jump(128, "Firing1", "CrouchFire", "ADSFire")
+		TNT1 A 0 A_Jump(64,"Pain.Avoid")
+        Goto See
+		
+	CrouchFire:
+		ZSP2 M 2 A_FaceTarget
+		TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 51,0)
+		TNT1 A 0 A_SpawnItem ("LegTarget12", 20)
+		
+        TNT1 A 0 A_PlaySound("CMGSIL", 1)
+        TNT1 A 0 A_CustomMissile("OrangeLensFlareAlt", 39, 13, random(-8, 8), 0)
+        TNT1 A 0 A_CustomMissile("SmokeSpawner", 39, 13, 15, 0)
+		ZSP2 M 3 BRIGHT A_CustomMissile("ZombieManTracer", 39, 13, random(-15, 15), 0, random(-8, 8))
+		TNT1 A 0 A_GiveInventory("ZSpecOpsAmmo", 1)
+		TNT1 A 0 A_SpawnItem ("PistolCaseSpawn", 0, 30,0)
+        TNT1 A 0 A_JumpIfInventory("ZSpecOpsAmmo", 35, "Reload")
+		
+		ZSP2 M 2 A_FaceTarget
+		TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 51,0)
+		TNT1 A 0 A_SpawnItem ("LegTarget12", 20)
+		
+        TNT1 A 0 A_PlaySound("CMGSIL", 1)
+        TNT1 A 0 A_CustomMissile("OrangeLensFlareAlt", 39, 13, random(-8, 8), 0)
+        TNT1 A 0 A_CustomMissile("SmokeSpawner", 39, 13, 15, 0)
+		ZSP2 M 3 BRIGHT A_CustomMissile("ZombieManTracer", 39, 13, random(-15, 15), 0, random(-8, 8))
+		TNT1 A 0 A_GiveInventory("ZSpecOpsAmmo", 1)
+		TNT1 A 0 A_SpawnItem ("PistolCaseSpawn", 0, 30,0)
+        TNT1 A 0 A_JumpIfInventory("ZSpecOpsAmmo", 35, "Reload")
+		
+		ZSP2 M 2 A_FaceTarget
+		TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 51,0)
+		TNT1 A 0 A_SpawnItem ("LegTarget12", 20)
+		
+        TNT1 A 0 A_PlaySound("CMGSIL", 1)
+        TNT1 A 0 A_CustomMissile("OrangeLensFlareAlt", 39, 13, random(-8, 8), 0)
+        TNT1 A 0 A_CustomMissile("SmokeSpawner", 39, 13, 15, 0)
+		ZSP2 M 3 BRIGHT A_CustomMissile("ZombieManTracer", 39, 13, random(-15, 15), 0, random(-8, 8))
+		TNT1 A 0 A_GiveInventory("ZSpecOpsAmmo", 1)
+		TNT1 A 0 A_SpawnItem ("PistolCaseSpawn", 0, 30,0)
+        TNT1 A 0 A_JumpIfInventory("ZSpecOpsAmmo", 35, "Reload")
+		
+		ZSP2 M 2 A_FaceTarget
+		TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 51,0)
+		TNT1 A 0 A_SpawnItem ("LegTarget12", 20)
+		
+        TNT1 A 0 A_PlaySound("CMGSIL", 1)
+        TNT1 A 0 A_CustomMissile("OrangeLensFlareAlt", 39, 13, random(-8, 8), 0)
+        TNT1 A 0 A_CustomMissile("SmokeSpawner", 39, 13, 15, 0)
+		ZSP2 M 3 BRIGHT A_CustomMissile("ZombieManTracer", 39, 13, random(-15, 15), 0, random(-8, 8))
+		TNT1 A 0 A_GiveInventory("ZSpecOpsAmmo", 1)
+		TNT1 A 0 A_SpawnItem ("PistolCaseSpawn", 0, 30,0)
+        TNT1 A 0 A_JumpIfInventory("ZSpecOpsAmmo", 35, "Reload")
+		
+		ZSP2 M 2 A_FaceTarget
+		TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 51,0)
+		TNT1 A 0 A_SpawnItem ("LegTarget12", 20)
+		
+        TNT1 A 0 A_PlaySound("CMGSIL", 1)
+        TNT1 A 0 A_CustomMissile("OrangeLensFlareAlt", 39, 13, random(-8, 8), 0)
+        TNT1 A 0 A_CustomMissile("SmokeSpawner", 39, 13, 15, 0)
+		ZSP2 M 3 BRIGHT A_CustomMissile("ZombieManTracer", 39, 13, random(-15, 15), 0, random(-8, 8))
+		TNT1 A 0 A_GiveInventory("ZSpecOpsAmmo", 1)
+		TNT1 A 0 A_SpawnItem ("PistolCaseSpawn", 0, 30,0)
+        TNT1 A 0 A_JumpIfInventory("ZSpecOpsAmmo", 35, "Reload")
+		
+		TNT1 A 0 A_Jump(128, "Firing1", "Firing2", "ADSFire")
+		TNT1 A 0 A_Jump(64,"Pain.Avoid")
+        Goto See
+		
+	ADSFire:
+		ZSP2 NNN 2 A_FaceTarget
+		TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 51,0)
+		TNT1 A 0 A_SpawnItem ("LegTarget12", 20)
+		
+        TNT1 A 0 A_PlaySound("CMGSIL", 1)
+        TNT1 A 0 A_CustomMissile("OrangeLensFlareAlt", 50, 6, random(-8, 8), 0)
+        TNT1 A 0 A_CustomMissile("SmokeSpawner", 50, 6, 15, 0)
+		ZSP2 N 3 BRIGHT A_CustomMissile("ZombieManTracer", 50, 6, random(-15, 15), 0, random(-8, 8))
+		TNT1 A 0 A_GiveInventory("ZSpecOpsAmmo", 1)
+		TNT1 A 0 A_SpawnItem ("PistolCaseSpawn", 0, 30,0)
+        TNT1 A 0 A_JumpIfInventory("ZSpecOpsAmmo", 35, "Reload")
+		
+		ZSP2 NNN 2 A_FaceTarget
+		TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 51,0)
+		TNT1 A 0 A_SpawnItem ("LegTarget12", 20)
+		
+        TNT1 A 0 A_PlaySound("CMGSIL", 1)
+        TNT1 A 0 A_CustomMissile("OrangeLensFlareAlt", 50, 6, random(-8, 8), 0)
+        TNT1 A 0 A_CustomMissile("SmokeSpawner", 50, 6, 15, 0)
+		ZSP2 N 3 BRIGHT A_CustomMissile("ZombieManTracer", 50, 6, random(-15, 15), 0, random(-8, 8))
+		TNT1 A 0 A_GiveInventory("ZSpecOpsAmmo", 1)
+		TNT1 A 0 A_SpawnItem ("PistolCaseSpawn", 0, 30,0)
+        TNT1 A 0 A_JumpIfInventory("ZSpecOpsAmmo", 35, "Reload")
+		
+		ZSP2 NNN 2 A_FaceTarget
+		TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 51,0)
+		TNT1 A 0 A_SpawnItem ("LegTarget12", 20)
+		
+        TNT1 A 0 A_PlaySound("CMGSIL", 1)
+        TNT1 A 0 A_CustomMissile("OrangeLensFlareAlt", 50, 6, random(-8, 8), 0)
+        TNT1 A 0 A_CustomMissile("SmokeSpawner", 50, 6, 15, 0)
+		ZSP2 N 3 BRIGHT A_CustomMissile("ZombieManTracer", 50, 6, random(-15, 15), 0, random(-8, 8))
+		TNT1 A 0 A_GiveInventory("ZSpecOpsAmmo", 1)
+		TNT1 A 0 A_SpawnItem ("PistolCaseSpawn", 0, 30,0)
+        TNT1 A 0 A_JumpIfInventory("ZSpecOpsAmmo", 35, "Reload")
+		
+		ZSP2 NNN 2 A_FaceTarget
+		TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 51,0)
+		TNT1 A 0 A_SpawnItem ("LegTarget12", 20)
+		
+        TNT1 A 0 A_PlaySound("CMGSIL", 1)
+        TNT1 A 0 A_CustomMissile("OrangeLensFlareAlt", 50, 6, random(-8, 8), 0)
+        TNT1 A 0 A_CustomMissile("SmokeSpawner", 50, 6, 15, 0)
+		ZSP2 N 3 BRIGHT A_CustomMissile("ZombieManTracer", 50, 6, random(-15, 15), 0, random(-8, 8))
+		TNT1 A 0 A_GiveInventory("ZSpecOpsAmmo", 1)
+		TNT1 A 0 A_SpawnItem ("PistolCaseSpawn", 0, 30,0)
+        TNT1 A 0 A_JumpIfInventory("ZSpecOpsAmmo", 35, "Reload")
+		
+		ZSP2 NNN 2 A_FaceTarget
+		TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 51,0)
+		TNT1 A 0 A_SpawnItem ("LegTarget12", 20)
+		
+        TNT1 A 0 A_PlaySound("CMGSIL", 1)
+        TNT1 A 0 A_CustomMissile("OrangeLensFlareAlt", 50, 6, random(-8, 8), 0)
+        TNT1 A 0 A_CustomMissile("SmokeSpawner", 50, 6, 15, 0)
+		ZSP2 N 3 BRIGHT A_CustomMissile("ZombieManTracer", 50, 6, random(-15, 15), 0, random(-8, 8))
+		TNT1 A 0 A_GiveInventory("ZSpecOpsAmmo", 1)
+		TNT1 A 0 A_SpawnItem ("PistolCaseSpawn", 0, 30,0)
+        TNT1 A 0 A_JumpIfInventory("ZSpecOpsAmmo", 35, "Reload")
+		
+		TNT1 A 0 A_Jump(128, "Firing1", "Firing2", "CrouchFire")
+		TNT1 A 0 A_Jump(64,"Pain.Avoid")
+        Goto See
+		}
+}
+
