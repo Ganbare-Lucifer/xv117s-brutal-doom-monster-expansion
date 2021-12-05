@@ -1,0 +1,126 @@
+//Compatibility Stuff
+
+//Assault Shotgun Guy
+Actor Autoshotgunguy : RandomSpawner
+{
+dropitem "ASGGuy"
+}
+
+//Rocket Guy
+Actor RocketZombie : RandomSpawner
+{
+dropitem "RocketGuy"
+}
+
+Actor XimRocketZombie : RandomSpawner
+{
+dropitem "RocketGuy"
+}
+
+//Pyro Sergeant
+Actor FlamerZombie : RandomSpawner
+{
+dropitem "PyroSergeant"
+}
+
+Actor PyroZombie : RandomSpawner
+{
+dropitem "PyroSergeant"
+}
+
+//Z-Spec Ops / Black Ops
+Actor ZSpecOpsMachineGun : RandomSpawner
+{
+dropitem "ZSpecOps"
+}
+
+Actor ZSpecOpsShotgun : RandomSpawner
+{
+dropitem "ZSpecOps"
+}
+
+Actor ZSpecOpsRailgun : RandomSpawner
+{
+dropitem "ZSpecOps"
+}
+
+//Major
+Actor ChaingunMajor : RandomSpawner
+{
+dropitem "Major"
+}
+
+//Sniper Zombie
+Actor SniperRifleGuy : RandomSpawner
+{
+dropitem "SniperZombie"
+}
+
+//Aracnorb
+Actor Grell : RandomSpawner
+{
+dropitem "Aracnorb"
+}
+
+// ----------------------------------------------------------------
+//
+// Internal Compatibility Patch
+//
+// ----------------------------------------------------------------
+
+
+//Super Shotgun Zombie
+Actor DBShotgunGuy_DT : RandomSpawner
+{
+Dropitem "SuperShotgunZombie"
+}
+
+//Riot Shield Zombie
+Actor RiotZombieMan_DT : RandomSpawner
+{
+Dropitem "RiotShieldGuy"
+}
+
+//Z-Spec Ops
+Actor PlasmaZombie_DT : RandomSpawner
+{
+Dropitem "ZSpecOps"
+}
+
+Actor TriFireMarine_DT : RandomSpawner
+{
+Dropitem "ZSpecOps"
+}
+
+Actor FemalePlasma : RandomSpawner
+{
+Dropitem "PlasmaZombie"
+}
+
+Actor TriFireTrooper_DT : RandomSpawner
+{
+Dropitem "ZSpecOps"
+}
+
+//Assault Shotgun Zombie
+Actor ShotgunGuy3_DT : RandomSpawner
+{
+Dropitem "ASGGuy"
+}
+
+//Lord of Heresy
+Actor LordofHeresy : RandomSpawner
+{
+Dropitem "BruiserDemon"
+Dropitem "BruiserDemon"
+Dropitem "CyberBaron"
+Dropitem "TerminatorBoss"
+}
+
+//Squire
+Actor Squire : RandomSpawner
+{
+Dropitem "HellKnight2"
+Dropitem "HellKnight2"
+Dropitem "Cybruiser"
+}
