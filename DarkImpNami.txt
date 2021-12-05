@@ -1,0 +1,897 @@
+actor NamiDarkImp  : DoomImp
+{
+  //$Title "Nami Dark Imp"
+  //$Category XV117Monsters
+    Game Doom
+	SpawnID 5
+	Health 126
+	Radius 19//37SpriteW(104%=38)
+	Height 56//56SpriteH(104%=58)
+	Scale 1.04
+	Mass 100
+	Speed 6
+    GibHealth 35
+	PainChance 255
+	PainChance "Avoid", 35
+	PainChance "Head", 255
+    PainChance "Taunt", 255
+    PainChance "Kick", 255
+	PainChance "Melee", 255
+	PainChance "Fatality", 255
+	damagefactor "TeleportRemover", 0.0
+	damagefactor "GibRemoving", 0.0
+    //PainChance "Avoid", 100
+	PainChance "ExplosiveImpact", 255
+	damagefactor "Avoid", 0.0
+	damagefactor "killme", 0.0
+	damagefactor "Trample", 1.5
+	damagefactor "SSG", 5.0
+	damagefactor "Crush", 10.0
+	DamageFactor "CauseObjectsToSplash", 0.0
+damagefactor "PussyGrab", 500.0
+	Monster
+	damagefactor "Blood", 0.0 damagefactor "BlueBlood", 0.0 damagefactor "GreenBlood", 0.0
+    BloodType "Brutal_Blood", "BloodSPlatterReplacer", "SawBlood"
+    damagefactor "Shrapnel", 0.3
+	+FLOORCLIP
+	SeeSound "dimp/see"
+	PainSound "dimp/pain"
+	DeathSound "dimp/death"
+	ActiveSound "dimp/active"
+    damagefactor "Kick", 0.5
+    damagefactor "SSG", 1.3
+	damagefactor "explosiveimpact", 2.0
+	+DONTHARMSPECIES
+	+SLIDESONWALLS
+	PainChance "Trample", 255
+    Obituary "%o was cursed by a dark imp."
+    HitObituary "%o was touched by a dark imp."
+    Tag "Nami Dark Imp"
+    MissileType DarkSeeker
+    MeleeDamage 3
+	MaxStepHeight 24
+	MaxDropOffHeight 32
+    States
+    {
+	Spawn:
+		TNT1 A 0 A_GiveInventory("SKImp", 1)
+		TNT1 A 0 A_JumpIfInventory("Fatality_Marine", 1, "FatalityMarine")
+		DRKI A 0 A_CheckSight("Spawn2")
+		TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 40,0)
+		DRKI A 10 A_Look
+		Loop
+    Spawn2:
+		DRKI A 10 A_Look
+		TNT1 A 0 A_JumpIfInventory("LookingForPlayer", 1, "LookingForPlayer")
+		Goto Spawn
+		
+		
+	Idle:
+	LookingForPlayer:
+	    TNT1 A 0 A_GiveInventory("SKImp", 1)
+	    TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 40,0)
+		DRKI B 10 A_Look
+        TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 40,0)
+		DRKI B 10 A_Look
+		TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 40,0)
+		DRKI B 10 A_Look
+		TNT1 A 0 A_SetAngle(angle - 40)
+		TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 40,0)
+		DRKI B 10 A_Look
+        TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 40,0)
+		DRKI B 10 A_Look
+		TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 40,0)
+		DRKI B 10 A_Look
+		TNT1 A 0 A_SetAngle(angle + 40)
+        TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 40,0)
+		DRKI B 10 A_Look
+        TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 40,0)
+		DRKI B 10 A_Look
+		TNT1 A 0 A_SpawnItem ("HeadshotTarget10", 0, 40,0)
+		DRKI B 10 A_Look
+		
+		DRKI A 0 A_Wander
+		TNT1 A 0 A_PlaySound("flesh/step",4)
+		DRKI AA 2 A_Look
+		TNT1 A 0 A_Recoil(-2)
+		TNT1 A 0 A_SpawnItem("HeadshotTarget4", 0, 40,0)
+		
+		DRKI B 0 A_Wander
+		DRKI BB 2 A_Look
+		TNT1 A 0 A_Recoil(-2)
+		TNT1 A 0 A_SpawnItem("HeadshotTarget4", 0, 40,0)
+		
+		DRKI C 0 A_Wander
+		TNT1 A 0 A_PlaySound("flesh/step",4)
+		DRKI CC 2 A_Look
+		TNT1 A 0 A_Recoil(-2)
+		TNT1 A 0 A_SpawnItem("HeadshotTarget4", 0, 40,0)
+		
+		DRKI D 0 A_Wander
+		DRKI DD 2 A_Look
+		TNT1 A 0 A_Recoil(-2)
+		TNT1 A 0 A_SpawnItem("HeadshotTarget4", 0, 40,0)
+		
+		TNT1 A 0 A_jump(128, "LookingForPlayer")
+		
+		DRKI A 0 A_Wander
+		TNT1 A 0 A_PlaySound("flesh/step",4)
+		DRKI AA 2 A_Look
+		TNT1 A 0 A_Recoil(-2)
+		TNT1 A 0 A_SpawnItem("HeadshotTarget4", 0, 40,0)
+		
+		DRKI B 0 A_Wander
+		DRKI BB 2 A_Look
+		TNT1 A 0 A_Recoil(-2)
+		TNT1 A 0 A_SpawnItem("HeadshotTarget4", 0, 40,0)
+		
+		DRKI C 0 A_Wander
+		TNT1 A 0 A_PlaySound("flesh/step",4)
+		DRKI CC 2 A_Look
+		TNT1 A 0 A_Recoil(-2)
+		TNT1 A 0 A_SpawnItem("HeadshotTarget4", 0, 40,0)
+		
+		DRKI D 0 A_Wander
+		DRKI DD 2 A_Look
+		TNT1 A 0 A_Recoil(-2)
+		TNT1 A 0 A_SpawnItem("HeadshotTarget4", 0, 40,0)
+		
+		Goto LookingForPlayer
+		
+	ForgetTarget:
+	TNT1 A 0 A_ClearTarget
+	TNT1 A 0 A_TakeInventory("EnemyMemory", 25)
+	TNT1 A 0 A_GiveInventory("LookingForPlayer", 1)
+	Goto Spawn
+	
+	See:
+	TNT1 A 0
+	TNT1 A 0 A_TakeInventory("EnemyMemory", 15)
+	TNT1 A 0 A_SpawnItem("HeadshotTarget6", 0, 40,0)
+	TNT1 A 0 A_SpawnItem("LegTarget4", 20, 0,0)
+	DRKI E 6 A_faceTarget
+	TNT1 A 0 A_SpawnItem("HeadshotTarget6", 0, 40,0)
+	TNT1 A 0 A_SpawnItem("LegTarget4", 20, 0,0)
+	DRKI E 6
+	Goto SeeContinue
+	
+	SeeContinue:
+        TNT1 A 0 A_JumpIfInventory("Fatality_Marine", 1, "FatalityMarine")
+		
+        TNT1 A 0 A_SpawnItemEx("FootStep", 0, 0, 10, 0, 0)
+		TNT1 A 0 A_JumpIfInventory("EnemyMemory", 25, "ForgetTarget")
+		TNT1 A 0 A_GiveInventory("EnemyMemory", 1)
+		TNT1 A 0 A_SpawnItem("HeadshotTarget6", 0, 40,0)
+		TNT1 A 0 A_SpawnItem("LegTarget4", 20, 0,0)
+		DRKI AAA 2 A_Chase
+		TNT1 A 0 A_Recoil(-1)
+		TNT1 A 0 A_SpawnItem("HeadshotTarget6", 0, 40,0)
+		TNT1 A 0 A_SpawnItem("LegTarget4", 20, 0,0)
+		DRKI BBB 2 A_Chase
+		TNT1 A 0 A_PlaySound("flesh/step",4)
+        TNT1 A 0 A_TakeInventory("SKImp", 1)
+		
+		TNT1 A 0 A_SpawnItem("HeadshotTarget6", 0, 40,0)
+		TNT1 A 0 A_SpawnItem("LegTarget4", 20, 0,0)
+		DRKI CCC 2 A_Chase
+		TNT1 A 0 A_SpawnItem("HeadshotTarget6", 0, 40,0)
+		TNT1 A 0 A_SpawnItem("LegTarget4", 20, 0,0)
+		DRKI DDD 2 A_Chase
+		TNT1 A 0 A_PlaySound("flesh/step",4)
+		Loop
+		
+	Melee:
+		TNT1 A 0 A_SpawnItem("HeadshotTarget6", 0, 40,0)
+		TNT1 A 0 A_SpawnItem("LegTarget4", 20, 0,0)
+        DRKI E 6 A_FaceTarget
+		TNT1 A 0 A_SpawnItem("HeadshotTarget6", 0, 40,0)
+		TNT1 A 0 A_SpawnItem("LegTarget4", 20, 0,0)
+		DRKI F 6 A_FaceTarget
+		TNT1 A 0 A_SpawnItem("HeadshotTarget6", 0, 40,0)
+		TNT1 A 0 A_SpawnItem("LegTarget4", 20, 0,0)
+        DRKI G 6 A_CustomMissile("ImpAttack",30,0,0,0)
+		TNT1 A 0 A_SpawnItem("HeadshotTarget6", 0, 40,0)
+		TNT1 A 0 A_SpawnItem("LegTarget4", 20, 0,0)
+		TNT1 A 0 A_JumpIfInventory("Fatality_Marine", 1, "FatalityMarine")
+		Goto SeeContinue
+		
+    Melee2:
+		TNT1 A 0 A_SpawnItem("HeadshotTarget4", 0, 40,0)
+		TNT1 A 0 A_SpawnItem("LegTarget4", 20, 0,0)
+        DRKI E 4 A_FaceTarget
+		TNT1 A 0 A_SpawnItem("HeadshotTarget4", 0, 40,0)
+		TNT1 A 0 A_SpawnItem("LegTarget4", 20, 0,0)
+		DRKI F 4 A_FaceTarget
+		TNT1 A 0 A_SpawnItem("HeadshotTarget4", 0, 40,0)
+		TNT1 A 0 A_SpawnItem("LegTarget4", 20, 0,0)
+        DRKI G 4 A_CustomMissile("ImpAttack",30,0,0,0)
+		TNT1 A 0 A_SpawnItem("HeadshotTarget4", 0, 40,0)
+		TNT1 A 0 A_SpawnItem("LegTarget4", 20, 0,0)
+		TNT1 A 0 A_JumpIfInventory("Fatality_Marine", 1, "FatalityMarine")
+		Goto SeeContinue
+		
+    Missile:
+		TNT1 A 0 A_SpawnItem("HeadshotTarget6", 0, 40,0)
+		TNT1 A 0 A_SpawnItem("LegTarget4", 20, 0,0)
+        DRKI E 6 A_FaceTarget
+		TNT1 A 0 A_SpawnItem("HeadshotTarget6", 0, 40,0)
+		TNT1 A 0 A_SpawnItem("LegTarget4", 20, 0,0)
+		DRKI F 6 A_FaceTarget
+		TNT1 A 0 A_SpawnItem("HeadshotTarget6", 0, 40,0)
+		TNT1 A 0 A_SpawnItem("LegTarget4", 20, 0,0)
+        DRKI G 6 A_ComboAttack
+		TNT1 A 0 A_SpawnItem("HeadshotTarget6", 0, 40,0)
+		TNT1 A 0 A_SpawnItem("LegTarget4", 20, 0,0)
+        Goto SeeContinue
+		
+	FatalityMarine:
+       TNT1 A 0 A_SetInvulnerable
+       F1D1 BCDE 4
+       TNT1 A 0 A_SpawnItemEx("FootStep5", 0, 0, 40, 0, 0)
+       F1D1 E 6
+	   TNT1 A 0 A_PlaySound("dimp/active",2)
+       F1D1 F 6
+	   
+	   TNT1 A 0 A_PlaySound("DSFDTHE", 3)
+	   F1D1 G 6
+		 TNT1 AAAA 0 A_CustomMissile ("XDeath1", 1, 0, random (0, 360), 2, random (0, 160))
+		 TNT1 AAAA 0 A_CustomMissile ("xdeath4", 1, 0, random (0, 360), 2, random (0, 160))
+         TNT1 AAAAA 0 A_CustomMissile ("PlayerFlyingBlood", 25, 0, random (0, 360), 2, random (0, 160))
+		  TNT1 A 0 A_CustomMissile ("MuchBlood", 1, 0, random (0, 360), 2, random (0, 160))
+       F1D1 H 12
+	   TNT1 A 0 A_PlaySound("EYEPULL", 4)
+	   TNT1 AAAAA 0 A_CustomMissile ("PlayerFlyingBlood", 25, 0, random (0, 360), 2, random (0, 160))
+	   TNT1 AAAA 0 A_CustomMissile ("MuchBlood", 1, 0, random (0, 360), 2, random (0, 160))
+	   F1D1 I 8 
+	   
+	   F1D1 J 6 A_PlaySound("monster/ovlbit",8)
+	   TNT1 A 0 A_CustomMissile ("XDeath1", 26, 0, random (0, 360), 2, random (0, 160))
+	   F1D1 KL 6
+	   TNT1 A 0 A_PlaySound("monster/ovlbit",7)
+	   TNT1 A 0 A_CustomMissile ("XDeath1", 26, 0, random (0, 360), 2, random (0, 160))
+	   F1D1 LLLLJJJJLLLLJJJJ 2 A_CustomMissile ("Brutal_LiquidBlood3", 35, 0, random (0, 360), 2, random (0, 40))
+	   TNT1 A 0 A_PlaySound("monster/ovlbit",7)
+	   TNT1 A 0 A_CustomMissile ("XDeath1", 26, 0, random (0, 360), 2, random (0, 160))
+	   F1D1 LLLLJJJJLLLLJJJJ 2 A_CustomMissile ("Brutal_LiquidBlood3", 35, 0, random (0, 360), 2, random (0, 40))
+       
+        TNT1 A 0 A_TakeInventory("Fatality_Marine",1)
+		TNT1 A 0 A_SpawnItem ("GrowingBloodPool")
+        TNT1 A 0 A_UnSetInvulnerable
+TNT1 A 0 A_SpawnItem ("MarineGotOwnedByImp", 1)
+Goto SeeContinue
+		
+		 
+    Pain:
+		TNT1 A 0 A_SpawnItem("HeadshotTarget4", 0, 40,0)
+		TNT1 A 0 A_SpawnItem("LegTarget4", 20, 0,0)
+        DRKI H 2
+		TNT1 A 0 A_SpawnItem("HeadshotTarget4", 0, 40,0)
+		TNT1 A 0 A_SpawnItem("LegTarget4", 20, 0,0)
+        DRKI H 2 A_Pain
+		TNT1 A 0 A_SpawnItem("HeadshotTarget4", 0, 40,0)
+		TNT1 A 0 A_SpawnItem("LegTarget4", 20, 0,0)
+        Goto SeeContinue
+		
+	Possession:
+		TNT1 A 0 A_SetInvulnerable
+		DRKI H 3
+		DRKI H 3 A_Pain
+		"####" "#" 35 ACS_NamedExecuteAlways("Pos - Flicker effect")
+		TNT1 A 0 A_UnSetInvulnerable
+		Goto See
+		
+	Pain.Kick:
+    Pain.SuperKick:
+	Pain.ExtremePunches:
+         TNT1 A 0
+         D2S1 A 1 A_Pain
+         TNT1 A 0 A_GiveInventory("IsDown", 1)
+        TNT1 A 0 ThrustThingZ(0,16,0,1)
+		D2S1 A 1 A_facetarget
+        D2S1 A 6 ThrustThing(angle*256/360+128, 5, 0, 0)
+         D2S1 B 8
+		Goto FallingAfterImpact
+
+		FallingAfterImpact:
+		D2S1 B 1 A_GiveInventory ("FallingHeight", 1)
+		D2S1 B 1 A_CheckFloor ("GetUp")
+		TNT1 A 0 A_JumpIf (momz == 0, "GetUp")
+		Loop
+
+		GetUp:
+		TNT1 A 0
+		TNT1 A 0 A_SpawnItem("SmallUnderwaterExplosion")
+		//TNT1 A 0 A_JumpIfInventory ("FallingHeight", 20, "Death.Stomp")
+		//TNT1 A 0 A_JumpIfInventory ("FallingHeight", 14, "FallingSuperDeath")
+		TNT1 A 0 A_JumpIfInventory ("FallingHeight", 7, "FallingDeath")
+		D2S1 CCC 5 A_JumpIf(momz < 0, "FallingAfterImpact")
+		TNT1 A 0 A_TakeInventory("FallingHeight", 100)
+         TNT1 A 0 A_TakeInventory("IsDown", 1)
+		D2S1 DE 7
+         Goto SeeContinue
+		 
+	FallingDeath:
+		TNT1 A 0
+		TNT1 A 0 A_Scream
+		TNT1 A 0 A_NoBLocking
+		TNT1 AAAA 0 A_CustomMissile ("XDeath1", 32, 0, random (0, 360), 2, random (50, 130))
+		TNT1 A 0 A_SpawnItem ("GrowingBloodPool")
+		TNT1 A 0 A_SpawnItem ("DeadDarkImp1")
+	Stop
+	
+	Death.Ice:
+	Death.Freeze:
+	Death.Frost:
+	TNT1 A 0 A_ChangeFlag("SHOOTABLE", 0)
+	TNT1 A 0 A_ChangeFlag("SOLID", 0)
+	TNT1 A 0 A_SpawnItem("FrozenDarkImpNami")
+	Stop
+	
+	Death.Fire:
+		TNT1 A 0 A_Jump(32, "Fire2")//Doesn't run around
+TNT1 A 0 A_Scream
+TNT1 A 0 A_JumpIfInTargetInventory("HasIncendiaryWeapon",1,"Death.Incinerate")		
+
+        TNT1 A 0 A_NoBlocking
+		TNT1 A 0 A_SpawnItem("BurningDarkImpRunning", 0, 10)
+        Stop
+	
+	Fire2:
+		TNT1 A 0 A_Scream
+        TNT1 A 0 A_NoBlocking
+		TNT1 A 0 A_SpawnItem("BurningDarkImp")
+        Stop
+	
+	Death.Desintegrate:
+        TNT1 A 0 A_Scream
+        TNT1 A 0 A_NoBlocking
+        TNT1 A 0 A_SpawnItem("DesintegratedHuman")
+      Stop
+	
+	Death.GreenFire:
+        TNT1 A 0
+        TNT1 A 0 A_XScream
+        TNT1 A 0 A_NoBlocking
+        TNT1 AAAA 0 A_CustomMissile ("brutal_Blood", 30, 0, random (0, 360), 2, random (0, 160))
+
+
+	    TNT1 A 0 A_CustomMissile ("XDeathBurnedImpLeg", 32, 0, random (0, 360), 2, random (0, 160))
+	    TNT1 AA 0 A_CustomMissile ("XDeathBurnedMeat", 32, 0, random (0, 360), 2, random (0, 160))
+	    TNT1 A 0 A_CustomMissile ("XDeathBurnedMeat2", 32, 0, random (0, 360), 2, random (0, 160))
+	    TNT1 A 0 A_CustomMissile ("XDeathBurnedMeat3", 32, 0, random (0, 360), 2, random (0, 160))
+
+		EXPL AAAAAAAAAAAAAAAAAAAAAAAA 0 A_CustomMissile ("GreenFlameTrails", 50, 0, random (0, 360), 2, random (0, 360))
+		XBRN AAAA 2 BRIGHT A_SpawnItem("GreenFlare",0,43)
+        Stop
+
+	FallingSuperDeath:
+	TNT1 A 0
+	TNT1 A 0 A_XScream
+	TNT1 A 0 A_NoBLocking
+	TNT1 A 0 A_SpawnItem ("GrowingBloodPool")
+	Goto Death.ExplosiveImpact+1
+
+	Death.Plasma: 
+	Death.Plasma2:
+	Death.SuperPlasma:
+		PBR1 B 1 A_Scream
+		TNT1 AAAAAAAAAAAAAAAAAA 0 A_CustomMissile ("Ashes1", 32, 0, random (0, 360), 2, random (0, 180))
+		TNT1 AAAAAAAAAAAAAAAAAA 0 A_CustomMissile ("Ashes2", 32, 0, random (0, 360), 2, random (0, 180))
+		TNT1 AAAA 0 A_CustomMissile ("BluePlasmaFireNonStatic", 32, 0, random (0, 360), 2, random (0, 180))
+		PBR1 B 4 A_NoBlocking
+		PBR1 CDEFGH 6 A_CustomMissile ("Blood", 10, 0, random (0, 360), 2, random (0, 160))
+		PBR1 HHHHHHHHHHHHHHHHHHHHHH 8 A_CustomMissile ("PlasmaSmoke", 10, 0, random (0, 360), 2, random (0, 160))
+		PBR1 H -1
+		Stop
+	
+	OtherPlasmaDeath:
+		IMPP A 6 A_Scream
+		TNT1 AAAAAAAAAAAAAAAAAAAAAAAA 0 A_CustomMissile ("Ashes1", 33, 0, random (0, 360), 2, random (0, 180))
+		TNT1 AAAAAA 0 A_CustomMissile ("BluePlasmaFire", 32, 0, random (0, 360), 2, random (0, 180))
+		TNT1 AAAAAAAAAAAAAAAAAAA 0 A_CustomMissile ("Ashes2", 31, 0, random (0, 360), 2, random (0, 180))
+		IMPP B 6 A_NoBlocking
+		TNT1 AAAAAAA 0 A_CustomMissile ("SmallBrainPiece", 50, 0, random (0, 360), 2, random (0, 160))
+		TNT1 A 0 A_PlaySound("misc/xdeath4")
+		TNT1 AAAAA 0 A_CustomMissile ("Brains1", 48, 0, random (0, 360), 2, random (0, 160))
+		TNT1 AAAA 0 A_CustomMissile ("SmallBrainPieceFast", random (45, 55), random (5, -5), random (170, 190), 2, random (-10, 10))
+		TNT1 AAA 0 A_CustomMissile ("Brains7", 52, 0, random (0, 360), 2, random (0, 160))
+		TNT1 AA 0 A_CustomMissile ("SuperWallRedBlood", 46, 0, random (170, 190), 2, random (0, 40))
+		TNT1 AAAAAAAAAAA 0 A_CustomMissile ("BrainBlood", 50, 0, random (0, 360), 2, random (0, 160))
+		IMPP CDE 6
+		IMPP FFFFFFFFFFFFFFFFFFFFFFFFFFFFF 8 A_CustomMissile ("PlasmaSmoke", 10, 0, random (0, 360), 2, random (0, 160))
+		IMPP F -1
+		stop
+
+		Death.Incinerate:
+		TNT1 A 0
+		TNT1 A 0 A_Stop
+        TNT1 A 0 A_Playsound("MELT")
+        TNT1 A 0 A_NoBlocking
+        TNT1 AAAAAA 0 A_CustomMissile ("ExplosionParticleHeavy", 32, 0, random (0, 360), 2, random (0, 360))
+		TNT1 AAAAAA 0 A_CustomMissile ("ExplosionParticleVeryFast", 32, 0, random (0, 360), 2, random (0, 360))
+        TNT1 A 0 A_SpawnItemEx ("ExplosionFlareSpawner",0,0,32,0,0,0,0,SXF_NOCHECKPOSITION,0)
+		TNT1 A 0 A_SpawnItemEx("TinyBurningPiece", random (-15, 15), random (-15, 15))
+		TNT1 A 0 A_SpawnItemEx("TinyBurningPiece2", random (-35, 35), random (-35, 35))
+		TNT1 A 0 A_SpawnItemEx("TinyBurningPiece3", random (-45, 45), random (-45, 35))
+		TNT1 AAAAAAAAAAAA 0 A_CustomMissile ("Ashes1", 28, 0, random (0, 360), 2, random (0, 180))
+		TNT1 AAAAAAAAAAAA 0 A_CustomMissile ("Ashes2", 40, 0, random (0, 360), 2, random (0, 180))
+		TNT1 A 0 A_SpawnItemEx ("RealisticFireSparks1",random(-2,2),random(-2,2),32,0,0,0,0,SXF_NOCHECKPOSITION  ,0)
+		T6SB AAAAA 1 BRIGHT Light("IncinerationGlow") A_CustomMissile ("BurningEmberParticlesFloating_Bigger", 36, 0, random (0, 360), 2, random (0, 160))
+		TNT1 A 0 A_SpawnItemEx ("RealisticFireSparks1",random(-2,2),random(-2,2),28,0,0,0,0,SXF_NOCHECKPOSITION  ,0)
+		T6SB BBBBB 1 BRIGHT Light("IncinerationGlow") A_CustomMissile ("BurningEmberParticlesFloating_Bigger", 32, 0, random (0, 360), 2, random (0, 160))
+		TNT1 A 0 A_SpawnItemEx ("RealisticFireSparks1",random(-2,2),random(-2,2),24,0,0,0,0,SXF_NOCHECKPOSITION  ,0)
+		T6SB CCCCC 1 BRIGHT Light("IncinerationGlow") A_CustomMissile ("BurningEmberParticlesFloating_Bigger", 28, 0, random (0, 360), 2, random (0, 160))
+        TNT1 A 0 A_Playsound("SZZLL", 3)
+		TNT1 A 0 A_SpawnItemEx ("RealisticFireSparks1",random(-2,2),random(-2,2),20,0,0,0,0,SXF_NOCHECKPOSITION  ,0)
+		T6SB DDDDD 1 BRIGHT Light("IncinerationGlow") A_CustomMissile ("BurningEmberParticlesFloating_Bigger", 20, 0, random (0, 360), 2, random (0, 160))
+		TNT1 A 0 A_SpawnItemEx ("RealisticFireSparks1",random(-2,2),random(-2,2),16,0,0,0,0,SXF_NOCHECKPOSITION  ,0)
+		T6SB EEEEE 1 BRIGHT Light("IncinerationGlow") A_CustomMissile ("BurningEmberParticlesFloating_Bigger", 12, 0, random (0, 360), 2, random (0, 160))
+		TNT1 A 0 A_SpawnItemEx ("RealisticFireSparks1",random(-2,2),random(-2,2),12,0,0,0,0,SXF_NOCHECKPOSITION  ,0)
+		T6SB FFFFF 1 BRIGHT Light("IncinerationGlow") A_CustomMissile ("BurningEmberParticlesFloating_Bigger", 10, 0, random (0, 360), 2, random (0, 160))
+		TNT1 A 0 A_SpawnItemEx ("RealisticFireSparks1",random(-2,2),random(-2,2),8,0,0,0,0,SXF_NOCHECKPOSITION  ,0)
+		TNT1 A 0 A_SpawnItem("BarrelExplosionSmokeColumn")
+		T6SB GGGG 2 BRIGHT Light("IncinerationGlow")
+		TNT1 A 0 A_SpawnItemEx ("RealisticFireSparks1",random(-2,2),random(-2,2),8,0,0,0,0,SXF_NOCHECKPOSITION  ,0)
+		T6SB HHIIHHIIHHIIHHII 2 BRIGHT Light("IncinerationGlow") A_CustomMissile ("PlasmaSmoke", 14, 0, random (0, 360), 2, random (0, 160))
+		TNT1 A 0 A_SpawnItemEx ("RealisticFireSparks1",random(-2,2),random(-2,2),8,0,0,0,0,SXF_NOCHECKPOSITION  ,0)
+		T6SB HHIIHHIIHHIIHHII 2 Light("IncinerationGlow") A_CustomMissile ("PlasmaSmoke", 14, 0, random (0, 360), 2, random (0, 160))
+		TNT1 A 0 A_SpawnItemEx ("RealisticFireSparks1",random(-2,2),random(-2,2),8,0,0,0,0,SXF_NOCHECKPOSITION  ,0)
+		T6SB HHIIHHIIHHIIHHII 2
+		T6SB JJJJJJJ 12 A_CustomMissile ("PlasmaSmoke", 14, 0, random (0, 360), 2, random (0, 160))
+		T6SB J -1
+		Stop
+		
+	
+
+Death:
+        TNT1 A 0
+        TNT1 A 0 A_JumpIfInventory("IsJumping", 1, "DeathJump")
+        TNT1 A 0 A_Jump(62, "Death.Arm")
+        TNT1 A 0 A_Jump(54,"DeathNoGuts")
+		TNT1 A 0 A_Jump(62,"Death20alt")
+		DRKI I 8
+        DRKI J 6 A_Scream
+        DRKI K 6 A_CustomMissile ("XDeath1", 30, 0, random (0, 360), 2, random (0, 160))
+        DRKI L 6 A_Fall
+		TNT1 A 0 A_SpawnItem ("GrowingBloodPool")
+        DRKI M -1
+		Stop
+		
+	Death.cutless:
+        TNT1 A 0
+        TNT1 A 0 A_JumpIfInventory ("IsDown", 1, "Death.Down")
+        TNT1 A 0 A_Jump(16, "Death")
+		TNT1 A 0 A_JumpIfCloser(120, "Death.Blast")
+		TNT1 A 0 A_Jump(16, "Death.LegMassacre")
+        Goto Death.Massacre
+
+	    Death.Minigun:
+	    Death.Massacre:
+        TNT1 A 0
+		TNT1 A 0 A_FaceTarget
+		TNT1 A 0 A_Scream
+		TNT1 O 0 A_NoBlocking
+        TNT1 A 0 A_SpawnItem ("BrutalizedDarkImp1", 1)
+		Stop
+
+		Death.LegMassacre:
+		TNT1 A 0 A_CustomMissile ("XDeathDarkImpLeg", 35, 0, random (0, 360), 2, random (0, 160))
+		TNT1 A 0 A_CustomMissile ("MuchBlood", 50, 0, random (0, 360), 2, random (0, 160))
+		D1S4 A 8 A_CustomMissile ("XDeath1", 40, 0, random (0, 360), 2, random (0, 160))
+		D1S4 B 8 A_Scream
+		TNT1 A 0 A_NoBlocking
+        TNT1 A 0 A_SpawnItem ("DarkImpBrutalizedWithNoLeg")
+		Stop
+		
+	Death20alt:
+        TNT1 A 0
+		TNT1 A 0 A_Scream
+        TNT1 A 0 A_NoBlocking
+		D1S8 ABCD 6
+		TNT1 A 0 A_SpawnItem ("GrowingBloodPool")
+		TNT1 A 0 A_SpawnItemEx ("DarkImpDyingOfBloodLoss", 0,0,7,0,0,0,0,SXF_NOCHECKPOSITION,0)
+        Stop
+		
+	Death.Arm:
+		TNT1 A 0 A_CustomMissile ("XDeathDarkImpArm1", 35, 0, random (0, 360), 2, random (0, 160))
+		TNT1 A 0 A_Scream
+		TNT1 A 0 A_NoBlocking
+		TNT1 A 0 A_CustomMissile ("MuchBlood", 50, 0, random (0, 360), 2, random (0, 160))
+		D1S5 A 8 A_CustomMissile ("XDeath1", 40, 0, random (0, 360), 2, random (0, 160))
+		TNT1 A 0 A_SpawnItem ("DyingDarkImpNoArm", 2)
+		Stop
+		
+	Death.Leg:
+		TNT1 A 0
+		
+		TNT1 A 0 A_JumpIfInventory("IsJumping", 1, "Death.LegInTheAir")
+		TNT1 A 0 A_CustomMissile ("XDeathDarkImpLeg", 35, 0, random (0, 360), 2, random (0, 160))
+		TNT1 A 0 A_CustomMissile ("MuchBlood", 50, 0, random (0, 360), 2, random (0, 160))
+		D1S4 A 9
+		D1S4 A 3 A_CustomMissile ("XDeath1", 40, 0, random (0, 360), 2, random (0, 160))
+		D1S4 B 3 A_Scream
+		D1S4 C 3 A_NoBlocking
+        TNT1 A 0 A_SpawnItem ("DyingDarkImpNoLeg", 5)
+		Stop
+		
+	DeathNoGuts:
+        TNT1 AAAAA 0
+		TNT1 AA 0 A_CustomMissile ("Guts", 24, 0, random (0, 360), 2, random (0, 160))
+		TNT1 A 0 A_CustomMissile ("MuchBlood", 30, 0, random (0, 360), 2, random (0, 160))
+		TNT1 AA 0 A_CustomMissile ("XDeath1", 30, 0, random (0, 360), 2, random (0, 160))
+		D1S6 A 8 A_Scream
+        D1S6 B 8 A_NoBlocking
+        D1S6 C 8 
+		TNT1 A 0 A_SpawnItem ("GrowingBloodPool")
+        TNT1 A 0 A_SpawnItem ("DyingDarkImp", 2)
+		Stop
+		
+	Death.Tear:
+	Death.Saw:
+Death.Cut:
+		TNT1 A 0 A_XScream
+		TNT1 O 0 A_NoBlocking
+				TNT1 A 0 A_PlaySound("RIP", 7)
+		TNT1 A 0 A_CustomMissile ("xdeath4", 40, 0, random (0, 360), 2, random (0, 160))
+        TNT1 AAA 0 A_CustomMissile ("XDeath1", 40, 0, random (0, 360), 2, random (0, 160))
+		TNT1 AAAA 0 A_CustomMissile ("Guts", 24, 0, random (0, 360), 2, random (0, 160))
+		D1S7 A 2 A_CustomMissile ("XDeathHalfDarkImp", 0, 0, random (0, 360), 2, random (0, 160))
+		D1S7 AAA 4 A_SpawnItem ("MuchBlood", 0, 30)								
+	    D1S7 BCDE 8
+		TNT1 A 0 A_SpawnItem ("GrowingBloodPool")
+TNT1 A 0 A_SpawnItemEx("HealthCrueltyBonus", 0, 0, 4, random (-2.5, 2.5), random (-2.5, 2.5), 5)
+        TNT1 A 1 A_SpawnItem ("DeadDarkImp_Half", 5)
+		Stop
+	
+	Death.Decaptate:
+		TNT1 AA 0 A_CustomMissile ("SuperWallRedBlood", 46, 0, random (170, 190), 2, random (0, 40))
+        TNT1 AAA 0 A_CustomMissile ("MuchBlood", 50, 0, random (0, 360), 2, random (0, 160))
+		TNT1 A 0 A_CustomMissile ("XDeathDarkImpHead1", 0, 0, random (0, 360), 2, random (0, 160))
+TNT1 A 0 A_SpawnItemEx("HealthCrueltyBonus2", 0, 0, 4, random (-2.5, 2.5), random (-2.5, 2.5), 5)
+		D1S9 A 9 A_NoBlocking
+		D1S9 B 9 A_XScream
+		TNT1 A 0 A_Jump(32, "Deathchickenhead")
+		D1S9 C 8
+		D1S9 DE 8 
+		TNT1 A 0 A_SpawnItem ("GrowingBloodPool")
+        TNT1 A 1 A_SpawnItem ("DeadDarkImp_NoHead1", 5)
+		Stop
+		
+	HeadExploder:
+	    TNT1 A 0
+		TNT1 A 0 A_Jump(72, "Death.HeadExplode")
+		Goto Death.MinorHead
+	
+	Death.HeadExplode:
+		TNT1 A 0 A_XScream
+        TNT1 A 0 A_PlaySound("misc/xdeath4")
+		TNT1 AAAA 0 A_CustomMissile ("Brains1", 50, 0, random (0, 360), 2, random (0, 160))
+		TNT1 AAA 0 A_CustomMissile ("Brains3", 50, 0, random (0, 360), 2, random (0, 160))
+		TNT1 AA 0 A_CustomMissile ("Brains6", 50, 0, random (0, 360), 2, random (0, 160))
+		TNT1 AAA 0 A_CustomMissile ("Brains7", 50, 0, random (0, 360), 2, random (0, 160))
+		TNT1 AAAA 0 A_CustomMissile ("SmallBrainPieceFast", random (45, 55), random (5, -5), random (170, 190), 2, random (-10, 10))
+		TNT1 AAAA 0 A_CustomMissile ("SmallBrainPiece", 50, 0, random (0, 360), 2, random (0, 160))
+		TNT1 AA 0 A_CustomMissile ("SuperWallRedBlood", 46, 0, random (170, 190), 2, random (0, 40))
+        TNT1 AAA 0 A_CustomMissile ("MuchBlood", 50, 0, random (0, 360), 2, random (0, 160))
+		TNT1 A 0 A_Jump(64, "DeathHead2")
+		D1S9 A 9 A_NoBlocking
+		D1S9 B 9 A_XScream
+		TNT1 A 0 A_Jump(32, "Deathchickenhead")
+		D1S9 C 8
+		D1S9 DE 8 
+		TNT1 A 0 A_SpawnItem ("GrowingBloodPool")
+        TNT1 A 1 A_SpawnItem ("DeadDarkImp_NoHead1", 5)
+		Stop
+		
+		
+	Death.head:
+		TNT1 A 0 A_ChangeFlag("NOGRAVITY", 0)
+		TNT1 A 0 A_ChangeFlag("CEILINGHUGGER", 0)
+	    TNT1 A 0 A_JumpIfInTargetInventory("HasPlasmaWeapon", 1, "Death.Plasma")
+		TNT1 A 0 A_JumpIfInTargetInventory("HasCutingWeapon", 1, "Death.Decaptate")
+		TNT1 A 0 A_JumpIfHealthLower(-75, "Death.HeadExplode")
+		TNT1 A 0 A_JumpIfInTargetInventory("RandomHeadExploder", 1, "HeadExploder")
+	Death.MinorHead:
+		TNT1 A 0 A_PlaySound("misc/xdeath4")
+		TNT1 AA 0 A_CustomMissile ("Brains1", 50, 0, random (0, 360), 2, random (0, 160))
+		TNT1 A 0 A_CustomMissile ("Brains3", 50, 0, random (0, 360), 2, random (0, 160))
+		TNT1 A 0 A_CustomMissile ("Brains6", 50, 0, random (0, 360), 2, random (0, 160))
+		//TNT1 A 0 A_CustomMissile ("Brains7", 50, 0, random (0, 360), 2, random (0, 160))
+		TNT1 AA 0 A_CustomMissile ("SmallBrainPieceFast", random (45, 55), random (5, -5), random (170, 190), 2, random (-10, 10))
+		TNT1 AA 0 A_CustomMissile ("SmallBrainPiece", 50, 0, random (0, 360), 2, random (0, 160))
+		TNT1 A 0 A_CustomMissile ("SuperWallRedBlood", 46, 0, random (170, 190), 2, random (0, 40))
+        TNT1 AAA 0 A_CustomMissile ("MuchBlood", 50, 0, random (0, 360), 2, random (0, 160))
+		
+		D1S9 K 9 A_NoBlocking
+		D1S9 L 9 A_Scream
+		D1S9 M 8
+		D1S9 N 8 
+		TNT1 A 0 A_SpawnItem ("GrowingBloodPool")
+        D1S9 O -1
+		Stop
+		
+	Deathchickenhead:
+
+        TNT1 A 0 A_PlaySound("misc/xdeath2c")
+		D1S9 FGHI 5 A_SpawnItem ("Blood", 0, 40)
+
+		TNT1 A 0 A_PlaySound("misc/xdeath2c")
+		D1S9 FGHI 5 A_SpawnItem ("Blood", 0, 40)
+
+		TNT1 A 0 A_PlaySound("misc/xdeath2c")
+		D1S9 FGHI 5 A_SpawnItem ("Blood", 0, 40)
+
+		TNT1 A 0 A_PlaySound("misc/xdeath2c")
+		D1S9 FGHI 5 A_SpawnItem ("Blood", 0, 40)
+		TNT1 A 0 A_PlaySound("misc/xdeath2c")
+
+		TNT1 A 0 A_PlaySound("misc/xdeath2c")
+		D1S9 FGHI 5 A_SpawnItem ("Blood", 0, 40)
+		TNT1 A 0 A_PlaySound("misc/xdeath2c")
+
+        TNT1 A 0 A_PlaySound("misc/xdeath2c")
+		D1S9 FGHI 5 A_SpawnItem ("Blood", 0, 40)
+		TNT1 A 0 A_PlaySound("misc/xdeath2c")
+
+
+		D1S9 DE 8 
+		TNT1 A 0 A_SpawnItem ("GrowingBloodPool")
+        TNT1 A 1 A_SpawnItem ("DeadDarkImp_NoHead1", 5)
+		Stop
+	
+	DeathHead2:
+		TNT1 A 0 A_XScream
+		DRKD A 9 A_NoBlocking
+		DRKD C 8
+		DRKD DE 8 
+		TNT1 A 0 A_SpawnItem ("GrowingBloodPool")
+        TNT1 A 1 A_SpawnItem ("DeadDarkImp_NoHead2", 5)
+		Stop
+		
+	Death.ExplosiveImpact:
+	Death.ExtremePunches:
+	Death.SuperKick:
+	Death.LandMine:
+		TNT1 A 0
+		TNT1 A 0 A_CustomMissile ("XDeath1", 32, 0, random (0, 360), 2, random (0, 160))
+		TNT1 A 0 A_CustomMissile ("XDeath2", 32, 0, random (0, 360), 2, random (0, 160))
+		TNT1 A 0 A_CustomMissile ("XDeath5", 32, 0, random (170, 190), 2, random (0, 40))
+		TNT1 AA 0 A_CustomMissile ("xdeath2", 32, 0, random (0, 360), 2, random (0, 160))
+		TNT1 AAAAAA 0 A_CustomMissile ("xdeath4", 32, 0, random (0, 360), 2, random (0, 160))
+		TNT1 A 0 A_ChangeFlag("NOBLOCKMONST", 1)
+
+		TNT1 AAAA 0 A_CustomMissile ("Brains1", 50, 0, random (0, 360), 2, random (0, 160))
+		TNT1 A 0 A_CustomMissile ("Brains3", 50, 0, random (0, 360), 2, random (0, 160))
+		TNT1 A 0 A_CustomMissile ("Brains6", 50, 0, random (0, 360), 2, random (0, 160))
+		TNT1 A 0 A_CustomMissile ("Brains7", 50, 0, random (0, 360), 2, random (0, 160))
+		TNT1 AAAA 0 A_CustomMissile ("SmallBrainPieceFast", random (45, 55), random (5, -5), random (170, 190), 2, random (-10, 10))
+		TNT1 AAAA 0 A_CustomMissile ("SmallBrainPiece", 50, 0, random (0, 360), 2, random (0, 160))
+		TNT1 AA 0 A_CustomMissile ("SuperWallRedBlood", 46, 0, random (170, 190), 2, random (0, 40))
+        TNT1 AAAAAAA 0 A_CustomMissile ("BrainBlood", 50, 0, random (0, 360), 2, random (0, 160))
+		TNT1 A 0 A_CustomMissile ("XDeathDarkImpArm1", 35, 0, random (0, 360), 2, random (0, 160))
+		TNT1 A 0 A_CustomMissile ("XDeath3", 40, 0, random (0, 360), 2, random (0, 160))
+		TNT1 A 0 A_CustomMissile ("XDeathDarkImpLeg", 32, 0, random (0, 360), 2, random (0, 160))
+		TNT1 AA 0 A_CustomMissile ("XDeath1", 40, 0, random (0, 360), 2, random (0, 160))
+		TNT1 A 0 ThrustThingZ(0,40,0,1)
+	    D3S1 AB 5
+	    D3S1 CDEF 5 A_CheckFloor ("Dead.ExplosiveImpact")
+		D3S1 EEEEEEEEEE 5 A_CheckFloor ("Dead.ExplosiveImpact")
+		TNT1 A 0 A_SpawnItem ("ThisDarkImpGotFuckedHard")
+		Stop
+
+		Dead.ExplosiveImpact:
+		TNT1 A 0
+		TNT1 A 0 A_SpawnItem ("ThisDarkImpGotFuckedHard")
+		TNT1 A 0 A_SpawnItem ("Ploft")
+		TNT1 AAAA 0 A_SpawnItem ("Blood")
+		Stop
+		
+DeathSSG2:
+	    IZD1 E 1 A_Pain
+		IZD1 E 1 A_FaceTarget
+			TNT1 AA 0 A_CustomMissile ("XDeath1", 32, 0, random (170, 190), 2, random (0, 40))
+		TNT1 A 0 A_CustomMissile ("XDeath2", 32, 0, random (170, 190), 2, random (0, 40))
+		TNT1 A 0 A_CustomMissile ("XDeath3", 32, 0, random (170, 190), 2, random (0, 40))
+		TNT1 AAA 0 A_CustomMissile ("Guts", 32, 0, random (150, 210), 2, random (0, 40))
+		TNT1 AAAA 0 A_CustomMissile ("brutal_FlyingBlood", 32, 0, random (170, 190), 2, random (0, 40))
+		TNT1 AAAA 0 A_CustomMissile ("brutal_FlyingBloodFaster", 32, 0, random (170, 190), 2, random (0, 40))
+		TNT1 AAAA 0 A_CustomMissile ("brutal_FlyingBloodMuchFaster", 32, 0, random (170, 190), 2, random (0, 40))
+		TNT1 AAA 0 A_CustomMissile ("Guts", 32, 0, random (150, 210), 2, random (0, 40))
+		TNT1 AAAA 0 A_CustomMissile ("SuperWallRedBlood", 32, 0, random (170, 190), 2, random (0, 40))
+		TNT1 AAAA 0 A_CustomMissile ("SuperWallRedBlood", 46, 0, random (170, 190), 2, random (0, 40))
+		TNT1 A 0 A_CustomMissile ("XDeathDarkImpArm1", 32, 0, random (170, 190), 2, random (0, 40))
+		TNT1 A 0 A_CustomMissile ("XDeathDarkImpArm2", 32, 0, random (170, 190), 2, random (0, 40))
+		TNT1 A 0 A_CustomMissile ("XDeathDarkImpHead1", 32, 0, random (170, 190), 2, random (0, 40))
+		TNT1 AA 0 A_CustomMissile ("Brains1", 50, 0, random (0, 360), 2, random (0, 160))
+		TNT1 A 0 A_CustomMissile ("Brains3", 50, 0, random (0, 360), 2, random (0, 160))
+		TNT1 A 0 A_CustomMissile ("Brains6", 50, 0, random (0, 360), 2, random (0, 160))
+		//TNT1 A 0 A_CustomMissile ("Brains7", 50, 0, random (0, 360), 2, random (0, 160))
+		TNT1 A 0 A_CustomMissile ("Teeth", 30, 0, random (0, 360), 2, random (0, 160))
+		TNT1 AA 0 A_CustomMissile ("SmallBrainPieceFast", random (45, 55), random (5, -5), random (170, 190), 2, random (-10, 10))
+		TNT1 AA 0 A_CustomMissile ("SmallBrainPiece", 50, 0, random (0, 360), 2, random (0, 160))
+        TNT1 A 0 A_XScream
+		TNT1 A 0 A_NoBlocking
+		D2S2 EEFFGH 6
+		D2S2 H -1
+		TNT1 A 0 A_SpawnItem ("GrowingBloodPool")
+        Stop
+		
+		Death.SSG:
+	Death.SuperPunch:
+			TNT1 A 0 A_Jump(165, "DeathSSG2")
+				TNT1 A 0 A_XScream
+		TNT1 O 0 A_NoBlocking
+				TNT1 A 0 A_PlaySound("RIP", 7)
+		
+        TNT1 AAA 0 A_CustomMissile ("XDeath1", 40, 0, random (0, 360), 2, random (0, 160))
+		TNT1 AAAA 0 A_CustomMissile ("Guts", 24, 0, random (0, 360), 2, random (0, 160))
+		D1S7 A 2 A_CustomMissile ("XDeathHalfDarkImp", 0, 0, random (0, 360), 2, random (0, 160))
+		D1S7 AAA 4 A_SpawnItem ("MuchBlood", 0, 30)				
+	    D1S7 BCDE 8
+		TNT1 A 0 A_SpawnItem ("GrowingBloodPool")
+        TNT1 A 1 A_SpawnItem ("DeadDarkImp_Half", 5)
+		Stop
+		
+		
+		
+		
+		
+	
+	Death.Shotgun:
+	Death.Shotgunontheface:	
+		TNT1 A 0 A_JumpIfCloser(120, "Death.Blast")
+		TNT1 A 0 A_Jump(128, "DeathJump")
+	    TNT1 A 0 A_Stop
+		TNT1 A 0 A_NoBlocking
+		//TNT1 A 0 A_Jump(92, "DeathJump")
+		TNT1 A 0 A_ChangeFlag("NOBLOCKMONST", 1)
+		TNT1 A 0 A_Jump(32, "Death.ARm")
+		TNT1 A 0 A_Jump(20,"DeathNoGuts")
+		TNT1 A 0 A_Jump(42, "Death.Arm")
+		TNT1 A 0 A_Stop
+		TNT1 A 0 A_Pain
+		DRKI H 1 A_FaceTarget
+		TNT1 A 0 A_Recoil(13)
+		TNT1 A 0 ThrustThingZ(0,20,0,1)
+		TNT1 A 0 A_Scream
+		TNT1 A 0 A_CustomMissile ("MuchBlood2", 35, 0, random (0, 360), 2, random (0, 160))
+		TNT1 AA 0 A_CustomMissile ("XDeath1", 35, 0, random (0, 360), 2, random (0, 160))
+        D3S2 ABCDE 4
+		D3S2 FGHIJK 4 A_JumpIf((MomY == 0), "DSFStop")
+		Goto DSFStop+1
+		
+	DSFStop:
+	TNT1 A 0 A_SpawnItem("Ploft3")
+	TNT1 A 0 A_SpawnItem ("MediumBloodSpot")
+	TNT1 A 0 A_CustomMissile ("SuperWallRedBlood", 2, 0, random (170, 190), 2, random (0, 0))
+		D3S2 K -1
+		Stop
+		
+	DeathJump:
+         TNT1 A 0 A_Scream
+         TNT1 A 0 A_NoBlocking
+		 TNT1 A 0 A_Stop
+		 TNT1 A 0 A_ChangeFLag("NODROPOFF", 0)
+		TNT1 A 0 A_ChangeFLag("SLIDESONWALLS", 0)
+        TNT1 A 0 ThrustThingZ(0,40,0,1)
+        TNT1 A 0 A_FaceTarget
+        TNT1 A 0 A_Recoil (10)
+         DRKI K 4 A_CustomMissile ("Brutal_LiquidBlood3", 15, 0, random (0, 360), 2, random (0, 40))
+		 TNT1 A 0 A_JumpIf((MomY == 0), "TakeASit")
+		 DRKI K 4 A_CustomMissile ("Brutal_LiquidBlood3", 15, 0, random (0, 360), 2, random (0, 40))
+		 TNT1 A 0 A_JumpIf((MomY == 0), "TakeASit")
+		 DRKI K 4 A_CustomMissile ("Brutal_LiquidBlood3", 15, 0, random (0, 360), 2, random (0, 40))
+		 TNT1 A 0 A_JumpIf((MomY == 0), "TakeASit")
+		 DRKI K 4 A_CustomMissile ("Brutal_LiquidBlood3", 15, 0, random (0, 360), 2, random (0, 40))
+		 TNT1 A 0 A_JumpIf((MomY == 0), "TakeASit")
+		 DRKI L 4 A_CustomMissile ("Brutal_LiquidBlood3", 15, 0, random (0, 360), 2, random (0, 40))
+		 TNT1 A 0 A_JumpIf((MomY == 0), "TakeASit")
+		 DRKI L 4 A_CustomMissile ("Brutal_LiquidBlood3", 15, 0, random (0, 360), 2, random (0, 40))
+		 TNT1 A 0 A_JumpIf((MomY == 0), "TakeASit")
+		 DRKI L 4 A_CustomMissile ("Brutal_LiquidBlood3", 15, 0, random (0, 360), 2, random (0, 40))
+		 TNT1 A 0 A_JumpIf((MomY == 0), "TakeASit")
+		 DRKI M 4 A_CustomMissile ("Brutal_LiquidBlood3", 15, 0, random (0, 360), 2, random (0, 40))
+		 TNT1 A 0 A_JumpIf((MomY == 0), "TakeASit")
+		 TNT1 A 0 A_SpawnItem ("GrowingBloodPool")
+         DRKI M -1
+         Stop
+	 Stop
+	TakeASit:
+	    TNT1 AAAA 0 A_CustomMissile ("SuperWallRedBlood", 6, 0, random (170, 190), 2, random (0, 40))
+	    DRKI K 5
+	    TNT1 A 0 A_SpawnItem("GrowingBloodPool")
+		TNT1 A 0 A_SpawnItemEx("DeadDarkImp_Slumped", 10)
+		Stop
+		
+	Death.Blast:
+	Death.Railgun:
+	Death.Eat:
+	    TNT1 A 0
+		TNT1 A 0 A_FaceTarget
+		TNT1 A 0 A_Jump(12, "Death.Arm")
+		TNT1 A 0 A_NoBlocking
+		//TNT1 A 0 A_Jump(128, "Death.Blast2")
+		TNT1 A 0 A_XScream
+		TNT1 AAA 0 A_CustomMissile ("Guts", 32, 0, random (150, 210), 2, random (0, 40))
+		TNT1 AAA 0 A_CustomMissile ("XDeath1", 32, 0, random (150, 210), 2, random (0, 40))
+		TNT1 A 0 A_CustomMissile ("XDeathDarkImpHead1", 32, 0, random (150, 210), 2, random (0, 40))
+		TNT1 AAA 0 A_CustomMissile ("Xdeath3", 16, 0, random (170, 190), 2, random (0, 40))
+		TNT1 AAAA 0 A_CustomMissile ("Brutal_FlyingBlood", 32, 0, random (170, 190), 2, random (0, 40))
+		TNT1 AAAA 0 A_CustomMissile ("Brutal_FlyingBloodFaster", 32, 0, random (170, 190), 2, random (0, 40))
+		TNT1 AAAA 0 A_CustomMissile ("Brutal_FlyingBloodMuchFaster", 32, 0, random (170, 190), 2, random (0, 40))
+		TNT1 AAAA 0 A_CustomMissile ("SuperWallRedBlood", 32, 0, random (170, 190), 2, random (0, 40))
+		TNT1 AAA 0 A_CustomMissile ("BloodMistBig", 40, 0, random (0, 360), 2, random (30, 90))
+		D3S3 A 6 A_Stop
+		TNT1 A 0 A_SpawnItem ("GrowingBloodPool")
+		D3S3 BBBBBBBBBB 3 A_CustomMissile ("Brutal_LiquidBlood2", 26, 0, random (0, 360), 2, random (30, 60))
+		D3S3 CCC 3 A_CustomMissile ("Brutal_LiquidBlood2", 26, 0, random (0, 360), 2, random (10, 40))
+		D3S3 DD 3 A_CustomMissile ("Brutal_LiquidBlood2", 6, 0, random (0, 360), 2, random (30, 60))
+		D3S3 E -1
+	    Stop
+		
+Death.PussyGrab:
+	    TNT1 A 0
+		TNT1 A 0 A_Pain
+		TNT1 A 0 A_Chase("","")
+		TNT1 A 0 A_Pain
+		TNT1 A 0 A_NoBlocking
+		TNT1 A 0 A_GiveToTarget("GrabbedADarkImp", 1)
+        Stop
+	
+	Death.Fatality:
+		TNT1 A 0 A_Pain
+        TNT1 A 0 A_NoBlocking
+	TNT1 A 0 A_JumpIfIntargetInventory("FistsSelected", 1, 1)
+	
+//	Goto Death.Superpunch //ExplosiveImpact
+
+       TNT1 A 0 A_GiveToTarget("DarkImpFatality1", 1)
+		TNT1 A 0 A_GiveToTarget("GoFatality", 1)
+		Stop
+		
+    XDeath:
+	Death.Quadblast:
+		TNT1 A 0 A_JumpIfInTargetInventory("SSGSelected", 1, "Death.SSG")
+		TNT1 A 0 A_XScream
+		TNT1 A 0 A_NoBlocking
+		TNT1 A 0 A_FaceTarget
+		TNT1 AAA 0 A_CustomMissile ("XDeath1", 42, 0, random (170, 190), 2, random (10, 60))
+		TNT1 AAA 0 A_CustomMissile ("XDeath3", 42, 0, random (170, 190), 2, random (10, 60))
+		TNT1 A 0 A_CustomMissile ("xdeath4", 42, 0, random (170, 190), 2, random (10, 60))
+		TNT1 A 0 A_CustomMissile ("XDeath4", 42, 0, random (170, 190), 2, random (10, 60))
+  	    TNT1 A 1 A_CustomMissile ("DarkImpXDeath", 0, 0, random (0, 360), 2, random (0, 160))
+		Stop
+    Raise:
+        DRKI ML 8
+        DRKI KJI 6
+        Goto SeeContinue
+    }
+}
+
+actor DarkSeeker
+{
+    Radius 8
+    Height 6
+    Speed 9
+    Damage 4
+	DamageType Plasma
+    +SEEKERMISSILE
+    PROJECTILE
+    RENDERSTYLE ADD
+    ALPHA 0.67
+    SeeSound "caco/attack"
+	DeathSound "caco/shotx"
+    Decal DoomImpScorch
+    States
+    {
+    Spawn:
+		TNT1 A 0 A_SpawnItem("BlueFlare",0,0)
+        DKB1 AB 4 Bright A_SeekerMissile (5,10)
+		TNT1 A 0 A_SpawnItem("BlueFlare",0,0)
+        Loop
+    Death:
+        DKB1 CDE 4 Bright
+		TNT1 AAAAAA 0 A_CustomMissile ("BluePlasmaParticle", 0, 0, random (0, 360), 2, random (0, 360))
+        Stop
+    }
+}
