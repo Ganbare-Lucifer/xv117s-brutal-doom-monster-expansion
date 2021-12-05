@@ -1,0 +1,170 @@
+Actor DarkImpFatality1: Inventory
+{
+inventory.maxamount 1
+}
+
+Actor NetherDarkImpFatality1: Inventory
+{
+inventory.maxamount 1
+}
+
+Actor PlasmaZombieFatality : Inventory
+{
+inventory.maxamount 1
+}
+
+Actor PlasmaZombieFatality2 : Inventory
+{
+inventory.maxamount 1
+}
+
+ACTOR SKPlasmaZombie : Inventory
+{
+Inventory.MaxAmount 1
+}
+
+ACTOR HasQuadShotgun : Inventory
+{
+Inventory.MaxAmount 1
+}
+
+Actor SKQuadShotgunZombie : Inventory
+{
+inventory.maxamount 1
+}
+
+Actor IsCurbstompingHFQSZ : Inventory
+{
+inventory.maxamount 1
+}
+
+Actor HFQSZFatality : Inventory
+{
+inventory.maxamount 1
+}
+
+Actor HFQSZFatality2 : Inventory
+{
+inventory.maxamount 1
+}
+
+Actor HFQSZFatality3 : Inventory
+{
+inventory.maxamount 1
+}
+
+ACTOR ChaingunMajorFatality : Inventory
+{
+Inventory.MaxAmount 1
+}
+
+ACTOR CyberKnightFatality1Part2: Inventory
+{
+Inventory.MaxAmount 1
+}
+
+ACTOR CyberKnightFatality1: Inventory
+{
+Inventory.MaxAmount 1
+}
+
+ACTOR CyberKnightFatality2: Inventory
+{
+Inventory.MaxAmount 1
+}
+
+Actor CyberBaronFatality1: Inventory
+{
+inventory.maxamount 1
+}
+
+Actor CyberBaronFatality2: Inventory
+{
+inventory.maxamount 1
+}
+
+Actor AutoshotgunGuyFatality: Inventory
+{
+inventory.maxamount 1
+}
+
+Actor ZSpecFatality: Inventory
+{
+inventory.maxamount 1
+}
+
+ACTOR SKZSpecOps : Inventory
+{
+Inventory.MaxAmount 1
+}
+
+ACTOR AracnorbFatality : Inventory
+{
+Inventory.MaxAmount 1
+}
+
+ACTOR SKAutoshotty : Inventory
+{
+Inventory.MaxAmount 1
+}
+
+ACTOR SKMajor : Inventory
+{
+Inventory.MaxAmount 1
+}
+
+Actor RiotSergeantFatality1 : Inventory
+{
+inventory.maxamount 1
+}
+
+Actor PistolZombiemanFatality1 : Inventory
+{
+inventory.maxamount 1
+}
+
+Actor RifleZombieManAmmo : Inventory
+{
+inventory.maxamount 30
+}
+
+Actor ZSpecOpsAmmo : Inventory
+{
+inventory.maxamount 35
+}
+
+Actor PistolZombieManAmmo : Inventory
+{
+inventory.maxamount 15
+}
+
+Actor PlasmaZombieAmmo : Inventory
+{
+inventory.maxamount 16
+}
+
+Actor RocketZombieAmmo : Inventory
+{
+inventory.maxamount 1
+}
+
+// Missing Actors For Fatality Module
+ACTOR ShakeShakeShake: XDeath2
+{
+    SeeSound "none"
+    DeathSound "none"
+    Decal "None"
+    Gravity 1.0
+    Speed 1
+    States
+    {
+    Spawn:
+        TNT1 A 5
+        Goto Death
+    Death:
+        TNT1 A 1
+	    EXPL A 0 Radius_Quake (4, 24, 0, 15, 0)
+        TNT1 A 20
+        Stop
+    }
+}
