@@ -3,7 +3,7 @@ A mod add-on for Doom that adds new foes to the demonic bestiary, brutalized thr
 
 DISCLAIMER: This is an open project for people to voluntarily contribute here, I do not own most of the things here. Most of the monsters seen here are from Realm667.
 
-Spriters Credits: Ganbare-Lucifer, Craneo, Keeper, Vader, Amuscaria and even more people whose I don't know who made the sprites.
+Spriters Credits: Ganbare-Lucifer, Craneo, Keeper, Vader, Amuscaria, NMN and even more people whose I don't know who made the sprites.
 
 Coders Credits: Would be glad to know who coded the previous attempts.
 
@@ -56,29 +56,53 @@ Monsters:
 	Name					-	Actor				-	ID
 
 Aracnorb					-	Aracnorb			-	32183
+
 Assault Shotgun Zombie 		- 	ASGGuy				-	32124	
+
 Bruiser Demon				- 	BruiserDemon		-	3333
+
 Zombie Chainsaw 			- 	ChainsawZombie		-	3204
-Cyber Baron (MiniCyberDemon)-	CyberBaron			-	10000
+
+Cyber Baron (MiniCyberDemon)  -	 CyberBaron			-	10000
+
 Cyber Knight				-	Cybruiser			-	30128
+
 Common Dark Imp				-	DarkImp				-	3102
+
 Nami Dark Imp				-	NamiDarkImp			-	3100
+
 Nether Dark Imp				-	NetherDarkImp		-	11368
+
 Void Dark Imp				-	VoidDarkImp			-	3101
+
 Heavy Weapons Major			-	Major				-	3311
+
 Zombie Minigun				-	MinigunGuy			-	31137
+
 Plasma Zombie	 			- 	PlasmaZombie		-	3205
+
 Pyro Sergeant	 			- 	PyroSergeant		-	31497
+
 Quad-Shotgun Zombie 		- 	QuadShotgunZombie	-	32129
+
 Rifle Commando	 			- 	RifleCommando		-	31136
+
 Riot Shield Sergeant 		- 	RiotShieldGuy		-	8211
+
 Sergeant Rocket Launcher 	- 	RocketGuy			-	3202
+
 Sniper Zombie				-	SniperZombie		-	31133
+
 Suicide Bomber				-	SuicideBomber		-	22099
+
 Super Demon					-	SuperDemon			-	31269
+
 Super Shotgun Zombie		-	SuperShotgunZombie	-	23049
+
 Demonic Terminator			-	TerminatorDemon		-	30667
+
 Terminator Boss				-	TerminatorDemonBoss	-	30666
+
 Z-Spec Ops					-	ZSpecOps			-	24281
 
 Thanks:
