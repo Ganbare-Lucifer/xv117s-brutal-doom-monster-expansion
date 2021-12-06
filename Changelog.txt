@@ -1,4 +1,11 @@
 Changelog for patch and spawners. 
+Ganbare-Lucifer
+v71
+- Afrit!
+- Cyber Paladin!
+- Reverted the Nazi sprites, the Blue SS will be a separate one.
+- Better Super Demon attack sprites by Craneo
+
 ProfessonExistential aka Doom Dr.
 v69+70 
 - bugfixes & compatibility with 40k Lasgun
