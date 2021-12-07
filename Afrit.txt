@@ -13,7 +13,7 @@ Actor Afrit replaces Cacodemon
 	PainChance "Taunt", 0
   Mass 500
   SeeSound "Baron/Sight"
-  PainSound "Baron/Pain"
+  PainSound "PSXDPN"
   DeathSound "Baron/Death"
   ActiveSound "Baron/Active"
   Monster
