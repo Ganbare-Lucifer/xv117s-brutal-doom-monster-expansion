@@ -1,8 +1,8 @@
 Changelog for patch and spawners. 
 Ganbare-Lucifer
 v71
-- Afrit!
-- Cyber Paladin!
+- Added Afrit, Cyber Paladin, Hellion, Watcher, and... MARAUDER! (thanks to DarthSeeth!)
+- Keep in note that Marauder is in an early state, more work has to be done with him.
 - Reverted the Nazi sprites, the Blue SS will be a separate one.
 - Better Super Demon attack sprites by Craneo
 
