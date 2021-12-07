@@ -13,6 +13,7 @@
 
 //Monsters
 #include ANNIHILATOR.DEC
+#include Afrit.txt
 #include Aracnorb.txt
 #include AracnorbQueen.txt
 #include AracnorbQueenBOSS.txt
@@ -24,6 +25,7 @@
 #include ChainsawZombie.txt
 #include CyberBaron.txt
 #include CyberKnight.txt
+#include CyberPaladin.txt
 #include DarkCardinal.txt
 #include DarkCardinalBOSS.txt
 #include DarkImp.txt
@@ -37,6 +39,7 @@
 #include DemolisherMini.DEC
 #include Diabloist.txt
 #include Draugr.DEC
+#include Hellion.txt
 //#include IceVile.DEC   NOT WORKING AT ALL
 #include Imp3.txt
 #include Impureelemental.txt
@@ -46,6 +49,7 @@
 #include LabGUYP.txt
 #include Major.txt
 //#include Meandemon.DEC
+#include Marauder.txt
 #include MinigunGuy.txt
 #include Overlord.DEC
 #include Phantasm.DEC
@@ -66,6 +70,7 @@
 #include Thamuz.txt
 #include Thamuzboss.txt
 #include Voidspectre.DEC
+#include Watcher.txt
 #include ZSpecOps.txt
 #include ZSpecOpsRail.txt
 #include ZSpecOpsRifle.txt
