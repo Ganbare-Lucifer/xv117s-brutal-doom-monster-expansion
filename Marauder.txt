@@ -1,0 +1,692 @@
+//Look into ZSPecOps Trooper & SSGZombie for Gore coding
+//Marauder_by_LeonardoETC.rar look at for additional sprite, shield & axe throw projectile.
+//DeadMarauder_KilledByMinorHead add Actor for Stealth Kills
+
+Actor Marauder : BaronofHell
+{
+	Health 1250 //800
+    Radius 20  //CGG 16
+    Height 56 //CGG 44
+	Mass 100 //800	
+	Speed 10 //32
+//	GibHealth 50
+	PainChance 50 PainChance "HelperMarineFatality", 50 PainChance "HangingHook", 0 PainChance "Kick", 50 PainChance "Melee", 50 PainChance "Stealth", 50	
+	DamageFactor "Avoid", 0.0 DamageFactor "GibRemoving", 0.0 DamageFactor "Crush", 5.0 DamageFactor "Fatality", 5.0 DamageFactor "PussyGrab", 50.0 
+	DamageFactor "TeleportRemover", 0.0 DamageFactor "SSG", 50.0 DamageFactor "Shotgun", 2.0 DamageType "Melee" 
+	DamageFactor "Blood", 0.0 DamageFactor "BlueBlood", 0.0 DamageFactor "GreenBlood", 0.0
+	DamageFactor "explosiveimpact", 2.0 DamageFactor "CauseSplash", 0.0 DamageFactor "CauseObjectsToSplashSlime", 0.0 DamageFactor "CauseObjectsToSplashNukage", 0.0
+	DamageFactor "CauseObjectsToSplashBlood", 0.0 DamageFactor "CauseObjectsToSplashLava", 0.0 DamageFactor "Head", 1.8
+	DeathHeight 4
+	MaxStepHeight 24
+	MaxDropOffHeight 32
+	MeleeRange 100
+	BloodType "Brutal_Blood", "SawBlood", "SawBlood"	
+    MONSTER
+	Species "Zombies"
+	+BOSS
+	+FLOORCLIP
+	+NOTARGET
+	+MISSILEMORE
+	+MISSILEEVENMORE
+	+RANDOMIZE	
+	+DONTHARMSPECIES
+	BurnHeight 0
+	SeeSound "Marauder/See"
+	DeathSound "Marauder/Death"
+	PainSound "Marauder/Pain"
+	ActiveSound "Marauder/Active"
+    Obituary "%o was slaughtered by a Marauder."
+	DropItem "SSG"	
+    States
+    {
+	Pain.Avoid:
+	    TNT1 A 0
+		TNT1 A 0 A_JumpIf(GetCvar("bd_RollingZombies")==1, "Missile")
+	    TNT1 A 0 A_Jump(256, "AvoidLeft","AvoidJumpLeft", "AvoidRight","AvoidJumpRight","HopNRollLeft", "HopNRollRight")
+        Goto AvoidLeft
+	  
+	HopNRollRight:
+	    MAUD A 3 A_FaceTarget
+		MAUD V 3 A_FaceTarget
+		TNT1 A 0 ThrustThingZ(0, 20, 0, 0)
+	    TNT1 A 0 ThrustThing(angle*256/360+64, 5, 0, 0)
+		MAU4 AB 6 
+		
+	LeftHopNRollloop:
+		MAU4 B 1 A_CheckFloor("AvoidRightShort")
+		TNT1 A 0 A_CheckCeiling("AvoidRightShort")
+        Goto leftHopNRollloop
+		
+	HopNRollLeft:
+	    MAUD A 3 A_FaceTarget
+		MAUD V 3 A_FaceTarget
+		TNT1 A 0 ThrustThingZ(0, 20, 0, 0)
+	    MAUD A 0 ThrustThing(angle*256/360+192, 5, 0, 0)
+		MAU4 AH 6
+	
+	RightHopNRollloop:
+		MAU4 H 1 A_CheckFloor("AvoidLeftShort")
+		TNT1 A 0 A_CheckCeiling("AvoidLeftShort")
+        Goto RightHopNRollloop
+		
+	AvoidLeftShort:
+		TNT1 A 0 ThrustThing(angle*256/360+192, 9, 0, 0)
+		MAU4 GFEDCBA 2 A_FaceTarget
+		TNT1 A 0 A_CheckSight("SeeContinue")
+		TNT1 A 0 { if(GetCvar("bd_MonsterFootsteps") == 1) { A_PlaySound("floorhardZombie",4); } }
+		Goto Missile3
+		
+	AvoidRightShort:
+		TNT1 A 0 ThrustThing(angle*256/360+64, 9, 0, 0)
+		MAU4 CDEFGHA 2 A_FaceTarget
+		TNT1 A 0 A_CheckSight("SeeContinue")
+		TNT1 A 0 { if(GetCvar("bd_MonsterFootsteps") == 1) { A_PlaySound("floorhardZombie",4); } }
+		Goto Missile3
+				
+   AvoidJumpLeft:
+	    MAUD A 3 A_FaceTarget
+		MAUD V 3 A_FaceTarget
+		TNT1 A 0 ThrustThingZ(0, 20, 0, 0)
+	    MAUD A 0 ThrustThing(angle*256/360+192, 5, 0, 0)
+		leftjumploop:
+		MAU4 A 1 A_FaceTarget
+		MAU4 A 1 A_CheckFloor("missile")
+		TNT1 A 0 A_CheckCeiling("missile") //For corruption cards
+        Goto leftjumploop
+
+	AvoidJumpRight:
+	    MAUD A 3 A_FaceTarget
+		MAUD V 3 A_FaceTarget
+		TNT1 A 0 ThrustThingZ(0, 20, 0, 0)
+	    TNT1 A 0 ThrustThing(angle*256/360+64, 5, 0, 0)
+		rightjumploop:
+        MAU4 A 1 A_FaceTarget
+		MAU4 A 1 A_CheckFloor("missile")
+		TNT1 A 0 A_CheckCeiling("missile") //For corruption cards
+        Goto rightjumploop  
+	  
+	AvoidLeft:
+		MAUD A 1 A_FaceTarget
+		TNT1 A 0 ThrustThing(angle*256/360+192, 12, 0, 0)
+		MAU4 HGFEDCBA 2 A_FaceTarget
+		TNT1 A 0 A_CheckSight("SeeContinue")
+		TNT1 A 0 { if(GetCvar("bd_MonsterFootsteps") == 1) { A_PlaySound("floorhardZombie",4); } }
+		Goto Missile3
+		
+	AvoidRight:
+		MAUD A 1 A_FaceTarget
+		TNT1 A 0 ThrustThing(angle*256/360+64, 12, 0, 0)
+		MAU4 ABCDEFGH 2 A_FaceTarget
+		TNT1 A 0 A_CheckSight("SeeContinue")
+		TNT1 A 0 { if(GetCvar("bd_MonsterFootsteps") == 1) { A_PlaySound("floorhardZombie",4); } }
+		Goto Missile3
+		
+    Spawn:
+MAUD A 1
+MAUD A 0 ACS_NamedExecuteAlways("BDCHeckClassicMonsters", 0, 0, 0, 0)//Check if Vanilla Mode is activated	
+MPOS A 0 A_GiveInventory("SKMarauder", 1)
+MPOS A 0 A_JumpIfInTargetInventory("MarauderContinue", 1, "MissileContinue")
+        MAUD A 0 A_ChangeFlag("NORADIUSDMG",0)
+		MAUD A 0 A_ChangeFlag("NOPAIN",0)
+		MAUD A 0 A_ChangeFlag("NOBLOOD",0)
+		MAUD A 0 A_ChangeFlag("DONTTHRUST",0)
+		//MAUD A 0 A_UnSetInvulnerable
+		MAUD A 2 A_Look
+        Goto Stand
+
+	Stand:
+		MAUD A 0
+		MAUD A 0 A_CheckSight("Stand2")
+        //MAUD A 0 A_SpawnItem ("HeadshotTarget20", 5, 44,0)
+		MAUD A 0 A_SpawnItem ("HeadshotTarget20", 4, 44,0)
+		MAUD BB 9 A_Look
+		Loop
+		
+	Stand2:
+		MAUD B 15 A_Look
+		TNT1 A 0 A_CheckSight("Stand2")
+		Goto Stand
+
+Idle:
+
+SearchForPlayer:
+TNT1 A 0 A_ClearTarget
+TNT1 A 0 A_TakeInventory("EnemyMemory", 30)
+TNT1 A 0 A_GiveInventory("SKMarauder", 1)
+MAUD A 0 A_SpawnItem("HeadshotTarget10", 5, 44,0)
+MAUD A 10 A_Look
+MAUD A 0 A_SpawnItem("HeadshotTarget10", 5, 44,0)
+MAUD A 10 A_Look
+MAUD A 0 A_SpawnItem("HeadshotTarget10", 5, 44,0)
+MAUD A 10 A_Look
+
+TNT1 A 0 A_SetAngle(angle - 40)
+MAUD A 0 A_SpawnItem("HeadshotTarget10", 5, 44,0)
+MAUD A 10 A_Look
+MAUD A 0 A_SpawnItem("HeadshotTarget10", 5, 44,0)
+TNT1 A 0 A_SetAngle(angle + 40)
+MAUD A 10 A_Look
+MAUD A 0 A_SpawnItem("HeadshotTarget10", 5, 44,0)
+MAUD A 10 A_Look
+
+MAUD A 0 A_SpawnItem("HeadshotTarget4", 5, 44,0)
+TNT1 A 0 A_Wander
+TNT1 A 0 { if(GetCvar("bd_MonsterFootsteps") == 1) { A_PlaySound("floorhardZombie",4); } }
+MAUD A 4 A_Look
+MAUD A 0 A_SpawnItem("HeadshotTarget4", 5, 44,0)
+TNT1 A 0 A_Wander
+
+MAUD B 4 A_Look
+MAUD A 0 A_SpawnItem("HeadshotTarget4", 5, 44,0)
+TNT1 A 0 A_Wander
+TNT1 A 0 { if(GetCvar("bd_MonsterFootsteps") == 1) { A_PlaySound("floorhardZombie",4); } }
+MAUD C 4 A_Look
+MAUD A 0 A_SpawnItem("HeadshotTarget4", 5, 44,0)
+TNT1 A 0 A_Wander
+
+MAUD D 4 A_Look
+
+TNT1 A 0 A_jump(128, "SearchForPlayer")
+
+MAUD A 0 A_SpawnItem("HeadshotTarget4", 5, 44,0)
+TNT1 A 0 A_Wander
+TNT1 A 0 { if(GetCvar("bd_MonsterFootsteps") == 1) { A_PlaySound("floorhardZombie",4); } }
+MAUD A 4 A_Look
+MAUD A 0 A_SpawnItem("HeadshotTarget4", 5, 44,0)
+TNT1 A 0 A_Wander
+
+MAUD B 4 A_Look
+MAUD A 0 A_SpawnItem("HeadshotTarget4", 5, 44,0)
+TNT1 A 0 A_Wander
+TNT1 A 0 { if(GetCvar("bd_MonsterFootsteps") == 1) { A_PlaySound("floorhardZombie",4); } }
+MAUD C 4 A_Look
+MAUD A 0 A_SpawnItem("HeadshotTarget4", 5, 44,0)
+TNT1 A 0 A_Wander
+
+MAUD D 4 A_Look
+Goto SearchForPlayer
+
+See:
+TNT1 A 0 A_ChangeFLag("NODROPOFF", 0)
+MAUD A 0 Bright A_TakeInventory("DontMeleeAgain", 1)
+TNT1 A 0 A_TakeInventory("SKMarauder", 1)
+TNT1 A 0 A_TakeInventory("EnemyMemory", 15)
+TNT1 A 0 A_CheckSight("SeeNeverSeen")
+Goto SeeContinue
+
+SeeContinue:
+TNT1 A 0 A_CheckSight("SeeNeverSeen")
+
+SeeContinuePart2:	
+TNT1 A 0 A_GiveInventory("EverSeenTheplayer", 1)
+//TNT1 A 0 A_SpawnItemEx("FootStep", 0, 0, 30, 0, 0)
+TNT1 A 0 A_JumpIfInventory("EnemyMemory", 12, "SearchForPlayer")
+
+SeeContinuePart36:
+TNT1 A 0 A_GiveInventory("EnemyMemory", 1)
+TNT1 A 0 A_TakeInventory("IsFiring", 1)
+TNT1 A 0 A_JumpIfCloser(140, "FallBack")
+MAUD A 0 A_SpawnItem("HeadshotTarget6", 5, 44,0)
+TNT1 A 0 { if(GetCvar("bd_MonsterFootsteps") == 1) { A_PlaySound("floorhardZombie",4); } }
+MAUD AAA 2 A_Chase
+MAUD A 0 A_SpawnItem("HeadshotTarget6", 5, 44,0)
+TNT1 A 0 A_JumpIf(GetCvar("bd_RollingZombies")==1, 2)
+TNT1 A 0 A_Jump(16, "Pain.Avoid")
+TNT1 A 0
+MAUD A 0 A_SpawnItem("HeadshotTarget6", 5, 44,0)
+TNT1 A 0 A_Jump(64, 2)
+MAUD A 0 Bright A_FaceTarget
+MAUD A 0 Bright A_JumpIfCloser(100,"Missile4") //A_JumpIfCloser(200,"Missile4")
+MAUD BBB 2 A_Chase
+MAUD A 0 A_SpawnItem("HeadshotTarget6", 5, 44,0)
+TNT1 A 0 { if(GetCvar("bd_MonsterFootsteps") == 1) { A_PlaySound("floorhardZombie",4); } }
+TNT1 A 0 A_Jump(128, 2)
+MAUD A 0 Bright A_FaceTarget
+MAUD A 0 Bright A_JumpIfCloser(200,"Missile4")
+MAUD CCC 2 A_Chase
+MAUD A 0 A_SpawnItem("HeadshotTarget6", 5, 44,0)
+TNT1 A 0 A_Jump(64, 2)
+MAUD A 0 Bright A_FaceTarget
+MAUD A 0 Bright A_JumpIfCloser(200,"Missile4")
+MAUD DDD 2 A_Chase
+MAUD A 0 A_SpawnItem("HeadshotTarget6", 5, 44,0)
+TNT1 A 0 A_Jump(96, 2)
+MAUD A 0 Bright A_FaceTarget
+TNT1 A 0 A_JumpIfCloser(140, "FallBack")
+TNT1 A 0 A_JumpIfInTargetInventory("IsInvisible", 1, "Idle")
+Loop
+
+/*		
+	See:
+		TNT1 A 0 A_ChangeFLag("NODROPOFF", 0)
+		MAUD A 0 Bright A_TakeInventory("DontMeleeAgain", 1)
+		TNT1 A 0 A_JumpIfCloser(140, "FallBack")
+		TNT1 A 0 A_ChangeFLag("NODROPOFF", 0)
+		TNT1 A 0 A_SpawnItem("HeadshotTarget6", 10, 44,0)
+		TNT1 A 0 A_SpawnItem ("LegTargetBase", 10)
+		TNT1 A 0 { if(GetCvar("bd_MonsterFootsteps") == 1) { A_PlaySound("floorhardZombie",4); } }
+		TNT1 A 0 A_JumpIfCloser(140, "FallBack")
+		MAUD AAA 2 A_Chase
+		TNT1 A 0 A_JumpIf(GetCvar("bd_RollingZombies")==1, 2)
+		TNT1 A 0 A_Jump(16, "Pain.Avoid")
+		TNT1 A 0
+		TNT1 A 0 A_SpawnItem("HeadshotTarget6", 10, 44,0)
+		TNT1 A 0 A_SpawnItem ("LegTargetBase", 10)
+		TNT1 A 0 A_JumpIfCloser(140, "FallBack")
+		TNT1 A 0 A_Jump(238, 2)
+		MAUD A 0 Bright A_FaceTarget
+		MAUD A 0 Bright A_JumpIfCloser(200,"Missile4")
+		MAUD BBB 2 A_Chase
+		TNT1 A 0 A_SpawnItem("HeadshotTarget6", 10, 44,0)
+		TNT1 A 0 A_SpawnItem ("LegTargetBase", 10)
+		TNT1 A 0 { if(GetCvar("bd_MonsterFootsteps") == 1) { A_PlaySound("floorhardZombie",4); } }
+		TNT1 A 0 A_JumpIfCloser(140, "FallBack")
+		TNT1 A 0 A_Jump(238, 2)
+		MAUD A 0 Bright A_FaceTarget
+		MAUD A 0 Bright A_JumpIfCloser(200,"Missile4")
+		MAUD CCC 2 A_Chase
+		TNT1 A 0 A_SpawnItem("HeadshotTarget6", 10, 44,0)
+		TNT1 A 0 A_Jump(238, 2)
+		MAUD A 0 Bright A_FaceTarget
+		MAUD A 0 Bright A_JumpIfCloser(200,"Missile4")
+		MAUD DDD 2 A_Chase
+		TNT1 A 0 A_JumpIfCloser(140, "FallBack")
+		//TNT1 A 0 A_JumpIfInTargetInventory("IsInvisible", 1, "Idle")
+		Loop
+*/		
+
+Melee:
+MAUD W 0 Bright A_JumpIfInventory("DontMeleeAgain", 1, "See")
+MAUD W 0 Bright A_GiveInventory("DontMeleeAgain", 1)
+MAUD W 0 Bright A_ChangeFlag("NORADIUSDMG",0)
+MAUD W 0 Bright A_ChangeFlag("NOPAIN",0)
+MAUD W 0 Bright A_ChangeFlag("NOBLOOD",0)
+MAUD W 0 Bright A_ChangeFlag("DONTTHRUST",0)
+//MAUD W 0 Bright A_UnSetInvulnerable
+MAUD A 0 Bright A_FaceTarget
+MAUD W 0 Bright A_PlaySound("Marauder/Charge")
+MAUD A 0 A_SpawnItem("HeadshotTarget6", 5, 44,0)		
+MAUD W 0 Bright A_Recoil(-5)
+MAUD W 4 Bright A_FaceTarget
+MAUD A 0 A_SpawnItem("HeadshotTarget6", 5, 44,0)			
+TNT1 A 0 A_JumpIf(GetCvar("bd_RollingZombies")==1, 2)
+TNT1 A 0 A_Jump(96, "Pain.Avoid")		
+MAUD V 6 A_CustomMeleeAttack(random(1,8)*15,"Marauder/Melee")
+MAUD A 0 A_SpawnItem("HeadshotTarget6", 5, 44,0)		
+Goto See
+		
+	FallBack:
+		TNT1 A 0 A_CheckSight("Advance")
+		TNT1 A 0 A_ChangeFLag("NODROPOFF", 1)
+		TNT1 A 0 A_Jump(96, "LeapBack")
+		TNT1 A 0 A_SpawnItem ("HeadshotTarget4", 5, 44,0)
+		MAUD D 2 A_FaceTarget
+		TNT1 A 0 A_JumpIf(GetCvar("bd_RollingZombies")==1, 2)
+		//TNT1 A 0 A_Jump(64, "Missile4", "Pain.Avoid")
+		TNT1 A 0 A_Jump(64, "Missile4")
+		TNT1 A 0
+		MAUD D 2 A_Recoil(4)
+		TNT1 A 0 A_Jump(64, "Pain.Avoid")
+		TNT1 A 0 A_SpawnItem ("HeadshotTarget4", 5, 44,0)
+		TNT1 A 0 { if(GetCvar("bd_MonsterFootsteps") == 1) { A_PlaySound("floorhardZombie",4); } }
+		MAUD C 2 A_FaceTarget
+		MAUD C 2 A_Recoil(3)
+		TNT1 A 0 A_SpawnItem ("HeadshotTarget4", 5, 44,0)
+		MAUD B 2 A_FaceTarget
+		MAUD B 2 A_Recoil(3)
+		TNT1 A 0 A_SpawnItem ("HeadshotTarget4",5, 44,0)
+		TNT1 A 0 { if(GetCvar("bd_MonsterFootsteps") == 1) { A_PlaySound("floorhardZombie",4); } }
+		MAUD A 2 A_FaceTarget
+		MAUD A 2 A_Recoil(2)
+		TNT1 A 0 A_ChangeFLag("NODROPOFF", 0)
+		Goto Missile3		
+
+	LeapBack:
+		MAU4 A 4 
+		//TNT1 A 0 A_TakeInventory("SKImp", 1)
+		TNT1 A 0 ThrustThingZ(0,25,0,1)
+		TNT1 A 0 A_FaceTarget
+		TNT1 A 0 A_Recoil (10)
+		TNT1 D 0 A_SpawnItem("HeadshotTarget23", 4, 44,0)
+		MAU4 A 6
+		TNT1 A 0 A_Jump(96, "AvoidLeft","AvoidJumpLeft", "AvoidRight","AvoidJumpRight","HopNRollLeft", "HopNRollRight")
+		Goto See
+		
+SeeNeverSeen:
+TNT1 A 0
+TNT1 A 0 A_JumpIfInventory("EverSeenThePlayer", 1, "SeeContinuePart2")
+//TNT1 A 0 A_SpawnItemEx("FootStep", 0, 0, 30, 0, 0)
+MAUD A 0 A_SpawnItem("HeadshotTarget6", 5, 44,0)
+TNT1 A 0 { if(GetCvar("bd_MonsterFootsteps") == 1) { A_PlaySound("floorhardZombie",4); } }
+MAUD AAA 2 A_Chase
+MAUD A 0 A_SpawnItem("HeadshotTarget6", 5, 44,0)
+MAUD BBB 2 A_Chase
+MAUD A 0 A_SpawnItem("HeadshotTarget6", 5, 44,0)
+TNT1 A 0 { if(GetCvar("bd_MonsterFootsteps") == 1) { A_PlaySound("floorhardZombie",4); } }
+MAUD CCC 2 A_Chase
+MAUD A 0 A_SpawnItem("HeadshotTarget6", 5, 44,0)
+MAUD DDD 2 A_Chase
+TNT1 A 0 A_CheckSight("SeeNeverSeen")
+Goto SeeContinue
+		
+    Missile: //Throw Axe
+		//MAUD U 0 A_JumpIfCloser(200,"Missile4")
+		MAUD U 0 A_JumpIfCloser(300,"Missile3")
+		//MAU4 U 0 A_Jump(24,"Missile2")
+		MAUD U 0 A_ChangeFlag("NORADIUSDMG",0)
+		MAUD U 0 A_ChangeFlag("NOBLOOD",0)
+		MAUD U 0 A_ChangeFlag("DONTTHRUST",0)
+		//MAUD U 0 A_UnSetInvulnerable
+		MAUD U 7 A_FaceTarget
+MAUD A 0 A_SpawnItem("HeadshotTarget10", 5, 44,0)		
+		TNT1 A 0 A_JumpIf(GetCvar("bd_RollingZombies")==1, 2)
+	    TNT1 A 0 A_Jump(16, "Pain.Avoid")		
+		MAUD V 7 A_CustomMissile("MarauderAxe")
+MAUD A 0 A_SpawnItem("HeadshotTarget10", 5, 44,0)		
+		Goto See
+		
+	Missile2: //Dog
+		MAUD U 0 A_JumpIfCloser(200,"Missile4")
+		MAUD U 0 A_JumpIfCloser(300,"Missile3")
+		MAUD U 0 A_ChangeFlag("NORADIUSDMG",0)
+		MAUD U 0 A_ChangeFlag("NOBLOOD",0)
+		MAUD U 0 A_ChangeFlag("DONTTHRUST",0)
+		//MAUD U 0 A_UnSetInvulnerable
+		MAUD U 7 A_FaceTarget
+		TNT1 A 0 A_JumpIf(GetCvar("bd_RollingZombies")==1, 2)
+	    TNT1 A 0 A_Jump(16, "Pain.Avoid")		
+		MAUD V 7 A_PainAttack("MarauderDog")
+		Goto See
+		
+	Missile3: //SSG
+		//MAUD E 0 A_JumpIfCloser(200,"Missile4")
+		//MAUD E 0 A_UnSetInvulnerable
+		MAUD E 7 A_FaceTarget
+		//MAUD F 0 Bright A_PlaySound("Weapons/sshotf")"weapons/sshotc")
+		MAUD F 0 Bright A_PlaySound("SSHFIRE", 1)
+MAUD A 0 A_SpawnItem("HeadshotTarget10", 5, 44,0)			
+		MAUD F 5 Bright A_CustomBulletAttack(8, 7, 7, 5, "MarauderPuff")
+TNT1 A 0 A_GiveInventory("IsFiring", 1)		
+		MAUD E 5 A_FaceTarget
+		TNT1 A 0 A_JumpIf(GetCvar("bd_RollingZombies")==1, 2)
+	    TNT1 A 0 A_Jump(16, "Pain.Avoid")		
+		Goto See
+		
+	Missile4: //MELEE
+		TNT1 A 0 A_Jump(128, 2)
+		MAUD A 0 Bright A_FaceTarget	
+		MAUD A 0 Bright A_JumpIfCloser(100,"Melee")
+		MAUD W 0 Bright A_JumpIfInventory("DontMeleeAgain", 1, "See")
+		MAUD W 0 Bright A_GiveInventory("DontMeleeAgain", 1)
+		MAUD W 0 Bright A_ChangeFlag("NORADIUSDMG",0)
+		MAUD W 0 Bright A_ChangeFlag("NOPAIN",0)
+		MAUD W 0 Bright A_ChangeFlag("NOBLOOD",0)
+		MAUD W 0 Bright A_ChangeFlag("DONTTHRUST",0)
+		//MAUD W 0 Bright A_UnSetInvulnerable
+		MAUD W 0 Bright A_PlaySound("Marauder/Charge")
+		MAUD A 0 Bright A_FaceTarget
+		TNT1 A 0 ThrustThingZ(0, 20, 0, 0)
+		//TNT1 A 0 ThrustThing(angle*256/360+64, 5, 0, 0)		
+		MAUD W 0 Bright A_Recoil(-10)
+		MAUD WWWWWWWWWWW 1 A_SpawnItemEx("MarauderDashTrail",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION)		
+		MAUD W 4 Bright A_FaceTarget
+MAUD A 0 A_SpawnItem("HeadshotTarget6", 5, 44,0)		
+		MAUD W 0 Bright A_Recoil(-5)
+		MAUD W 4 Bright A_FaceTarget
+MAUD A 0 A_SpawnItem("HeadshotTarget6", 5, 44,0)			
+		TNT1 A 0 A_JumpIf(GetCvar("bd_RollingZombies")==1, 2)
+	    TNT1 A 0 A_Jump(96, "Pain.Avoid")		
+		MAUD V 6 A_CustomMeleeAttack(random(1,8)*15,"Marauder/Melee")
+MAUD A 0 A_SpawnItem("HeadshotTarget6", 5, 44,0)			
+		Goto See
+
+//Look in to adding
+/*
+	GroundExecution:
+		TNT1 A 0 A_NoBlocking
+		TNT1 A 0 A_GiveToTarget("ExecuteDownedZombieman", 1)
+		TNT1 A 0 A_GiveToTarget("GoSpecial", 1)
+		Stop
+*/
+
+GotoStealthKill:
+TNT1 A 1
+TNT1 A 0 A_Explode(100, 1, 1)
+TNT1 A 1
+Goto See
+
+Pain.Melee:
+MAUD G 4
+TNT1 A 0 A_JumpIfInventory ("SKMarauder", 1, "GotoStealthKill")
+TNT1 A 0 A_SpawnItem("HeadshotTarget4", 5, 44,0)
+MAUD G 4 A_Pain
+TNT1 A 0 A_TakeInventory("IsFiring", 1)
+Goto See
+
+
+
+Pain.LowKick:
+Pain.Kick:    
+	Pain:
+        //MAUD G 0 A_ChangeFlag("NOPAIN", 1)
+        //MAUD G 10 A_Pain
+        //Goto See
+Pain.Cut:
+Pain.Saw:
+TNT1 A 0
+TNT1 A 0 A_Stop
+TNT1 A 0
+TNT1 A 0 A_SpawnItem("HeadshotTarget4", 5, 44,0)
+TNT1 A 0 A_TakeInventory("SKMarauder", 1)
+MAUD G 2
+TNT1 A 0 A_SpawnItem("HeadshotTarget4", 5, 44,0)
+MAUD G 2 A_Pain
+TNT1 A 0 A_TakeInventory("IsFiring", 1)
+Goto SeeContinue	
+
+Pain.HeavyImpact:
+TNT1 A 0 A_FaceTarget
+TNT1 A 0 ThrustThingZ(0,20,0,1)
+TNT1 A 0 A_Recoil(6)
+Goto Pain
+
+
+
+Death.MonsterShotgunBullet:
+Death.Shotgun:
+Death.HKFT:
+TNT1 A 0
+TNT1 A 0 A_FaceTarget
+TNT1 A 0 A_CustomMissile ("SuperWallRedBlood", 42, 0, random (170, 190), 2, random (0, 20))
+TNT1 A 0 A_JumpIfCloser(50, "Death.SSG")
+TNT1 A 0 A_Jump(24,"Death.Arm")
+TNT1 A 0 ThrustThingZ(0,30,0,1)
+TNT1 A 0 A_Recoil(6)
+TNT1 A 0 A_JumpIfInventory("IsFiring", 1, "Death.Rare")
+TNT1 A 0 A_Scream
+TNT1 A 0 A_NoBlocking
+CPHM AB 4
+TNT1 A 0 
+CPHM CD 4 A_JumpIf((MomY == 0), "TakeASit")
+CPHM EF 4
+TNT1 A 0 A_SpawnItem ("GrowingBloodPool")
+TNT1 A 0 A_SpawnItem ("DeadChaingunGuy_KilledByMinorHead", 3)
+Stop
+		
+    Death:
+		MAUD H 5
+		MAUD I 5 A_Scream
+		MAUD J 5 A_NoBlocking
+		MAUD KLM 5
+		MAUD N -1
+		Stop
+
+	XDeath:
+MAUD OP 3
+TNT1 AAAA 0 A_CustomMissile ("RipGuts", 0, 0, random (0, 360), 2, random (0, 160))
+TNT1 A 0 A_SpawnItem ("GrowingBloodPool")
+TNT1 AAA 0 A_CustomMissile ("MuchBlood", 35, 0, random (0, 360), 2, random (0, 160))
+TNT1 A 0 A_Scream
+TNT1 AA 0 A_CustomMissile ("XDeath1", 0, 0, random (0, 360), 2, random (0, 160))
+		MAUD Q 5 A_NoBlocking
+		MAUD RS 5
+TNT1 AA 0 A_CustomMissile ("MuchBlood", 35, 0, random (0, 360), 2, random (0, 160))		
+		MAUD T -1
+		Stop
+    }
+}
+
+Actor DeadMarauder: CurbstompedMarine
+{
+    Radius 12
+    Height 12
+    +SHOOTABLE
+    +NOTELEPORT
+    +MOVEWITHSECTOR
+    +CORPSE
+	+FLOORCLIP
+	-SOLID
+	+THRUACTORS
+	damagefactor "Crush", 50.0
+    Mass 1000
+    Health 100
+    damagefactor "Blood", 0.0
+    damagefactor "Trample", 0.0
+	States
+	{
+		Spawn:
+			M4UD G -1
+			Stop
+	}
+}
+
+Actor DeadMarauder_KilledByMinorHead: DeadMarauder
+{
+Health 200 
+States
+	{	
+		Spawn:
+			MAUM F -1
+			Stop
+	}
+}
+
+Actor MarauderAxe : revenantseekermissiles
+{
+SeeSound "Axe/See"	
+DeathSound "Axe/Death"
+States
+	{
+		Spawn:
+			TNT1 A 0
+			TNT1 A 0 A_JumpIf(GetCvar("BD_ShootableEnemyProjectiles")== 0, "SpawnContinue")
+			TNT1 A 0 A_ChangeFlag(NOBLOCKMAP,0)
+			TNT1 A 0 A_ChangeFlag(SHOOTABLE,1)
+		SpawnContinue:
+			//FATB AA 1 BRIGHT A_SpawnItem("YellowFlareSmall",0,0)
+			SPAX A 3 BRIGHT
+			SPAX BC 3 BRIGHT
+			TNT1 A 0 A_SpawnItemEx("OldschoolRocketSmokeTrail2", 0, 0, 0, 0, 0, 0, 0, 128) 
+			TNT1 A 0 A_CustomMissile ("OldschoolRocketSmokeTrail2", 2, 0, random (160, 210), 2, random (-30, 30))
+			TNT1 A 0 A_SeekerMissile (4,8, SMF_LOOK)
+		Loop
+	}
+}
+
+/*
+	Scale 1.4
+	Radius 14
+	Height 12
+	Speed 25
+	Damage 8
+	Projectile
+	-NOBLOCKMAP
+	-ACTIVATEIMPACT
+	-ACTIVATEPCROSS
+	+WINDTHRUST
+	+SEEKERMISSILE
+	DamageType "Marauder"
+	SeeSound "Axe/See"	
+	DeathSound "Axe/Death"
+	States
+	{
+	Spawn:
+		SPAX A 3 BRIGHT
+		SPAX BC 3 BRIGHT
+		TNT1 A 0 A_SeekerMissile (4,8, SMF_LOOK)
+		Loop
+	Death:
+		SPAX DEF 6 BRIGHT
+		Stop
+	}
+}
+*/
+
+Actor MarauderDashTrail
+{
+	+NOINTERACTION
+	+CLIENTSIDEONLY
+	Renderstyle Translucent
+	Alpha 0.5
+	Scale 1
+	States
+	{
+	Spawn:
+		MAUD W 2 A_FadeOut(0.05)
+		Wait
+	}
+}
+
+
+ACTOR MarauderDog
+{
+	Scale 1.25
+	Health 10
+	Speed 20
+	PainChance 0
+	Radius 15
+	Height 35
+	Mass 100
+	RenderStyle Add
+	Monster
+	+NOBLOOD
+	+JUMPDOWN
+	+DONTFALL
+	+NOICEDEATH
+	+DONTHARMSPECIES
+	DamageFactor "Marauder", 0
+	PainChance "Marauder", 0
+	BloodColor "Orange"
+	Obituary "%o was slaughtered by a Marauder"
+	States
+	{
+	Spawn:
+		MDOG AB 10 Bright A_Look
+		Loop
+	See:
+		MDOG AABBCCDD 2 Bright A_Chase
+		Loop
+	Melee:
+		MDOG EF 8 Bright A_FaceTarget
+		MDOG G 8 Bright A_SargAttack
+		Goto See
+	Death:
+		MDOG I -1 A_NoBlocking
+		Stop
+	}
+}
+
+ACTOR DontMeleeAgain : Inventory
+{
+	+UNDROPPABLE
+	Inventory.MaxAmount 1
+}
+
+ACTOR MarauderPuff : BulletPuff
+{
+	DamageType "Marauder"
+}
+
+//Tokens
+Actor SKMarauder: 			Inventory {Inventory.MaxAmount 1}
+Actor MarauderContinue: 	Inventory {Inventory.MaxAmount 1}
