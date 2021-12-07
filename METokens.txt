@@ -123,6 +123,21 @@ Actor PistolZombiemanFatality1 : Inventory
 inventory.maxamount 1
 }
 
+Actor AfritFatality3 : Inventory
+{
+inventory.maxamount 1
+}
+
+Actor CyberPaladinFatality1 : Inventory
+{
+inventory.maxamount 1
+}
+
+Actor HellionFatality : Inventory
+{
+inventory.maxamount 1
+}
+
 Actor RifleZombieManAmmo : Inventory
 {
 inventory.maxamount 30
