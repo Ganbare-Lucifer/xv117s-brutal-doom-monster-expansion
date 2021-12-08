@@ -6259,6 +6259,47 @@ FatalityCyberdemon:
 		MARN A 0 ACS_NamedExecuteAlways("BDStopCamera", 0, 0, 0, 0)//Stop Camera
 		NULL A 0 SetPlayerProperty(0,0,0)
         Goto StandStill
+		
+		FatalityMagCaco:
+		TNT1 A 0 SetPlayerProperty(0,1,0)
+		TNT1 A 0 ACS_NamedExecuteAlways("BDStartCamera", 0, 0, 0, 0)
+		TNT1 A 0 ACS_Execute(acsFatality, 0)
+        //////////////////////////////////////////////////////
+		IN1F ABC 6 A_SetTics(6 / GetCVar("cl_fatalityspeed"))
+		TNT1 A 0 A_PlaySound("misc/xdeath4b", 6)
+		IN1F D 6 A_SetTics(6 / GetCVar("cl_fatalityspeed"))
+		TNT1 A 0 A_PlaySound("monster/infpai", 2)
+		TNT1 AAA 0 A_CustomMissile ("Brutal_FlyingBlood", 40, 8, random (0, 360), 2, random (0, 160))
+		TNT1 AAA 0 A_CustomMissile ("PlayerFlyingBlood", 15, 0, random (0, 360), 2, random (0, 160))
+		IN1F EEEEEFFFFF 1 A_CustomMissile ("Brutal_LiquidBlood2", 40, 8, random (0, 360), 2, random (60, 120))
+		TNT1 A 0 A_PlaySound("misc/xdeath4b", 4)
+		TNT1 AAA 0 A_CustomMissile ("Brutal_FlyingBlood", 40, 8, random (0, 360), 2, random (0, 160))
+		TNT1 AAA 0 A_CustomMissile ("PlayerFlyingBlood", 15, 0, random (0, 360), 2, random (0, 160))
+		IN1F EEEEEFFFFF 1 A_CustomMissile ("Brutal_LiquidBlood2", 40, 8, random (0, 360), 2, random (60, 120))
+		TNT1 A 0 A_PlaySound("misc/xdeath4b", 5)
+		TNT1 AAA 0 A_CustomMissile ("Brutal_FlyingBlood", 40, 8, random (0, 360), 2, random (0, 160))
+		TNT1 AAA 0 A_CustomMissile ("PlayerFlyingBlood", 15, 0, random (0, 360), 2, random (0, 160))
+		IN1F EEEEEFFFFF 1 A_CustomMissile ("Brutal_LiquidBlood2", 40, 8, random (0, 360), 2, random (60, 120))
+		TNT1 A 0 A_PlaySound("misc/xdeath4b", 6)
+		TNT1 AAA 0 A_CustomMissile ("Brutal_FlyingBlood", 40, 8, random (0, 360), 2, random (0, 160))
+		TNT1 AAA 0 A_CustomMissile ("PlayerFlyingBlood", 15, 0, random (0, 360), 2, random (0, 160))
+		XXXX A 0 A_CustomMissile ("ShakeShakeShake", 1, 0, random (0, 360), 2, random (0, 160))
+		IN1F EEEEEFFFFF 1 A_CustomMissile ("Brutal_LiquidBlood2", 40, 8, random (0, 360), 2, random (60, 120))
+		TNT1 A 0 A_PlaySound("EYEPULL", 1)
+		TNT1 AAA 0 A_CustomMissile ("Brutal_FlyingBlood", 40, 8, random (0, 360), 2, random (0, 160))
+		TNT1 AAA 0 A_CustomMissile ("PlayerFlyingBlood", 15, 0, random (0, 360), 2, random (0, 160))
+		TNT1 AA 0 A_CustomMissile ("MuchBlood", 40, 8, random (0, 360), 2, random (0, 160))
+		TNT1 AAAAAA 0 A_CustomMissile ("Brutal_LiquidBlood2", 55, 2, random (0, 360), 2, random (0, 160))
+		IN1F GH 6 A_SetTics(6 / GetCVar("cl_fatalityspeed"))
+		TNT1 A 0 A_PlaySound("misc/xdeath2c")
+		IN1F IIIIIIIIIIIIIIIIII 1 A_CustomMissile ("Brutal_LiquidBlood2", 61, -19, random (0, 360), 2, random (0, 160))
+		TNT1 A 0 A_TakeInventory("MagCacoFatality", 1)
+		TNT1 AAAAAAAAAA 0 A_GiveInventory("HealthBonus",1)
+		TNT1 A 0 A_TakeInventory("GoFatality", 1)
+		TNT1 A 0 A_SpawnItem("FatalizedMagCacoDemon", 5, 1)
+		MARN A 0 ACS_NamedExecuteAlways("BDStopCamera", 0, 0, 0, 0)//Stop Camera
+		NULL A 0 SetPlayerProperty(0,0,0)
+		Goto Standstill		
 
 // end of extra fatalities
 
@@ -7104,6 +7145,11 @@ NULL A 0 A_JumpIfInventory("BloodDemonFatality", 1, "FatalityBloodDemon")
 		TNT1 A 0 A_JumpIfInventory("AfritFatality3", 1, "AfritFatality3")
 		TNT1 A 0 A_JumpIfInventory("CyberPaladinFatality1", 1, "CyberPaladinFatality1")
 		TNT1 A 0 A_JumpIfInventory("HellionFatality", 1, "HellionFatality")
+		TNT1 A 0 A_JumpIfInventory("MagCacoFatality", 1, "MagCacoFatality")
+{
+Inventory.MaxAmount 1
+}
+
 
 // End of new fatality checker
         NULL A 0 A_TakeInventory("GoFatality", 1)
