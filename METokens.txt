@@ -138,6 +138,11 @@ Actor HellionFatality : Inventory
 inventory.maxamount 1
 }
 
+Actor MagCacoFatality : Inventory
+{
+inventory.maxamount 1
+}
+
 Actor RifleZombieManAmmo : Inventory
 {
 inventory.maxamount 30
