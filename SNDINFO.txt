@@ -1,3 +1,47 @@
+//SSG Fat Zombie
+SSGUNER/sight	DSGPOSIT
+SSGUNER/death	DSGPODTH
+SSGUNER/idle	DSGPOACT
+SGFIRE		SGFIRE
+
+//Nukage Blob
+Blob/Sight		DSBLOBSE
+Blob/Up			DSBLOBUP
+Blob/Death		DSBLOBDI
+Blob/Attack		DSBLOBAT
+Blob/Hit		DSBUBHIT
+
+//Marauder
+$random Marauder/See { Marauder/See1 Marauder/See2 Marauder/See3 Marauder/See4 Marauder/See5 Marauder/See6 }
+Marauder/See1 				MARTNT1
+Marauder/See2 				MARTNT2
+Marauder/See3 				MARTNT3
+Marauder/See4 				MARTNT4
+Marauder/See5 				MARTNT5
+Marauder/See6				MARTNT6
+
+$random Marauder/Death { Marauder/Death1 Marauder/Death2 }
+Marauder/Death1				MARDIE1
+Marauder/Death2				MARDIE2
+
+$random Marauder/Pain { Marauder/Pain1 Marauder/Pain2 Marauder/Pain3 }
+Marauder/Pain1				MARPAIN1
+Marauder/Pain2				MARPAIN2
+Marauder/Pain3				MARPAIN3
+
+$random Marauder/Active { Marauder/Active1 Marauder/Active2 Marauder/Active3 Marauder/Active4 Marauder/Active5 Marauder/Active6 }
+Marauder/Active1 			MARTNT1
+Marauder/Active2 			MARTNT2
+Marauder/Active3 			MARTNT3
+Marauder/Active4 			MARTNT4
+Marauder/Active5 			MARTNT5
+Marauder/Active6			MARTNT6
+
+Marauder/Charge				mareyes
+Marauder/Melee				marmelee
+Axe/See						maraxfly
+Axe/Death					maraxhit
+
 //Flesh Wizard
 $random wizard/tele 		{ wizard/dwiztel1  wizard/dwiztel2 }
 wizard/tele1                    dwiztel1
@@ -28,6 +72,32 @@ Hierophant/hiedth	dshiedth
 Hierophant/curse1	dscurse1
 Hierophant/curse2	dscurse2 
 
+//Hellion
+$random monster/hlnsit { HLNSIT1 HLNSIT2 HLNSIT3 }
+HLNSIT1 HLNSIT1
+HLNSIT2 HLNSIT2
+HLNSIT3 HLNSIT3
+
+
+$random monster/hlnact { HLNBRT1 HLNBRT2 HLNBRT3 }
+HLNBRT1 HLNBRT1
+HLNBRT2 HLNBRT2
+HLNBRT3 HLNBRT3
+
+$random monster/hlnpai { HLNPAI1 HLNPAI2 HLNPAI3 }
+HLNPAI1 HLNPAI1
+HLNPAI2 HLNPAI2
+HLNPAI3 HLNPAI3
+
+$random monster/hlndth { HLNDTH1 HLNDTH2 HLNDTH3 HLNDTH4 }
+HLNDTH1 HLNDTH1
+HLNDTH2 HLNDTH2
+HLNDTH3 HLNDTH3
+HLNDTH4 HLNDTH4
+
+monster/hlnphaseout HLNTEL1
+monster/hlnphasein HLNTEL2
+
 //Magma Cacodemon
 monster/infsit               DSINFSIT
 monster/infpai               DSINFPAI
@@ -44,7 +114,7 @@ $random Lavamander/walk { LVMDWLK1 LVMDWLK2 }
 LVMDWLK1 LVMDWLK1
 LVMDWLK2 LVMDWLK2
 
-//Nukeptyle-Carnageptile
+//Nukeptyle
 Nukeptyle/sight NKTLSIT
 Nukeptyle/pain NKTLPAI
 Nukeptyle/death NKTLDTH
@@ -56,11 +126,11 @@ NKTLWLK1 NKTLWLK1
 NKTLWLK2 NKTLWLK2
 
 //Rottweiler
-Dog/Sight		DSDOGSEE
-Dog/Active		DSDOGIDL
-Dog/Pain		DSDOGPAN
-Dog/Attack		DSDOGATK
-Dog/Death		DSDOGDIE
+Dog/Sight		RTWLRSEE
+Dog/Active		RTWLRIDL
+Dog/Pain		RTWLRPAN
+Dog/Attack		RTWLRATK
+Dog/Death		RTWLRDIE
 
 //Rat
 RatSpawn/Sight RATSPAWN
@@ -122,7 +192,15 @@ Paladin/Explode	HPALEXPL
 Paladin/Step	HPALSTEP
 
 //Hell Warrior
-HWarrior/
+HellWarrior/Sight		HWARSIT
+HellWarrior/Active		HWARACT
+HellWarrior/Pain		HWARPAI
+HellWarrior/Death		HWARDTH
+$random HellWarrior/Shield { HWARSHL1 HWARSHL2 }
+HWARSHL1 HWARSHL1
+HWARSHL2 HWARSHL2
+HellWarrior/ShieldBreak	HWARSHBR
+HellWarrior/Lightning	HWARSHLT
 
 //Labgal
 fem/sight FEMZSIT
