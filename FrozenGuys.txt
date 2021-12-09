@@ -2683,3 +2683,68 @@ States
 	Stop
 	}
 }
+
+ACTOR FrozenInfernalCaco: FrozenZombieman
+{
+Radius 31
+Height 56
+Health 25
+  Scale 0.9
+States
+	{
+	Spawn:
+		FZIF A 200
+		FZIF A 2
+		TNT1 A 0 A_PlaySound("ICEBRK1")
+		FZIF A 50
+		FZIF B 2
+		FZIF A 50
+		FZIF B 2
+		FZIF A 50
+		FZIF B 2
+		FZIF A 25
+		FZIF B 2
+		FZIF A 25
+		FZIF B 2
+		FZIF A 10
+		FZIF B 2
+		FZIF A 10
+		FZIF B 2
+		FZIF A 10
+		FZIF BABABA 2
+		Goto Death.Burn
+		Death.Fire:
+		Death.Flames:
+		Death.Burn:
+		TNT1 A 0 A_ChangeFlag("SHOOTABLE", 0)
+	    TNT1 A 0 A_ChangeFlag("SOLID", 0)
+	    TNT1 A 0 A_ChangeFlag("COUNTKILL", 0)
+		TNT1 A 0 A_PlaySound ("DSBOTTLE")
+		TNT1 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA 0 A_CustomMissile ("XIceChunk1", 48, 0, random (0, 360), 2, random (0, 160))
+	    TNT1 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA 0 A_CustomMissile ("XIceChunk2", 48, 0, random (0, 360), 2, random (0, 160))
+	    TNT1 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA 0 A_CustomMissile ("XIceChunk3", 48, 0, random (0, 360), 2, random (40, 120))
+	    TNT1 A 0 A_NoBlocking
+	    TNT1 A 0 A_spawnItem("InfernalCaco")
+	    Stop
+	Death:	
+	TNT1 A 0 A_NoBlocking
+	TNT1 A 0 A_PlaySound ("DSBOTTLE")
+	TNT1 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA 0 A_CustomMissile ("XIceChunk1", 48, 0, random (0, 360), 2, random (0, 160))
+	TNT1 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA 0 A_CustomMissile ("XIceChunk2", 48, 0, random (0, 360), 2, random (0, 160))
+	TNT1 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA 0 A_CustomMissile ("XIceChunk3", 48, 0, random (0, 360), 2, random (40, 120))
+	TNT1 AAA 0 A_CustomMissile ("XIceChunk1", 48, 0, random (0, 360), 2, random (0, 160))
+	TNT1 AA 0 A_CustomMissile ("XIceChunk2", 48, 0, random (0, 360), 2, random (0, 160))
+	TNT1 AA 0 A_CustomMissile ("XIceChunk3", 48, 0, random (0, 360), 2, random (0, 160))
+	TNT1 AAAAA 0 A_CustomMissile ("ExplosionSmoke", 32, 0, random (0, 360), 2, random (0, 160))
+	TNT1 AAAAAAAA 0 A_CustomMissile ("ExplosionSmoke", 48, 0, random (0, 360), 2, random (0, 160))
+	Stop
+	Death.Freeze:
+	Death.Ice:
+	Death.Frost:
+	TNT1 A 0 A_ChangeFlag("SHOOTABLE", 0)
+	TNT1 A 0 A_ChangeFlag("SOLID", 0)
+	TNT1 A 0 A_ChangeFlag("COUNTKILL", 0)
+	TNT1 A 0 A_SpawnItem("FrozenInfernalCaco")
+	Stop
+	}
+}
