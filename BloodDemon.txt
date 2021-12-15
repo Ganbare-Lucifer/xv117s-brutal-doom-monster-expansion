@@ -32,7 +32,7 @@ damagefactor "Blood", 0.0 damagefactor "BlueBlood", 0.0 damagefactor "GreenBlood
     DeathSound "blooddemon/death"
     ActiveSound "blooddemon/active"
     //MeleeSound "blooddemon/melee"
-    HitObituary "%o Was chewed up and spat out by a Blood Demon." 
+    HitObituary "%o Was chewed up and spat out by a Mech Demon." 
 
 BloodType "Brutal_Blood", "SawBlood", "SawBlood"
 	DamageType Eat
