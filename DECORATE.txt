@@ -19,7 +19,6 @@
 #include AracnorbQueenBOSS.txt
 #include AracnorbQueenBOSSBOSS.txt
 #include ASGGuy.txt
-#include BloodDemon.txt
 #include BruiserDemon.txt
 #include CGSPIDER.txt
 #include ChainsawZombie.txt
@@ -39,17 +38,21 @@
 #include DemolisherMini.DEC
 #include Diabloist.txt
 #include Draugr.DEC
+#include FleshSpawn.txt
+#include FleshWizard.dec
 #include Hellion.txt
 //#include IceVile.DEC   NOT WORKING AT ALL
 #include Imp3.txt
 #include Impureelemental.txt
 #include Incarnate.txt
+#include InfernalCaco.txt
 #include LabGAL.txt
 #include LabGUYB.txt
 #include LabGUYP.txt
 #include Major.txt
-//#include Meandemon.DEC
 #include Marauder.txt
+//#include MaulerFiend.DEC
+#include MechDemon.txt
 #include MinigunGuy.txt
 #include Overlord.DEC
 #include Phantasm.DEC
@@ -61,11 +64,13 @@
 #include RifleCommando.txt
 #include RiotSergeant.txt
 #include RocketGuy.txt
+#include SavageImp.dec
 #include SniperRifleGuy.txt
 #include SufferingElemental.DEC
 #include SuperDemon.txt
 #include SuperImp.txt
 #include SuperShotgunZombie.txt
+//#include SSGFatZombie.DEC
 #include Terminator.txt
 #include Thamuz.txt
 #include Thamuzboss.txt
