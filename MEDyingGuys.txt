@@ -1782,3 +1782,230 @@ Death.Blast:
 
 	}
 }
+
+ACTOR BrutalizedMarauder1
+{
+	Game Doom
+	Radius 16
+	Height 50
+	Health 50
+	damagefactor "Blood", 0.0 damagefactor "BlueBlood", 0.0 damagefactor "GreenBlood", 0.0
+    damagefactor "Avoid", 0.0
+	damagefactor "Shrapnel", 0.0
+	damagefactor "KillMe", 0.0
+	PainSound "grunt/pain"
+	Mass 999999
+	-SOLID
+	+SHOOTABLE
+	+FLOORCLIP
+	+DONTSPLASH
+	-COUNTKILL
+	Scale 1.0
+	States
+	{
+	Spawn:
+		//M4UD JJJJJJJJJJ 10 A_SpawnItem ("DripingBlood", 0, 23)
+		M4UD JJTTJJTTJJ 10 A_SpawnItem ("DripingBlood", 0, 23)
+		M4UD K 6
+		TNT1 A 0 A_SpawnItem ("BrutalizedDeadMarauder")
+		Stop
+	
+	Pain:
+		M4UD J 1 A_Pain
+		Goto Spawn
+
+	Death:
+		TNT1 A 0 A_CustomMissile ("MuchBlood", 1, 0, random (0, 360), 2, random (0, 160))
+		TNT1 A 0 A_CustomMissile ("XDeathMarauderArm", 45, 0, random (0, 360), 2, random (0, 160))
+		TNT1 A 0 A_CustomMissile ("XDeath1", 45, 0, random (0, 360), 2, random (0, 160))
+		TNT1 A 0 A_PlaySound("Marauderguy/death")
+		TNT1 A 0 A_SpawnItem ("BrutalizedMarauder2")
+		Stop
+	}
+}
+
+ACTOR BrutalizedMarauder2: BrutalizedMarauder1
+{
+	States
+	{
+	Spawn:
+		//M4UD MMM 10 A_SpawnItem ("DripingBlood", 0, 23)
+		M4UD MMN 10 A_SpawnItem ("DripingBlood", 0, 23)
+		//M4UD NNNNN 10 A_SpawnItem ("DripingBlood", 0, 23)
+		M4UD NMMNN 10 A_SpawnItem ("DripingBlood", 0, 23)
+		M4UD O 5
+		TNT1 A 0 A_SpawnItem ("BrutalizedDeadMarauder")
+		Stop
+	
+	Pain:
+		M4UD M 5 A_Pain
+		Goto Spawn
+
+	Death:
+		TNT1 AAAA 0 A_CustomMissile ("Brains1", 50, 0, random (0, 360), 2, random (0, 160))
+		TNT1 A 0 A_CustomMissile ("Brains3", 50, 0, random (0, 360), 2, random (0, 160))
+		TNT1 A 0 A_CustomMissile ("Brains6", 50, 0, random (0, 360), 2, random (0, 160))
+		TNT1 A 0 A_CustomMissile ("Brains7", 50, 0, random (0, 360), 2, random (0, 160))
+        TNT1 AAAAAA 0 A_CustomMissile ("BrainBlood", 50, 0, random (0, 360), 2, random (0, 160))
+		TNT1 AAAA 0 A_CustomMissile ("SmallBrainPiece", random (45, 55), random (5, -5), random (170, 190), 2, random (0, 40))
+		TNT1 AAAA 0 A_CustomMissile ("SmallBrainPiece", 50, 0, random (0, 360), 2, random (0, 160))
+		TNT1 AA 0 A_CustomMissile ("SuperWallRedBlood", 46, 0, random (170, 190), 2, random (0, 40))
+		TNT1 AA 0 A_CustomMissile ("XDeath1", 45, 0, random (0, 360), 2, random (0, 160))
+		TNT1 A 0 A_SpawnItem ("BrutalizedMarauder3")
+		Stop
+	}
+}
+
+ACTOR BrutalizedMarauder3: BrutalizedMarauder1
+{
+	States
+	{
+	Spawn:
+		M4UD P 5
+		M4UD QQQQQQQQQQ 10 A_SpawnItem ("Blood", 0, 43)
+		M4UD R 5
+		TNT1 A 0 A_SpawnItem ("SuperBrutalizedDeadMarauder")
+		Stop
+	
+	Pain:
+		M4UD P 5 A_Pain
+		Goto Spawn
+
+	Death:
+		TNT1 A 0 A_SpawnItem ("HealthPlusFatalityBonus")
+		TNT1 AA 0 A_CustomMissile ("XDeath1", 45, 0, random (0, 360), 2, random (0, 160))
+		TNT1 A 0 A_CustomMissile ("XDeath2", 45, 0, random (0, 360), 2, random (0, 160))
+		TNT1 A 0 A_CustomMissile ("XDeath3", 45, 0, random (0, 360), 2, random (0, 160))
+		M4UD S 1
+		TNT1 A 0 A_SpawnItem ("BrutalizedMarauderLegs")
+		Stop
+	}
+}
+
+ACTOR BrutalizedMarauderBlasted: BrutalizedMarauder3
+{
+	+NOPAIN
+	States
+	{
+	Spawn:
+		M4BM AAAA 6 A_CustomMissile ("Brutal_LiquidBlood2", 64, 0, random (0, 360), 2, random (30, 60))
+		M4BM BBBBCCCC 2 A_CustomMissile ("Brutal_LiquidBlood2", 34, 0, random (0, 60), 2, random (30, 60))
+		TNT1 A 0 A_SpawnItem ("GrowingBloodPool")
+		M4BM DDDDDDDDDDDDDDDDDDDDD 6 A_CustomMissile ("Brutal_LiquidBlood2", 16, 0, random (0, 60), 2, random (30, 60))
+        TNT1 A 0 A_SpawnItem("DeadMarauderMPSDD")
+		TNT1 A 0 A_Noblocking
+		TNT1 A -1
+        Stop
+	Death:
+		TNT1 A 0 A_SpawnItem ("HealthPlusFatalityBonus")
+		TNT1 AA 0 A_CustomMissile ("XDeath1", 45, 0, random (0, 360), 2, random (0, 160))
+		TNT1 A 0 A_CustomMissile ("XDeath2", 45, 0, random (0, 360), 2, random (0, 160))
+		TNT1 A 0 A_CustomMissile ("XDeath3", 45, 0, random (0, 360), 2, random (0, 160))
+		//M4UD S 1
+		TNT1 A 0 A_SpawnItem ("BrutalizedMarauderLegs")
+		Stop		
+	}
+}
+
+ACTOR BrutalizedMarauderLostHead: BrutalizedMarauder1
+{
+	+NOPAIN
+	hEALTH 100
+	States
+	{
+	Spawn:
+		M4HS BBB 2 A_CustomMissile ("Brutal_LiquidBlood2", 50, 0, random (0, 360), 2, random (60, 120))
+		TNT1 A 0 A_XScream
+		M4HS CCCCCCCCCCCCCCC 2 A_CustomMissile ("Brutal_LiquidBlood2", 40, 0, random (0, 360), 2, random (60, 120))
+		TNT1 A 0 A_NoBlocking
+		M4HS DDDEEE 2 A_CustomMissile ("Brutal_LiquidBlood2", 30, 0, random (0, 360), 2, random (60, 120))
+		TNT1 A 0 A_SpawnItem ("GrowingBloodPool")
+		M4HS FFFFFFFFFFFFFFF 2 A_CustomMissile ("Brutal_LiquidBlood2", 5, 0, random (0, 360), 2, random (10, 40))
+ 		TNT1 A 1 A_SpawnItem ("DeadMarauder_NoHeadExploded", 3)
+        Stop
+	Death:
+		TNT1 A 0 A_CustomMissile ("XDeath2", 32, 0, random (0, 360), 2, random (0, 90))
+		TNT1 A 0 A_CustomMissile ("XDeath3", 32, 0, random (0, 360), 2, random (0, 90))
+		TNT1 AAA 0 A_CustomMissile ("Brutal_FlyingBlood", 32, 0, random (0, 360), 2, random (0, 40))
+		TNT1 AA 0 A_CustomMissile ("Brutal_FlyingBloodFaster", 32, 0, random (0, 360), 2, random (0, 40))
+		TNT1 AA 0 A_CustomMissile ("Brutal_FlyingBloodMuchFaster", 32, 0, random (0, 360), 2, random (0, 40))
+		TNT1 AAA 0 A_CustomMissile ("Guts", 32, 0, random (0, 360), 2, random (0, 40))
+		TNT1 AAA 0 A_CustomMissile ("BloodMistBig", 40, 0, random (0, 360), 2, random (0, 90))
+		TNT1 A 0 A_CustomMissile ("XDeathMarauderArm", 62, 0, random (0, 360), 2, random (0, 160))
+		TNT1 A 0 A_NoBlocking
+        TNT1 A 0 A_SpawnItem("BrutalizedMarauderBlasted")
+		TNT1 A -1
+        Stop
+		
+	}
+}
+
+ACTOR BrutalizedMarauderLostHead2: BrutalizedMarauderLostHead
+{
+	+NOPAIN
+	hEALTH 100
+	States
+	{
+	Spawn:
+		MAHD BBB 2 A_CustomMissile ("Brutal_LiquidBlood2", 50, 0, random (0, 360), 2, random (60, 120))
+		TNT1 A 0 A_XScream
+		MAHD CCCCCCCCCCCCCCCCCCC 2 A_CustomMissile ("Brutal_LiquidBlood2", 40, 0, random (0, 360), 2, random (60, 120))
+		TNT1 A 0 A_NoBlocking
+		MAHD DDDEEE 2 A_CustomMissile ("Brutal_LiquidBlood2", 30, 0, random (0, 360), 2, random (60, 120))
+		TNT1 A 0 A_SpawnItem ("GrowingBloodPool")
+		MAHD FFFFFFFFFFFFFFF 2 A_CustomMissile ("Brutal_LiquidBlood2", 5, 0, random (0, 360), 2, random (10, 40))
+		TNT1 A 1 A_SpawnItem ("DeadMarauder_NoHead", 3)
+        Stop
+	}
+}
+
+ACTOR PoorMaulerFiendLostHisArm: MaulerFiend
+{
+	Health 110
+	+NOPAIN
+	-COUNTKILL
+	+SHOOTABLE
+	States
+	{
+	Spawn:
+	    S4AR J 1
+		TNT1 A 0 A_Pain
+		S4AR JJJJJJJJ 4 A_CustomMissile ("NashgoreBlood", 42, 0, random (0, 360), 2, random (0, 45))
+		TNT1 A 0 A_Pain
+		S4AR JJJJJJJJ 4 A_CustomMissile ("NashgoreBlood", 42, 0, random (0, 360), 2, random (0, 45))
+		TNT1 A 0 A_Pain
+		S4AR JJJ 4 A_CustomMissile ("NashgoreBlood", 42, 0, random (0, 360), 2, random (0, 45))
+		Goto Colapse
+		
+	Death.Shotgun:
+	Death.Cutless:
+	Death:
+	TNT1 A 0
+		TNT1 A 0 A_FaceTarget
+		TNT1 A 0 A_SpawnItem("BloodSplasher2")
+		 TNT1 AA 0 A_CustomMissile ("XDeathBrain1", 60, 0, random (0, 360), 2, random (0, 160))
+		 TNT1 AA 0 A_CustomMissile ("XDeathBrain2", 60, 0, random (0, 360), 2, random (0, 160))
+		 TNT1 AA 0 A_CustomMissile ("XDeath3", random (45, 55), random (5, -5), random (160, 200), 2, random (-10, 10))
+		 TNT1 AA 0 A_CustomMissile ("XDeath2", random (45, 55), random (5, -5), random (160, 200), 2, random (-10, 10))
+        TNT1 A 0 A_CustomMissile ("MuchBlood", 60, 0, random (0, 360), 2, random (0, 160))
+		TNT1 A 0 A_CustomMissile ("BaronHeadPiece", 52, 0, random (0, 360), 2, random (0, 160))
+		//TNT1 A 0 A_CustomMissile ("PinkyJaw", 52, 0, random (0, 360), 2, random (0, 160))
+		TNT1 AAAAA 0 A_CustomMissile ("PB_SmallBrainPieceFast", random (45, 55), random (5, -5), random (170, 190), 2, random (-10, 10))
+		S4AR GGGGGGG 2 A_CustomMissile ("PB_SquirtingBloodTrail", 40, 0, random (0, 360), 2, random (30, 110))
+		TNT1 A 0 A_NoBlocking
+		TNT1 A 0 A_SpawnItem ("CrueltyBonus5Health")
+		S4AR HHHHHHHHH 2 A_CustomMissile ("NashgoreBlood", 30, 0, random (0, 360), 2, random (30, 110))
+		TNT1 A 0 A_SpawnItem ("GrowingBloodPool")
+		S4AR IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII 2 A_CustomMissile ("PB_SquirtingBloodTrail", 20, 0, random (0, 360), 2, random (30, 110))
+		S4AR I -1
+        Stop
+		
+	
+	Colapse:
+	    TNT1 A 0 A_Scream
+		TNT1 A 0 A_NoBlocking
+	    S4AR BCDEF 5
+		TNT1 A 0 A_SpawnItem ("DeadMaulerFiendNoArm", 5)
+		Stop
+	}
+}
