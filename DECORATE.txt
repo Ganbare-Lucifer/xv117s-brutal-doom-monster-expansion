@@ -93,3 +93,1035 @@
 #include BZombieCivilianShield.txt
 #include FZombieCivilianShield.txt
 #include DarkImpShield.txt
+
+// =============================================================================
+//
+// XV117 Monster Expansion 1.3.0 Edited TPR (3x more spawns)
+//
+// Random Spawner MIXES ENEMY TYPES 
+//
+// =============================================================================
+
+Actor ZombiemanSpawner : BasicWeaponPickup Replaces Zombieman
+{
+States
+    {
+	 Spawn:
+		TNT1 A 0
+		TNT1 A 1
+	TNT1 A 0 A_Jump(50, "LabSpawner")
+     TNT1 A 0 A_Jump(7, "LabGuyP")	
+	TNT1 A 0 A_Jump(6, "Plasma")
+		TNT1 A 0 A_Jump(6, "MinigunGuy")
+		TNT1 A 0 A_Jump(12, "SharpShooter")
+
+	
+
+	RifleZombie:
+		TNT1 A 0 A_ChangeFlag("THRUACTORS", 1)
+		TNT1 A 0 A_ChangeFlag("COUNTKILL", 0)
+		TNT1 A 0 A_SpawnItemEx ("RifleZombie",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION | SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS ,0, tid)
+		Stop
+
+
+
+
+
+	RifleZombie:
+		TNT1 A 0 A_ChangeFlag("THRUACTORS", 1)
+		TNT1 A 0 A_ChangeFlag("COUNTKILL", 0)
+		TNT1 A 0 A_SpawnItemEx ("RifleZombie",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION | SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS ,0, tid)
+		Stop
+		
+
+
+	LabSpawner:
+		TNT1 A 0
+		TNT1 A 1
+		TNT1 A 0 A_Jump(112, "LabGAL")
+		TNT1 A 0 A_Jump(100, "ChainsawZombie") //32
+		TNT1 A 0 A_Jump(128, "LabGuy") //32
+		TNT1 A 0 A_Jump(228, "LabGuyB") 
+TNT1 A 0 A_Jump(255, "LabGuyP")
+
+	ChainsawZombie:
+		TNT1 A 0 A_ChangeFlag("THRUACTORS", 1)
+		TNT1 A 0 A_ChangeFlag("COUNTKILL", 0)
+		TNT1 A 0 A_SpawnItemEx ("ChainsawZombie",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION | SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS ,0, tid)
+		Stop
+
+LabGAL:
+		TNT1 A 0 A_ChangeFlag("THRUACTORS", 1)
+		TNT1 A 0 A_ChangeFlag("COUNTKILL", 0)
+		TNT1 A 0 A_SpawnItemEx ("LabGAL",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION | SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS ,0, tid)
+		Stop
+		
+
+LabGuy:
+		TNT1 A 0 A_ChangeFlag("THRUACTORS", 1)
+		TNT1 A 0 A_ChangeFlag("COUNTKILL", 0)
+		TNT1 A 0 A_SpawnItemEx ("LabGuy",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION | SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS ,0, tid)
+		Stop
+
+LabGuyB:
+		TNT1 A 0 A_ChangeFlag("THRUACTORS", 1)
+		TNT1 A 0 A_ChangeFlag("COUNTKILL", 0)
+		TNT1 A 0 A_SpawnItemEx ("LabGuyB",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION | SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS ,0, tid)
+		Stop
+LabGuyP:
+		TNT1 A 0 A_ChangeFlag("THRUACTORS", 1)
+		TNT1 A 0 A_ChangeFlag("COUNTKILL", 0)
+		TNT1 A 0 A_SpawnItemEx ("LabGuyP",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION | SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS ,0, tid)
+		Stop
+
+
+	SharpShooter:
+		TNT1 A 0 A_ChangeFlag("THRUACTORS", 1)
+		TNT1 A 0 A_ChangeFlag("COUNTKILL", 0)
+		TNT1 A 0 A_SpawnItemEx ("SniperRifleGuy",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION | SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS ,0, tid)
+		Stop
+	MinigunGuy:
+		TNT1 A 0 A_ChangeFlag("THRUACTORS", 1)
+		TNT1 A 0 A_ChangeFlag("COUNTKILL", 0)
+		TNT1 A 0 A_SpawnItemEx ("MinigunGuy",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION | SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS ,0, tid)
+		Stop
+	Plasma:
+		TNT1 A 0 A_ChangeFlag("THRUACTORS", 1)
+		TNT1 A 0 A_ChangeFlag("COUNTKILL", 0)
+		TNT1 A 0 A_SpawnItemEx ("PlasmaZombie",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION | SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS ,0, tid)
+		Stop
+		}
+}
+
+
+
+
+
+Actor SergeantSpawner : BasicWeaponPickup Replaces ShotgunGuy
+{
+States
+    {
+	 Spawn:
+		TNT1 A 0
+		TNT1 A 1
+		TNT1 A 0 A_Jump(26, "SShotgunSpawner") 
+		TNT1 A 0 A_Jump(26, "RiotShieldGuy")
+		TNT1 A 0 A_Jump(6, "EliteSergeant")
+		TNT1 A 0 A_Jump(6, "PyroSergeant")
+		TNT1 A 0 A_Jump(6, "RocketGuy")
+	TNT1 A 0 A_Jump(8, "LabSpawner")
+TNT1 A 0 A_Jump(10, "LabGuyP")		
+TNT1 A 0 A_Jump(2, "Evilmarine")
+TNT1 A 0 A_Jump(1, "EvilmarineLasgun")		
+
+	ShotgunGuy1:
+		TNT1 A 0 A_ChangeFlag("THRUACTORS", 1)
+		TNT1 A 0 A_ChangeFlag("COUNTKILL", 0)
+		TNT1 A 0 A_SpawnItemEx ("ShotgunGuy1",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION | SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS ,0, tid)
+		Stop	
+
+EvilMarine:
+		TNT1 A 0 A_ChangeFlag("THRUACTORS", 1)
+		TNT1 A 0 A_ChangeFlag("COUNTKILL", 0)
+		TNT1 A 0 A_SpawnItemEx ("EvilMarine",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION | SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS ,0, tid)
+		Stop
+
+
+EvilMarineLasgun:
+		TNT1 A 0 A_ChangeFlag("THRUACTORS", 1)
+		TNT1 A 0 A_ChangeFlag("COUNTKILL", 0)
+		TNT1 A 0 A_SpawnItemEx ("EvilMarineLasgun",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION | SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS ,0, tid)
+		Stop
+
+
+	RiotShieldGuy:
+		TNT1 A 0 A_ChangeFlag("THRUACTORS", 1)
+		TNT1 A 0 A_ChangeFlag("COUNTKILL", 0)
+		TNT1 A 0 A_SpawnItemEx ("RiotShieldGuy",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION | SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS ,0, tid)
+		Stop
+
+	RocketGuy:
+		TNT1 A 0 A_ChangeFlag("THRUACTORS", 1)
+		TNT1 A 0 A_ChangeFlag("COUNTKILL", 0)
+		TNT1 A 0 A_SpawnItemEx ("RocketGuy",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION | SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS ,0, tid)
+		Stop
+	PyroSergeant:
+		TNT1 A 0 A_JumpIf((CeilingZ - Height) < 8, "Spawn")
+		TNT1 A 0 A_ChangeFlag("THRUACTORS", 1)
+		TNT1 A 0 A_ChangeFlag("COUNTKILL", 0)
+		TNT1 A 0 A_SpawnItemEx ("PyroSergeant",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION | SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS ,0, tid)
+		Stop
+		
+	SShotgunSpawner:
+		TNT1 A 0
+		TNT1 A 1
+		TNT1 A 0 A_Jump(14, "QuadShotgunZombie") //8
+		TNT1 A 0 A_Jump(178, "SuperShotgunZombie")
+	
+	EliteSergeant:
+		TNT1 A 0 A_ChangeFlag("THRUACTORS", 1)
+		TNT1 A 0 A_ChangeFlag("COUNTKILL", 0)
+		TNT1 A 0 A_SpawnItemEx ("ASGGuy",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION | SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS ,0, tid)
+		Stop
+
+	SuperShotgunZombie:
+		TNT1 A 0 A_ChangeFlag("THRUACTORS", 1)
+		TNT1 A 0 A_ChangeFlag("COUNTKILL", 0)
+		TNT1 A 0 A_SpawnItemEx ("SuperShotgunZombie",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION | SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS ,0, tid)
+		Stop
+	QuadShotgunZombie:
+		TNT1 A 0 A_ChangeFlag("THRUACTORS", 1)
+		TNT1 A 0 A_ChangeFlag("COUNTKILL", 0)
+		TNT1 A 0 A_SpawnItemEx ("QuadShotgunZombie",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION | SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS ,0, tid)
+		Stop
+		
+
+
+
+LabSpawner:
+		TNT1 A 0
+		TNT1 A 1
+		TNT1 A 0 A_Jump(116, "LabGAL")
+		TNT1 A 0 A_Jump(100, "ChainsawZombie") //32
+		TNT1 A 0 A_Jump(128, "LabGuy") //32
+		TNT1 A 0 A_Jump(246, "LabGuyB") 
+
+
+	ChainsawZombie:
+		TNT1 A 0 A_ChangeFlag("THRUACTORS", 1)
+		TNT1 A 0 A_ChangeFlag("COUNTKILL", 0)
+		TNT1 A 0 A_SpawnItemEx ("ChainsawZombie",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION | SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS ,0, tid)
+		Stop
+
+LabGAL:
+		TNT1 A 0 A_ChangeFlag("THRUACTORS", 1)
+		TNT1 A 0 A_ChangeFlag("COUNTKILL", 0)
+		TNT1 A 0 A_SpawnItemEx ("LabGAL",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION | SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS ,0, tid)
+		Stop
+		
+
+LabGuy:
+		TNT1 A 0 A_ChangeFlag("THRUACTORS", 1)
+		TNT1 A 0 A_ChangeFlag("COUNTKILL", 0)
+		TNT1 A 0 A_SpawnItemEx ("LabGuy",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION | SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS ,0, tid)
+		Stop
+
+LabGuyB:
+		TNT1 A 0 A_ChangeFlag("THRUACTORS", 1)
+		TNT1 A 0 A_ChangeFlag("COUNTKILL", 0)
+		TNT1 A 0 A_SpawnItemEx ("LabGuyB",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION | SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS ,0, tid)
+		Stop
+
+LabGuyP:
+		TNT1 A 0 A_ChangeFlag("THRUACTORS", 1)
+		TNT1 A 0 A_ChangeFlag("COUNTKILL", 0)
+		TNT1 A 0 A_SpawnItemEx ("LabGuyP",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION | SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS ,0, tid)
+		Stop
+
+
+	}
+}
+
+Actor ImpSpawner : BasicWeaponPickup Replaces DoomImp
+{
+States
+    {
+	 Spawn:
+		TNT1 A 0
+		TNT1 A 1
+		TNT1 A 0 A_Jump(32, "Imp3")
+		TNT1 A 0 A_Jump(30, "SuperImp")
+		TNT1 A 0 A_Jump(16, "NetherDarkImp")
+		TNT1 A 0 A_Jump(16, "VoidDarkImp")
+		TNT1 A 0 A_Jump(16, "NamiDarkImp")
+		TNT1 A 0 A_Jump(2, "CommonDarkImp")
+		TNT1 A 0 A_Jump(30, "SavageImp")
+		//TNT1 A 0 A_Jump(3, "RevenantSpawner")
+		
+
+
+	CommonImp:
+		TNT1 A 0 A_ChangeFlag("THRUACTORS", 1)
+		TNT1 A 0 A_ChangeFlag("COUNTKILL", 0)
+		TNT1 A 0 A_SpawnItemEx ("Imp",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION | SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS ,0, tid)
+		Stop
+
+SuperImp:
+		TNT1 A 0 A_ChangeFlag("THRUACTORS", 1)
+		TNT1 A 0 A_ChangeFlag("COUNTKILL", 0)
+		TNT1 A 0 A_SpawnItemEx ("SuperImp",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION | SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS ,0, tid)
+		Stop
+
+Imp3:
+		TNT1 A 0 A_ChangeFlag("THRUACTORS", 1)
+		TNT1 A 0 A_ChangeFlag("COUNTKILL", 0)
+		TNT1 A 0 A_SpawnItemEx ("Imp3",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION | SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS ,0, tid)
+		Stop
+
+	CommonDarkImp:
+		TNT1 A 0 A_ChangeFlag("THRUACTORS", 1)
+		TNT1 A 0 A_ChangeFlag("COUNTKILL", 0)
+		TNT1 A 0 A_SpawnItemEx ("DarkImp",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION | SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS ,0, tid)
+		Stop	
+	NamiDarkImp:
+		TNT1 A 0 A_ChangeFlag("THRUACTORS", 1)
+		TNT1 A 0 A_ChangeFlag("COUNTKILL", 0)
+		TNT1 A 0 A_SpawnItemEx ("NamiDarkImp",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION | SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS ,0, tid)
+		Stop
+	VoidDarkImp:
+		TNT1 A 0 A_ChangeFlag("THRUACTORS", 1)
+		TNT1 A 0 A_ChangeFlag("COUNTKILL", 0)
+		TNT1 A 0 A_SpawnItemEx ("VoidDarkImp",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION | SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS ,0, tid)
+		Stop
+	NetherDarkImp:
+		TNT1 A 0 A_ChangeFlag("THRUACTORS", 1)
+		TNT1 A 0 A_ChangeFlag("COUNTKILL", 0)
+		TNT1 A 0 A_SpawnItemEx ("NetherDarkImp",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION | SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS ,0, tid)
+		Stop
+		
+	SavageImp:
+		TNT1 A 0 A_ChangeFlag("THRUACTORS", 1)
+		TNT1 A 0 A_ChangeFlag("COUNTKILL", 0)
+		TNT1 A 0 A_SpawnItemEx ("SavageImp",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION | SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS ,0, tid)
+		Stop
+
+RevenantSpawner:
+		TNT1 A 0
+		TNT1 A 1
+		TNT1 A 0 A_Jump(96, "Draugr") // Unmaker
+		TNT1 A 0 A_Jump(8, "Slendy") // Son of Slenderman
+
+	Revenant:
+		TNT1 A 0 A_ChangeFlag("THRUACTORS", 1)
+		TNT1 A 0 A_ChangeFlag("COUNTKILL", 0)
+		TNT1 A 0 A_SpawnItemEx ("Revenant1",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION | SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS ,0, tid)
+		Stop		
+
+	Draugr:
+		TNT1 A 0 A_ChangeFlag("THRUACTORS", 1)
+		TNT1 A 0 A_ChangeFlag("COUNTKILL", 0)
+		TNT1 A 0 A_SpawnItemEx ("Draugr",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION | SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS ,0, tid)
+		Stop	
+
+	Slendy:
+		TNT1 A 0 A_ChangeFlag("THRUACTORS", 1)
+		TNT1 A 0 A_ChangeFlag("COUNTKILL", 0)
+		TNT1 A 0 A_SpawnItemEx ("Incarnate",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION | SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS ,0, tid)
+		Stop	
+		}
+}
+
+
+Actor CacodemonSpawner : BasicWeaponPickup Replaces Cacodemon
+{
+States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 1
+		TNT1 A 0 A_Jump(6, "AracnorbQueen")
+		TNT1 A 0 A_Jump(12, "Overlord")
+		TNT1 A 0 A_Jump(21, "ImpureElemental")
+		TNT1 A 0 A_Jump(132, "Afrit")
+		TNT1 A 0 A_Jump(21, "InfernalCaco")
+	//	TNT1 A 0 A_Jump(25, "PainElementalSpawner")
+		TNT1 A 0 A_Jump(254, "Cacodemon")
+		
+
+		
+	Cacodemon:
+		TNT1 A 0 A_ChangeFlag("THRUACTORS", 1)
+		TNT1 A 0 A_ChangeFlag("COUNTKILL", 0)
+		TNT1 A 0 A_SpawnItemEx ("Cacodemon_",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION | SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS ,0, tid)
+		Stop
+		
+	Afrit:
+		TNT1 A 0 A_ChangeFlag("THRUACTORS", 1)
+		TNT1 A 0 A_ChangeFlag("COUNTKILL", 0)
+		TNT1 A 0 A_SpawnItemEx ("InfernalCaco",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION | SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS ,0, tid)
+		Stop
+
+	ImpureElemental:
+		TNT1 A 0 A_ChangeFlag("THRUACTORS", 1)
+		TNT1 A 0 A_ChangeFlag("COUNTKILL", 0)
+		TNT1 A 0 A_SpawnItemEx ("ImpureElemental",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION | SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS ,0, tid)
+		Stop
+		
+	InfernalCaco:
+		TNT1 A 0 A_ChangeFlag("THRUACTORS", 1)
+		TNT1 A 0 A_ChangeFlag("COUNTKILL", 0)
+		TNT1 A 0 A_SpawnItemEx ("InfernalCaco",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION | SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS ,0, tid)
+		Stop
+
+	AracnorbQueen:
+		TNT1 A 0 A_JumpIf((CeilingZ - Height) < 14, "Cacodemon")
+		TNT1 A 0 A_ChangeFlag("THRUACTORS", 1)
+		TNT1 A 0 A_ChangeFlag("COUNTKILL", 0)
+		TNT1 A 0 A_SpawnItemEx ("AracnorbQueen",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION | SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS ,0, tid)
+		Stop
+
+Overlord:
+		TNT1 A 0 A_JumpIf((CeilingZ - Height) < 18, "Cacodemon")
+		TNT1 A 0 A_ChangeFlag("THRUACTORS", 1)
+		TNT1 A 0 A_ChangeFlag("COUNTKILL", 0)
+		TNT1 A 0 A_SpawnItemEx ("Overlord",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION | SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS ,0, tid)
+		Stop
+
+//Motherdemon:
+//		TNT1 A 0 A_JumpIf((CeilingZ - Height) < 14, //"Cacodemon")
+//		TNT1 A 0 A_ChangeFlag("THRUACTORS", 1)
+//		TNT1 A 0 A_ChangeFlag("COUNTKILL", 0)
+//		TNT1 A 0 A_SpawnItemEx //("Motherdemon",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION | //SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS ,0, tid)
+//		Stop
+
+
+
+PainelementalSpawner:
+		TNT1 A 0
+		TNT1 A 1
+		TNT1 A 0 A_Jump(88, "SufferingElemental")
+
+	PainElemental1:
+		TNT1 A 0 A_ChangeFlag("THRUACTORS", 1)
+		TNT1 A 0 A_ChangeFlag("COUNTKILL", 0)
+		TNT1 A 0 A_SpawnItemEx ("PainElemental1",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION | SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS ,0, tid)
+		Stop
+		
+	SufferingElemental:
+		TNT1 A 0 A_ChangeFlag("THRUACTORS", 1)
+		TNT1 A 0 A_ChangeFlag("COUNTKILL", 0)
+		TNT1 A 0 A_SpawnItemEx ("SufferingElemental",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION | SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS ,0, tid)
+		Stop
+
+
+	}
+}
+
+Actor BaronSpawner : BasicWeaponPickup Replaces BaronofHell
+{
+States
+    {
+	 Spawn:
+		TNT1 A 0
+		TNT1 A 1
+		TNT1 A 0 A_Jump(6, "Terminator")
+		TNT1 A 0 A_Jump(8, "Marauder")
+		TNT1 A 0 A_Jump(16, "Bruiser")
+		TNT1 A 0 A_Jump(18, "CyberPaladin")
+		TNT1 A 0 A_Jump(22, "CyberBaron")
+		TNT1 A 0 A_Jump(8, "PyroDemon") // Pyro Demon Preset
+TNT1 A 0 A_Jump(1, "MiniMastermind")
+	TNT1 A 0 A_Jump(1, "MiniMastermindx")
+	
+
+	BaronofHell:
+		TNT1 A 0 A_ChangeFlag("THRUACTORS", 1)
+		TNT1 A 0 A_ChangeFlag("COUNTKILL", 0)
+		TNT1 A 0 A_SpawnItemEx ("BaronofHell2",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION | SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS ,0, tid)
+		Stop
+		
+	CyberPaladin:
+		TNT1 A 0 A_ChangeFlag("THRUACTORS", 1)
+		TNT1 A 0 A_ChangeFlag("COUNTKILL", 0)
+		TNT1 A 0 A_SpawnItemEx ("CyberPaladin",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION | SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS ,0, tid)
+		Stop
+		
+	CyberBaron:
+		TNT1 A 0 A_ChangeFlag("THRUACTORS", 1)
+		TNT1 A 0 A_ChangeFlag("COUNTKILL", 0)
+		TNT1 A 0 A_SpawnItemEx ("CyberBaron",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION | SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS ,0, tid)
+		Stop
+		
+	Bruiser:
+		TNT1 A 0 A_JumpIf((CeilingZ - Height) < 21, "Spawn")
+		TNT1 A 0 A_ChangeFlag("THRUACTORS", 1)
+		TNT1 A 0 A_ChangeFlag("COUNTKILL", 0)
+		TNT1 A 0 A_SpawnItemEx ("BruiserDemon",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION | SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS ,0, tid)
+		Stop
+	Terminator:
+		TNT1 A 0 A_JumpIf((CeilingZ - Height) < 19, "Spawn")
+		TNT1 A 0 A_ChangeFlag("THRUACTORS", 1)
+		TNT1 A 0 A_ChangeFlag("COUNTKILL", 0)
+		TNT1 A 0 A_SpawnItemEx ("TerminatorDemon",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION | SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS ,0, tid)
+		Stop
+	Marauder:
+		TNT1 A 0 A_JumpIf((CeilingZ - Height) < 19, "Spawn")
+		TNT1 A 0 A_ChangeFlag("THRUACTORS", 1)
+		TNT1 A 0 A_ChangeFlag("COUNTKILL", 0)
+		TNT1 A 0 A_SpawnItemEx ("Marauder",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION | SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS ,0, tid)
+		Stop
+PyroDemon:
+		TNT1 A 0 A_ChangeFlag("THRUACTORS", 1)
+		TNT1 A 0 A_ChangeFlag("COUNTKILL", 0)
+		TNT1 A 0 A_SpawnItemEx ("PyroDemon",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION | SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS ,0, tid)
+		Stop
+
+Minimastermind:
+		TNT1 A 0 A_ChangeFlag("THRUACTORS", 1)
+		TNT1 A 0 A_ChangeFlag("COUNTKILL", 0)
+		TNT1 A 0 A_SpawnItemEx ("Minimastermind",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION | SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS ,0, tid)
+		Stop
+
+Minimastermindx:
+		TNT1 A 0 A_ChangeFlag("THRUACTORS", 1)
+		TNT1 A 0 A_ChangeFlag("COUNTKILL", 0)
+		TNT1 A 0 A_SpawnItemEx ("Minimastermindx",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION | SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS ,0, tid)
+		Stop
+		
+
+		}
+}
+
+Actor CyberdemonSpawner : BasicWeaponPickup Replaces Cyberdemon
+{
+States
+    {
+	 Spawn:
+		TNT1 A 0
+		TNT1 A 1
+TNT1 A 0 A_JumpIf(x == -1472, "ReplaceForBOSS")
+
+		TNT1 A 0 A_Jump(64, "SuperDemon")
+		TNT1 A 0 A_Jump(96, "Annihilator")
+	//	TNT1 A 0 A_Jump(12, "Motherdemon")
+		TNT1 A 0 A_Jump(118, "Thamuz")
+
+	
+	Cyberdemon:
+		TNT1 A 0 A_ChangeFlag("THRUACTORS", 1)
+		TNT1 A 0 A_ChangeFlag("COUNTKILL", 0)
+		TNT1 A 0 A_SpawnItemEx ("TheCyberdemon",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION | SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS ,0, tid)
+		Stop
+		
+	SuperDemon:
+		TNT1 A 0 A_JumpIf((CeilingZ - Height) < 24, "Spawn")
+		TNT1 A 0 A_ChangeFlag("THRUACTORS", 1)
+		TNT1 A 0 A_ChangeFlag("COUNTKILL", 0)
+		TNT1 A 0 A_SpawnItemEx ("SuperDemon",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION | SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS ,0, tid)
+		Stop
+
+	TerminatorBoss:
+		TNT1 A 0 A_JumpIf((CeilingZ - Height) < 41, "Spawn")
+		TNT1 A 0 A_ChangeFlag("THRUACTORS", 1)
+		TNT1 A 0 A_ChangeFlag("COUNTKILL", 0)
+		TNT1 A 0 A_SpawnItemEx ("TerminatorBoss",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION | SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS ,0, tid)
+		Stop
+
+	Annihilator:
+		TNT1 A 0 A_JumpIf((CeilingZ - Height) < 24, "Spawn")
+		TNT1 A 0 A_ChangeFlag("THRUACTORS", 1)
+		TNT1 A 0 A_ChangeFlag("COUNTKILL", 0)
+		TNT1 A 0 A_SpawnItemEx ("Annihilator",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION | SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS ,0, tid)
+		Stop
+
+
+Motherdemon:
+		TNT1 A 0 A_JumpIf((CeilingZ - Height) < 14, "Cacodemon")
+		TNT1 A 0 A_ChangeFlag("THRUACTORS", 1)
+		TNT1 A 0 A_ChangeFlag("COUNTKILL", 0)
+		TNT1 A 0 A_SpawnItemEx ("Motherdemon",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION | SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS ,0, tid)
+		Stop
+
+Thamuz:
+		TNT1 A 0 A_JumpIf((CeilingZ - Height) < 24, "Spawn")
+TNT1 A 0 A_JumpIf(x == -1472, "ReplaceForBOSS")
+		TNT1 A 0 A_ChangeFlag("THRUACTORS", 1)
+		TNT1 A 0 A_ChangeFlag("COUNTKILL", 0)
+		TNT1 A 0 A_SpawnItemEx ("Thamuz",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION | SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS ,0, tid)
+		Stop
+
+
+ReplaceForBOSS:
+		TNT1 A 0 A_Jump(40, "Motherdemon")
+		TNT1 A 0 A_Jump(128, "ThamuzBoss")
+
+Cyberdemon:
+		TNT1 A 0 A_ChangeFlag("THRUACTORS", 1)
+		TNT1 A 0 A_ChangeFlag("COUNTKILL", 0)
+		TNT1 A 0 A_SpawnItemEx ("TheCyberdemon",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION | SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS ,0, tid)
+		Stop
+
+ThamuzBoss:
+		TNT1 A 0
+		TNT1 A 0 A_NoBlocking
+		TNT1 A 0 ACS_NamedExecuteAlways("MapEnhancementE2M8")
+		TNT1 A 0 A_ChangeFlag("THRUACTORS", 1)
+		TNT1 A 0 A_ChangeFlag("COUNTKILL", 0)
+		TNT1 A 0 A_SpawnItemEx ("ThamuzBoss",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION | SXF_TRANSFERAMBUSHFLAG ,0)
+		TNT1 A 0
+		Stop
+
+Motherdemon:
+		TNT1 A 0 A_JumpIf((CeilingZ - Height) < 14, "Cacodemon")
+		TNT1 A 0 A_ChangeFlag("THRUACTORS", 1)
+		TNT1 A 0 A_ChangeFlag("COUNTKILL", 0)
+		TNT1 A 0 A_SpawnItemEx ("Motherdemon",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION | SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS ,0, tid)
+		Stop
+
+
+	}
+}
+
+Actor CommandoSpawner : BasicWeaponPickup Replaces ChaingunGuy
+{
+States
+    {
+	 Spawn:
+		TNT1 A 0
+		TNT1 A 1
+TNT1 A 0 A_Jump(35, "Major")
+		TNT1 A 0 A_Jump(18, "ZSpecOps")
+TNT1 A 0 A_Jump(10, "XVStealth")
+TNT1 A 0 A_Jump(18, "ZSpecOpsRail")		
+TNT1 A 0 A_Jump(18, "ZSpecOpsRifle")		
+		TNT1 A 0 A_Jump(28, "RifleCommando")
+		TNT1 A 0 A_Jump(12, "HellTrooper")
+TNT1 A 0 A_Jump(4, "EvilMarineLasgun")
+TNT1 A 0 A_Jump(8, "EvilMarine")
+
+	ChaingunGuy1:
+		TNT1 A 0 A_ChangeFlag("THRUACTORS", 1)
+		TNT1 A 0 A_ChangeFlag("COUNTKILL", 0)
+		TNT1 A 0 A_SpawnItemEx ("ChaingunGuy1",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION | SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS ,0, tid)
+		Stop
+		
+HellTrooper:
+		TNT1 A 0 A_ChangeFlag("THRUACTORS", 1)
+		TNT1 A 0 A_ChangeFlag("COUNTKILL", 0)
+		TNT1 A 0 A_SpawnItemEx ("HellTrooper",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION | SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS ,0, tid)
+		Stop
+
+
+EvilMarine:
+		TNT1 A 0 A_ChangeFlag("THRUACTORS", 1)
+		TNT1 A 0 A_ChangeFlag("COUNTKILL", 0)
+		TNT1 A 0 A_SpawnItemEx ("EvilMarine",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION | SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS ,0, tid)
+		Stop
+
+
+EvilMarineLasgun:
+		TNT1 A 0 A_ChangeFlag("THRUACTORS", 1)
+		TNT1 A 0 A_ChangeFlag("COUNTKILL", 0)
+		TNT1 A 0 A_SpawnItemEx ("EvilMarineLasgun",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION | SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS ,0, tid)
+		Stop
+
+
+
+	RifleCommando:
+		TNT1 A 0 A_ChangeFlag("THRUACTORS", 1)
+		TNT1 A 0 A_ChangeFlag("COUNTKILL", 0)
+		TNT1 A 0 A_SpawnItemEx ("RifleCommando",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION | SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS ,0, tid)
+		Stop
+
+
+ZSpecOpsRifle:
+		TNT1 A 0 A_ChangeFlag("THRUACTORS", 1)
+		TNT1 A 0 A_ChangeFlag("COUNTKILL", 0)
+		TNT1 A 0 A_SpawnItemEx ("ZSpecOpsRifle",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION | SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS ,0, tid)
+		Stop
+
+
+	Major:
+		TNT1 A 0 A_ChangeFlag("THRUACTORS", 1)
+		TNT1 A 0 A_ChangeFlag("COUNTKILL", 0)
+		TNT1 A 0 A_SpawnItemEx ("Major",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION | SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS ,0, tid)
+		Stop
+	ZSpecOps:
+		TNT1 A 0 A_ChangeFlag("THRUACTORS", 1)
+		TNT1 A 0 A_ChangeFlag("COUNTKILL", 0)
+		TNT1 A 0 A_SpawnItemEx ("ZSpecOps",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION | SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS ,0, tid)
+		Stop
+
+ZSpecOpsRail:
+		TNT1 A 0 A_ChangeFlag("THRUACTORS", 1)
+		TNT1 A 0 A_ChangeFlag("COUNTKILL", 0)
+		TNT1 A 0 A_SpawnItemEx ("ZSpecOpsRail",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION | SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS ,0, tid)
+		Stop
+
+	XVStealth:
+		TNT1 A 0 A_ChangeFlag("THRUACTORS", 1)
+		TNT1 A 0 A_ChangeFlag("COUNTKILL", 0)
+		TNT1 A 0 A_SpawnItemEx ("XVStealthZSpecOps",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION | SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS ,0, tid)
+		Stop
+		}
+}
+
+Actor KnightSpawner : BasicWeaponPickup Replaces HellKnight
+{
+States
+    {
+	 Spawn:
+		TNT1 A 0
+		TNT1 A 1
+		TNT1 A 0 A_Jump(20, "CyberKnight")
+		//TNT1 A 0 A_Jump(7, "PyroDemon") // Pyro Demon Preset
+		TNT1 A 0 A_Jump(64, "BaronSpawner")
+		TNT1 A 0 A_Jump(1, "MiniMastermind")
+
+//TNT1 A 0 A_Jump(40, "MancubiiSpawner")
+		
+
+	HellKnight:
+		TNT1 A 0 A_ChangeFlag("THRUACTORS", 1)
+		TNT1 A 0 A_ChangeFlag("COUNTKILL", 0)
+		TNT1 A 0 A_SpawnItemEx ("HellKnight2",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION | SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS ,0, tid)
+		Stop		
+	CyberKnight:
+		TNT1 A 0 A_ChangeFlag("THRUACTORS", 1)
+		TNT1 A 0 A_ChangeFlag("COUNTKILL", 0)
+		TNT1 A 0 A_SpawnItemEx ("CyberKnight",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION | SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS ,0, tid)
+		Stop		
+
+
+	Minimastermind:
+		TNT1 A 0 A_ChangeFlag("THRUACTORS", 1)
+		TNT1 A 0 A_ChangeFlag("COUNTKILL", 0)
+		TNT1 A 0 A_SpawnItemEx ("Minimastermind",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION | SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS ,0, tid)
+		Stop	
+
+
+
+BaronSpawner:
+		TNT1 A 0
+		TNT1 A 1
+		TNT1 A 0 A_Jump(6, "Terminator")
+		TNT1 A 0 A_Jump(8, "Marauder")
+		TNT1 A 0 A_Jump(16, "Bruiser")
+		TNT1 A 0 A_Jump(18, "CyberPaladin")
+		TNT1 A 0 A_Jump(20, "CyberBaron")
+		TNT1 A 0 A_Jump(18, "PyroDemon") // Pyro Demon Preset
+		TNT1 A 0 A_Jump(1, "MiniMastermind")
+	TNT1 A 0 A_Jump(1, "MiniMastermindx")
+
+	BaronofHell:
+		TNT1 A 0 A_ChangeFlag("THRUACTORS", 1)
+		TNT1 A 0 A_ChangeFlag("COUNTKILL", 0)
+		TNT1 A 0 A_SpawnItemEx ("BaronofHell2",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION | SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS ,0, tid)
+		Stop
+		
+	CyberPaladin:
+		TNT1 A 0 A_ChangeFlag("THRUACTORS", 1)
+		TNT1 A 0 A_ChangeFlag("COUNTKILL", 0)
+		TNT1 A 0 A_SpawnItemEx ("CyberPaladin",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION | SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS ,0, tid)
+		Stop
+		
+	CyberBaron:
+		TNT1 A 0 A_ChangeFlag("THRUACTORS", 1)
+		TNT1 A 0 A_ChangeFlag("COUNTKILL", 0)
+		TNT1 A 0 A_SpawnItemEx ("CyberBaron",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION | SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS ,0, tid)
+		Stop
+	Bruiser:
+		TNT1 A 0 A_JumpIf((CeilingZ - Height) < 21, "Spawn")
+		TNT1 A 0 A_ChangeFlag("THRUACTORS", 1)
+		TNT1 A 0 A_ChangeFlag("COUNTKILL", 0)
+		TNT1 A 0 A_SpawnItemEx ("BruiserDemon",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION | SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS ,0, tid)
+		Stop
+	Marauder:
+		TNT1 A 0 A_JumpIf((CeilingZ - Height) < 19, "Spawn")
+		TNT1 A 0 A_ChangeFlag("THRUACTORS", 1)
+		TNT1 A 0 A_ChangeFlag("COUNTKILL", 0)
+		TNT1 A 0 A_SpawnItemEx ("Marauder",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION | SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS ,0, tid)
+		Stop
+	Terminator:
+		TNT1 A 0 A_JumpIf((CeilingZ - Height) < 19, "Spawn")
+		TNT1 A 0 A_ChangeFlag("THRUACTORS", 1)
+		TNT1 A 0 A_ChangeFlag("COUNTKILL", 0)
+		TNT1 A 0 A_SpawnItemEx ("TerminatorDemon",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION | SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS ,0, tid)
+		Stop
+PyroDemon:
+		TNT1 A 0 A_ChangeFlag("THRUACTORS", 1)
+		TNT1 A 0 A_ChangeFlag("COUNTKILL", 0)
+		TNT1 A 0 A_SpawnItemEx ("PyroDemon",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION | SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS ,0, tid)
+		Stop		
+
+Minimastermind:
+		TNT1 A 0 A_ChangeFlag("THRUACTORS", 1)
+		TNT1 A 0 A_ChangeFlag("COUNTKILL", 0)
+		TNT1 A 0 A_SpawnItemEx ("Minimastermind",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION | SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS ,0, tid)
+		Stop	
+
+MinimastermindX:
+		TNT1 A 0 A_ChangeFlag("THRUACTORS", 1)
+		TNT1 A 0 A_ChangeFlag("COUNTKILL", 0)
+		TNT1 A 0 A_SpawnItemEx ("MinimastermindX",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION | SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS ,0, tid)
+		Stop	
+
+
+
+
+
+
+
+		}
+}
+
+
+
+Actor RevenantSpawner : BasicWeaponPickup Replaces Revenant
+{
+States
+    {
+	 Spawn:
+		TNT1 A 0
+		TNT1 A 1
+		TNT1 A 0 A_Jump(45, "Draugr") // Unmaker
+		TNT1 A 0 A_Jump(8, "Slendy") // Son of Slenderman
+
+	Revenant:
+		TNT1 A 0 A_ChangeFlag("THRUACTORS", 1)
+		TNT1 A 0 A_ChangeFlag("COUNTKILL", 0)
+		TNT1 A 0 A_SpawnItemEx ("Revenant1",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION | SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS ,0, tid)
+		Stop		
+
+	Draugr:
+		TNT1 A 0 A_ChangeFlag("THRUACTORS", 1)
+		TNT1 A 0 A_ChangeFlag("COUNTKILL", 0)
+		TNT1 A 0 A_SpawnItemEx ("Draugr",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION | SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS ,0, tid)
+		Stop	
+
+	Slendy:
+		TNT1 A 0 A_ChangeFlag("THRUACTORS", 1)
+		TNT1 A 0 A_ChangeFlag("COUNTKILL", 0)
+		TNT1 A 0 A_SpawnItemEx ("Incarnate",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION | SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS ,0, tid)
+		Stop	
+		}
+}
+
+
+
+Actor DemonSpawner : BasicWeaponPickup Replaces Demon
+{
+States
+    {
+	 Spawn:
+		TNT1 A 0
+		TNT1 A 1
+		TNT1 A 0 A_Jump(30, "BloodDemon") 
+		TNT1 A 0 A_Jump(30, "MaulerFiend") 
+		TNT1 A 0 A_Jump(38, "VoidSpectre") 
+		TNT1 A 0 A_Jump(2, "TehArchvile")
+
+	BullDemon:
+		TNT1 A 0 A_ChangeFlag("THRUACTORS", 1)
+		TNT1 A 0 A_ChangeFlag("COUNTKILL", 0)
+		TNT1 A 0 A_SpawnItemEx ("BullDemon",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION | SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS ,0, tid)
+		Stop	
+	
+
+TehArchvile:
+		TNT1 A 0 A_ChangeFlag("THRUACTORS", 1)
+		TNT1 A 0 A_ChangeFlag("COUNTKILL", 0)
+		TNT1 A 0 A_SpawnItemEx ("TehArchvile",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION | SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS ,0, tid)
+		Stop	
+
+
+	BloodDemon:
+		TNT1 A 0 A_ChangeFlag("THRUACTORS", 1)
+		TNT1 A 0 A_ChangeFlag("COUNTKILL", 0)
+		TNT1 A 0 A_SpawnItemEx ("BloodDemon",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION | SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS ,0, tid)
+		Stop	
+
+	MaulerFiend:
+		TNT1 A 0 A_ChangeFlag("THRUACTORS", 1)
+		TNT1 A 0 A_ChangeFlag("COUNTKILL", 0)
+		TNT1 A 0 A_SpawnItemEx ("MaulerFiend",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION | SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS ,0, tid)
+		Stop	
+
+VoidSpectre:
+		TNT1 A 0 A_ChangeFlag("THRUACTORS", 1)
+		TNT1 A 0 A_ChangeFlag("COUNTKILL", 0)
+		TNT1 A 0 A_SpawnItemEx ("VoidSpectre",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION | SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS ,0, tid)
+		Stop	
+	
+		}
+}
+
+
+
+Actor MancubiiSpawner : BasicWeaponPickup Replaces Fatso
+{
+States
+    {
+	 Spawn:
+		TNT1 A 0
+		TNT1 A 1
+TNT1 A 0 A_Jump(44, "Daedabus")		
+TNT1 A 0 A_Jump(20, "Volcabus")  
+			TNT1 A 0 A_Jump(18, "MiniMastermindx")
+		TNT1 A 0 A_Jump(7, "MiniMastermind")	
+
+	Mancubus:
+		TNT1 A 0 A_ChangeFlag("THRUACTORS", 1)
+		TNT1 A 0 A_ChangeFlag("COUNTKILL", 0)
+		TNT1 A 0 A_SpawnItemEx ("Mancubus",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION | SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS ,0, tid)
+		Stop	
+	
+	Volcabus:
+		TNT1 A 0 A_ChangeFlag("THRUACTORS", 1)
+		TNT1 A 0 A_ChangeFlag("COUNTKILL", 0)
+		TNT1 A 0 A_SpawnItemEx ("Volcabus",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION | SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS ,0, tid)
+		Stop	
+
+Daedabus:
+		TNT1 A 0 A_ChangeFlag("THRUACTORS", 1)
+		TNT1 A 0 A_ChangeFlag("COUNTKILL", 0)
+		TNT1 A 0 A_SpawnItemEx ("Daedabus",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION | SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS ,0, tid)
+		Stop	
+		}
+}
+
+
+
+Actor SpiderMasterMindSpawner : BasicWeaponPickup Replaces SpiderMastermind
+{
+States
+    {
+	 Spawn:
+		TNT1 A 0
+TNT1 A 0 A_JumpIf(x == 1600, "ReplaceForSpiderBOSS")
+		TNT1 A 1
+TNT1 A 0 A_Jump(18, "AracnorbQueenBOSS")
+		TNT1 A 0 A_Jump(170, "SpidermastermindX")  
+
+	TheSpidermastermind:
+		TNT1 A 0 A_ChangeFlag("THRUACTORS", 1)
+		TNT1 A 0 A_ChangeFlag("COUNTKILL", 0)
+		TNT1 A 0 A_SpawnItemEx ("TheSpidermastermind",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION | SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS ,0, tid)
+		Stop	
+
+SpidermastermindX:
+		TNT1 A 0 A_ChangeFlag("THRUACTORS", 1)
+		TNT1 A 0 A_ChangeFlag("COUNTKILL", 0)
+		TNT1 A 0 A_SpawnItemEx ("SpidermastermindX",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION | SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS ,0, tid)
+		Stop	
+
+AracnorbQueenBOSS:
+		TNT1 A 0 A_ChangeFlag("THRUACTORS", 1)
+		TNT1 A 0 A_ChangeFlag("COUNTKILL", 0)
+		TNT1 A 0 A_SpawnItemEx ("AracnorbQueenBOSS",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION | SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS ,0, tid)
+		Stop
+
+ReplaceForSpiderBOSS:
+
+		TNT1 A 0 A_Jump(40, "AracnorbQueenBOSSBOSS")
+		TNT1 A 0 A_Jump(150, "SuperSpidermastermindX")  
+
+SuperMastermind:
+	TNT1 A 0
+		TNT1 A 0 A_NoBlocking
+		TNT1 A 0 A_ChangeFlag("THRUACTORS", 1)
+		TNT1 A 0 A_ChangeFlag("COUNTKILL", 0)
+		TNT1 A 0 ACS_NamedExecuteAlways("MapEnhancementE3M8")
+		TNT1 A 0 A_SpawnItemEx("RocketBox", 64, 64)
+		TNT1 A 0 A_SpawnItemEx("RocketBox", -64, 64)
+		TNT1 A 0 A_SpawnItemEx("RocketBox", -64, -64)
+		TNT1 A 0 A_SpawnItemEx("RocketBox", 64, -64)
+		TNT1 A 0 A_SpawnItemEx ("SuperMastermind",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION | SXF_TRANSFERAMBUSHFLAG ,0)
+		TNT1 A 10
+		Stop
+
+SuperSpidermastermindX:
+		TNT1 A 0 A_ChangeFlag("THRUACTORS", 1)
+		TNT1 A 0 A_ChangeFlag("COUNTKILL", 0)
+		TNT1 A 0 A_SpawnItemEx ("SuperSpidermastermindX",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION | SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS ,0, tid)
+		Stop	
+
+AracnorbQueenBOSSBOSS:
+		TNT1 A 0 A_ChangeFlag("THRUACTORS", 1)
+		TNT1 A 0 A_ChangeFlag("COUNTKILL", 0)
+		TNT1 A 0 A_SpawnItemEx ("AracnorbQueenBOSSBOSS",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION | SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS ,0, tid)
+		Stop
+
+	}
+}
+
+
+
+Actor PainElementalSpawner : BasicWeaponPickup Replaces Painelemental
+{
+States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 1
+		TNT1 A 0 A_Jump(48, "SufferingElemental")
+
+	PainElemental1:
+		TNT1 A 0 A_ChangeFlag("THRUACTORS", 1)
+		TNT1 A 0 A_ChangeFlag("COUNTKILL", 0)
+		TNT1 A 0 A_SpawnItemEx ("PainElemental1",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION | SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS ,0, tid)
+		Stop
+		
+	SufferingElemental:
+		TNT1 A 0 A_ChangeFlag("THRUACTORS", 1)
+		TNT1 A 0 A_ChangeFlag("COUNTKILL", 0)
+		TNT1 A 0 A_SpawnItemEx ("SufferingElemental",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION | SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS ,0, tid)
+		Stop
+	}
+}
+
+
+
+Actor ArachnotronSpawner : BasicWeaponPickup Replaces Arachnotron
+{
+States
+	{
+	Spawn:
+		TNT1 A 0
+		TNT1 A 1
+		TNT1 A 0 A_Jump(52, "CGSpider")
+
+	Arachnotron1:
+		TNT1 A 0 A_ChangeFlag("THRUACTORS", 1)
+		TNT1 A 0 A_ChangeFlag("COUNTKILL", 0)
+		TNT1 A 0 A_SpawnItemEx ("Arachnotron1",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION | SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS ,0, tid)
+		Stop
+		
+	CGSpider:
+		TNT1 A 0 A_ChangeFlag("THRUACTORS", 1)
+		TNT1 A 0 A_ChangeFlag("COUNTKILL", 0)
+		TNT1 A 0 A_SpawnItemEx ("CGSpider",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION | SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS ,0, tid)
+		Stop
+	}
+}
+
+
+
+Actor ArchvileSpawner : BasicWeaponPickup Replaces Archvile
+{
+States
+    {
+	 Spawn:
+		TNT1 A 0
+		TNT1 A 1
+		TNT1 A 0 A_Jump(52, "Diabloist") 
+		TNT1 A 0 A_Jump(41, "Hellion") 
+		TNT1 A 0 A_Jump(52, "FleshWizard") 
+		TNT1 A 0 A_Jump(255, "TehArchvile")	
+
+	TehArchvile:
+		TNT1 A 0 A_ChangeFlag("THRUACTORS", 1)
+		TNT1 A 0 A_ChangeFlag("COUNTKILL", 0)
+		TNT1 A 0 A_SpawnItemEx ("TehArchvile",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION | SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS ,0, tid)
+		Stop	
+
+Diabloist:
+		TNT1 A 0 A_ChangeFlag("THRUACTORS", 1)
+		TNT1 A 0 A_ChangeFlag("COUNTKILL", 0)
+		TNT1 A 0 A_SpawnItemEx ("Diabloist",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION | SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS ,0, tid)
+		Stop	
+		
+Hellion:
+		TNT1 A 0 A_ChangeFlag("THRUACTORS", 1)
+		TNT1 A 0 A_ChangeFlag("COUNTKILL", 0)
+		TNT1 A 0 A_SpawnItemEx ("Hellion",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION | SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS ,0, tid)
+		Stop	
+		
+FleshWizard:
+		TNT1 A 0 A_ChangeFlag("THRUACTORS", 1)
+		TNT1 A 0 A_ChangeFlag("COUNTKILL", 0)
+		TNT1 A 0 A_SpawnItemEx ("FleshWizard",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION | SXF_TRANSFERAMBUSHFLAG | SXF_TRANSFERPOINTERS ,0, tid)
+		Stop	
+
+}
+}
