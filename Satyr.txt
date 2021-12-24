@@ -1,1 +1,518 @@
+actor Satyr : Demon
+{
+  //$Title "Satyr"
+  //$Category XV117Monsters
+    Health 400
+    Radius 20
+    Height 54
+    Scale 1.0
+    Speed 8
+	FastSpeed 14
+    PainChance 64
+    Mass 350
+	damagefactor "Crush", 10.0
+	damagefactor "GibRemoving", 0.0
+	PainChance "Kick", 255
+	PainChance "ExtremePunches", 255
+	PainChance "Head", 255
+	PainChance "Explosive", 255
+	damagefactor "Head", 1.5
+	damagefactor "ExplosiveImpact", 2.0
+	PainChance 25
+	PainChance "Saw", 100
+	PainChance "Cut", 100
+	DamageFactor "CauseObjectsToSplash", 0.0
+	damagefactor "Avoid", 0.0
+	DamageFactor "Bullet", 0.75
+	DamageFactor "MachineGunBulletPuff", 0.75
+	DamageFactor "ExtremeBulletPuff", 0.75
+	damagefactor "ShotgunPuff", 0.75
+	damagefactor "Shotgun", 0.75
+	damagefactor "SSG", 0.75
+	damagefactor "Explosive", 1.55
+	damagefactor "Plasma", 1.05
+	damagefactor "Shrapnel", 5.0
+	damageFactor "Desintegrate", 5.0
+	damagefactor "killme", 0.0
+	damagefactor "TeleportRemover", 0.0
+	damagefactor "Saw", 1.5
+    MONSTER 
+    +FLOORCLIP
+	SeeSound "satyr/sight"
+  PainSound "satyr/pain"
+  DeathSound "satyr/death"
+  ActiveSound "satyr/active"
+   MeleeSound "satyr/melee"
+    HitObituary "%o was rammed by a Satyr"
+    MeleeDamage 4
 
+    States
+    {
+    Spawn:
+        
+		TNT1 A 0 A_SpawnItem("HeadshotTarget8b", 0, 52,0)
+		STYR A 10 A_Look
+		TNT1 A 0 A_SpawnItem("HeadshotTarget8b", 0, 52,0)
+		STYR B 10 A_Look
+        Loop
+    See:
+        STYR AA 3 A_Chase
+		TNT1 A 0 A_SpawnItem("HeadshotTarget8b", 0, 52,0)
+        STYR BB 3 A_Chase
+		TNT1 A 0 A_SpawnItem("HeadshotTarget8b", 0, 52,0)
+        STYR CC 3 A_Chase
+		TNT1 A 0 A_SpawnItem("HeadshotTarget8b", 0, 52,0)
+        STYR DD 3 A_Chase
+		TNT1 A 0 A_SpawnItem("HeadshotTarget8b", 0, 52,0)
+		TNT1 A 0 A_PlaySound("satyr/walk", 0)
+        Loop
+    Melee:
+        STYR EF 6 A_FaceTarget
+		TNT1 A 0 A_SpawnItem("HeadshotTarget8b", 0, 52,0)
+        STYR G 5 A_CustomMissile("KnightAttack",9,0,0,0)
+		TNT1 A 0 A_SpawnItem("HeadshotTarget8b", 0, 52,0)
+        STYR PQ 5 A_FaceTarget
+		TNT1 A 0 A_SpawnItem("HeadshotTarget8b", 0, 52,0)
+        STYR R 5 A_CustomMissile("KnightAttack",9,0,0,0)
+		TNT1 A 0 A_SpawnItem("HeadshotTarget8b", 0, 52,0)
+        Goto See
+    Pain:
+        STYR H 2
+		TNT1 A 0 A_SpawnItem("HeadshotTarget8b", 0, 52,0)
+        STYR H 2 A_Pain
+        Goto See
+    Death:
+	NULL A 0 A_Jump(64, "Death.Upside")
+	TNT1 A 0 A_Jump(128, "Death.Downside")
+	TNT1 A 0 A_CustomMissile ("MuchBlood", 40, 0, random (0, 360), 2, random (70, 90))
+		TNT1 A 0 A_CustomMissile ("MuchBlood", 50, 0, random (0, 360), 2, random (70, 90))
+		TNT1 A 0 A_CustomMissile ("MuchBlood", 60, 0, random (0, 360), 2, random (70, 90))
+	    TNT1 A 0 A_SpawnItemex("BloodSplasher2",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION)
+		TNT1 A 0 A_PlaySound("DSPLASH", 0)
+	    TNT1 A 0 A_SpawnItem ("DeadUpside", 1)
+	Death.Upside:
+        STYR I 5
+		TNT1 AA 0 A_CustomMissile ("BloodmistXXBig", 60, 0, random (0, 360), 2, random (0, 160))
+		 TNT1 AA 0 A_CustomMissile ("BloodmistXXBig", 60, 0, random (0, 360), 2, random (0, 160))
+		 TNT1 AA 0 A_CustomMissile ("XDeath3", random (45, 55), random (5, -5), random (160, 200), 2, random (-10, 10))
+		 TNT1 AA 0 A_CustomMissile ("XDeath2", random (45, 55), random (5, -5), random (160, 200), 2, random (-10, 10))
+        TNT1 A 0 A_CustomMissile ("MuchBlood", 60, 0, random (0, 360), 2, random (0, 160))
+		TNT1 A 0 A_CustomMissile ("BloodmistXXBig", 50, 0, random (0, 360), 2, random (30, 90))
+		TNT1 A 0 A_SpawnItem ("GrowingBloodPool")
+        STYR J 5 A_Scream
+        STYR K 6
+        STYR L 7 A_Fall
+        STYR M 4
+        STYR N 4
+        STYR O -1
+        Stop
+	Death.Downside:
+		TNT1 A 0
+		TNT1 AA 0 A_CustomMissile ("BloodmistXXBig", 60, 0, random (0, 360), 2, random (0, 160))
+		 TNT1 AA 0 A_CustomMissile ("BloodmistXXBig", 60, 0, random (0, 360), 2, random (0, 160))
+		 TNT1 AA 0 A_CustomMissile ("XDeath3", random (45, 55), random (5, -5), random (160, 200), 2, random (-10, 10))
+		 TNT1 AA 0 A_CustomMissile ("XDeath2", random (45, 55), random (5, -5), random (160, 200), 2, random (-10, 10))
+        TNT1 A 0 A_CustomMissile ("MuchBlood", 60, 0, random (0, 360), 2, random (0, 160))
+		TNT1 A 0 A_CustomMissile ("BloodmistXXBig", 50, 0, random (0, 360), 2, random (30, 90))
+		TNT1 A 0 A_SpawnItem ("GrowingBloodPool")
+        STYR S 5 A_Scream
+        STYR T 6
+        STYR U 7 A_Fall
+        STYR V 4
+        STYR W -1
+        Stop
+
+	Death.Ice:
+	Death.Freeze:
+	Death.Frost:
+	TNT1 A 0 A_ChangeFlag("SHOOTABLE", 0)
+	TNT1 A 0 A_ChangeFlag("SOLID", 0)
+	TNT1 A 0 A_SpawnItem("FrozenSatyr")
+	Stop
+	
+		Death.SuperPlasma:
+    Death.Plasma: Death.Plasma2:
+	    TNT1 A 0
+        TNT1 A 0 A_BossDeath
+        TNT1 A 0 A_Scream
+        TNT1 A 0 A_NoBlocking
+		TNT1 AAAAA 0 A_CustomMissile ("PlasmaParticleX", 48, 0, random (0, 360), 2, random (0, 360))
+		TNT1 AAA 0 A_CustomMissile ("BigPlasmaParticleX", 42, 0, random (0, 360), 2, random (0, 360))
+        BOSB ABC 7 A_CustomMissile ("PlasmaSmoke", 28, 0, random (0, 180), 2, random (0, 180))
+		TNT1 AAAAA 0 A_CustomMissile ("PlasmaParticleX", 48, 0, random (0, 360), 2, random (0, 360))
+		TNT1 AAA 0 A_CustomMissile ("BigPlasmaParticleX", 42, 0, random (0, 360), 2, random (0, 360))
+		BOSB D 7 A_CustomMissile ("PlasmaSmoke", 14, 0, random (0, 180), 2, random (0, 180))
+		TNT1 A 0 A_SpawnItemEx("GrowingBloodPool",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION)
+        BOSB EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE 8 A_CustomMissile ("PlasmaSmoke", 24, 0, random (0, 180), 2, random (0, 180))
+        BOSB E -1
+        Stop
+		
+	Death.ExplosiveImpact:
+	Death.Landmine:
+	Death.LandMine2:
+	Death.OriginalGibz:
+	Death.Railgun:
+	Death.Blast:
+	Death.SuperPunch:
+	Death.ExtremePunches:
+	Death.SSG:
+	XDeath:
+		TNT1 A 0 A_XScream
+		TNT1 A 0 A_NoBlocking
+		TNT1 A 0 A_FaceTarget
+		TNT1 AAA 0 A_CustomMissile ("XDeath1", 42, 0, random (0, 190), 2, random (10, 60))
+		TNT1 AAA 0 A_CustomMissile ("XDeath3", 42, 0, random (0, 190), 2, random (10, 60))
+		TNT1 A 0 A_CustomMissile ("XDeath2", 42, 0, random (0, 190), 2, random (10, 60))
+		TNT1 A 0 A_CustomMissile ("XDeath4", 42, 0, random (0, 190), 2, random (10, 60))
+        TNT1 A 0 A_CustomMissile ("SatyrXDeath", 2, 0, random (0, 360), 2, random (0, 160))
+		Stop
+	Dead.ExplosiveImpact:
+		TNT1 A 0
+		TNT1 A 0 A_SpawnItem ("GrowingBloodPool")
+		TNT1 A 0 A_SpawnItem ("ThisImpGotFuckedHard")
+		TNT1 A 0 A_SpawnItem ("Ploft")
+		TNT1 AAAA 0 A_SpawnItem ("Blood")
+		TNT1 A -1
+		Stop
+		
+    Raise:
+        STYR ONMLKJI 8
+        Goto See
+    }
+}
+
+ACTOR SatyrXDeath
+{
+    Radius 1
+    Height 1
+    Scale 0.8
+	Speed 0
+	Mass 1
+	Decal BloodSuper
+	BounceFactor 0.5
+	+DOOMBOUNCE
+	+MISSILE
+    +NOBLOCKMAP
+    +NOTELEPORT
+    +MOVEWITHSECTOR
+    +NOGRAVITY
+    +NOCLIP
+    +DONTSPLASH
+    States
+    {
+    Spawn:
+	     //TNT1 A 0 A_SpawnItem("BloodSplasher3")
+	     TNT1 A 0 A_CustomMissile ("XDeathSatyrArm", 32, 0, random (0, 360), 2, random (10, 90))
+	     TNT1 A 0 A_CustomMissile ("XDeathSatyrArm", 32, 0, random (0, 360), 2, random (10, 90))
+		 TNT1 AA 0 A_CustomMissile ("XDeathSatyrLeg", 32, 0, random (0, 360), 2, random (10, 90))
+		 TNT1 AA 0 A_CustomMissile ("XDeathSatyrLeg", 32, 0, random (0, 360), 2, random (10, 90))
+		 TNT1 A 0 A_CustomMissile ("XDeathOrgan1", 24, 0, random (0, 360), 2, random (10, 90))
+		 TNT1 A 0 A_CustomMissile ("XDeathOrgan2", 24, 0, random (0, 360), 2, random (10, 90))
+		 TNT1 AA 0 A_CustomMissile ("XDeath1", 32, 0, random (0, 360), 2, random (10, 90))
+		 TNT1 A 0 A_CustomMissile ("XDeath2", 32, 0, random (0, 360), 2, random (10, 90))
+		 TNT1 A 0 A_CustomMissile ("XDeath3", 32, 0, random (0, 360), 2, random (10, 90))
+		 TNT1 A 0 A_CustomMissile ("XDeath4", 32, 0, random (0, 360), 2, random (10, 90))
+		 TNT1 AAAA 0 A_CustomMissile ("XDeath2b", 15, 0, random (0, 360), 2, random (10, 90))
+		 TNT1 AAAA 0 A_CustomMissile ("XDeath3b", 15, 0, random (0, 360), 2, random (10, 90))
+		 TNT1 A 0 A_CustomMissile ("XDeathSatyrHead", 32, 0, random (0, 360), 2, random (10, 90))
+		 TNT1 A 0 A_SpawnItem ("BigBloodSpot")
+		 
+		 TNT1 A 1
+		 TNT1 AAAAAAA 0 A_CustomMissile ("BloodMistExtraBig", 50, 0, random (0, 360), 2, random (20, 90))
+		 TNT1 A 2
+		 Stop
+	LowBlood:
+	    TNT1 A 2
+		Stop
+	LotsOfBlood:
+		TNT1 AAAAAAAAAAAAAA 0 A_CustomMissile ("BloodMistExtraBig", 30, 0, random (0, 360), 2, random (40, 90))
+		TNT1 AAAAAA 0 A_CustomMissile ("SuperGoreSpawner2", 64, 0, random (0, 360), 2, random (20, 40))
+		Stop
+	AbsurdBlood:
+		TNT1 AAAAAAAAAAAAAA 0 A_CustomMissile ("BloodMistExtraBig", 30, 0, random (0, 360), 2, random (40, 90))
+		TNT1 AAAAAAAAAAAA 0 A_CustomMissile ("SuperGoreMist", 24, 0, random (0, 360), 2, random (30, 90))
+		TNT1 AAAAAAAA 0 A_CustomMissile ("SuperGoreSpawner2", 64, 0, random (0, 360), 2, random (20, 40))
+		Stop
+    }
+}
+
+//Gore Groups
+
+ACTOR XDeathSatyrArm: XDeathArm1
+{
+    Scale 1.1
+    Speed 8
+	Gravity 0.4
+    States
+    {
+    Spawn:
+        TNT1 A 0
+	    TNT1 A 0 A_JumpIf(waterlevel > 1, "Death")
+		SYGA ABCDEFGH 4 A_CustomMissile ("Brutal_FlyingBloodTrail5", 0, 0, random (0, 360), 2, random (0, 360))
+		Loop
+    Death.plasma:	    		   
+		TNT1 A 0 A_SpawnItemEx("TinyBurningPiece2", random (-15, 15), random (-15, 15))
+		TNT1 A 0 A_SpawnItemEx("TinyBurningPiece3", random (-15, 15), random (-15, 15))
+		TNT1 A 0 A_CustomMissile ("XDeathBurnedImpArm", 2, 0, random (0, 360), 2, 270)        Stop
+	Death:
+        SYGA G 1
+        HND4 X 0 A_SpawnItem("Gib_SatyrArm",0,0,0,1)
+        Stop
+    }
+}
+
+actor Gib_SatyrArm: LimbBase
+{
+    Scale 1.1
+    States
+    {
+    Spawn:
+        SYGA G 1
+		TNT1 A 0 A_QueueCorpse
+		SYGA G -1
+        Stop
+		
+	NoCOlision:
+		SYGA G 1
+		TNT1 A 0 A_ChangeFlag("THRUACTORS", 1)
+		TNT1 A 0 A_ChangeFlag("SHOOTABLE", 0)
+		SYGA G -1
+        Stop
+		
+Death.plasma: Death.Burn: Death.Flames:	    		   
+		TNT1 A 0 A_SpawnItemEx("TinyBurningPiece2", random (-15, 15), random (-15, 15))
+		TNT1 A 0 A_SpawnItemEx("TinyBurningPiece3", random (-15, 15), random (-15, 15))
+		TNT1 A 0 A_CustomMissile ("XDeathBurnedImpArm", 2, 0, random (0, 360), 2, 270)        Stop
+    Death:    
+    TNT1 AAAA 0 A_CustomMissile ("Brutal_FlyingBloodTrail", 0, 0, random (0, 360), 2, random (0, 360))
+    TNT1 A 0 A_CustomMissile ("GibSatyrHand", 0, 0, random (0, 180), 2, random (0, 180))
+    TNT1 A 0 A_CustomMissile ("GibSatyrArmPart", 0, 0, random (0, 180), 2, random (0, 180))
+Stop
+Stop
+	Death.Kick:
+	Death.Melee:
+	Death.SuperPunch:
+	    SYGA AA 1 A_FaceTarget
+		TNT1 A 0 A_CustomMissile ("XDeathSatyrArm", 5, 0, random (170, 190), 2, random (20, 40))
+		Stop
+	
+	Pain:
+	TNT1 A 0
+	TNT1 A 0 ThrustThingZ(0,20,0,1)
+	SYGA ABCDEFGH 3
+	Goto Spawn
+	
+	Death.ExplosiveImpact:
+	TNT1 A 0
+	TNT1 A 0 A_ChangeFlag("NOBLOCKMAP", 0)
+	TNT1 A 0 ThrustThingZ(0,30,0,1)
+	SYGA G 5
+	SYGA ABCDEFGHABCDEFGHABCDEFGH 5 A_CheckFloor("Landz")
+	Goto Landz
+	Landz:
+	XDT5 I 0 A_SpawnItem("Gib_SatyrArm")
+	Stop	
+	}
+}
+
+actor GibSatyrArmPart: TinyGib
+{
+    Scale 1.1
+    States
+    {
+Spawn:
+        SYGB A 1
+		TNT1 A 0 A_QueueCorpse
+		SYGB A -1
+       Stop
+    Death:
+        SYGB A 1
+		TNT1 A 0 A_QueueCorpse
+		SYGB A -1
+       Stop
+}}
+
+actor GibSatyrHand: TinyGib
+{
+    Scale 0.8
+    States
+    {
+Spawn:
+        SYGB B 1
+		TNT1 A 0 A_QueueCorpse
+		SYGB B -1
+       Stop
+    Death:
+        SYGB B 1
+		TNT1 A 0 A_QueueCorpse
+		SYGB B -1
+       Stop
+}}
+
+ACTOR XDeathSatyrLeg: XDeathArm1
+{
+    Scale 1.1
+    Speed 8
+	Gravity 0.4
+	BounceFactor 0.4
+    States
+    {
+    Spawn:
+        TNT1 A 0 A_SpawnItem ("Brutal_BloodSpot", 0, 1)
+	    TNT1 A 0 A_JumpIf(waterlevel > 1, "Death")
+		SYGL ABCDEFGH 5 A_CustomMissile ("Brutal_FlyingBloodTrail5", 0, 0, random (0, 360), 2, random (0, 360))
+		Loop
+	Death:
+        SYGL G 1
+        SYGL G 0 A_SpawnItem("Gib_SatyrLeg")
+        Stop
+		
+    }
+}
+
+actor Gib_SatyrLeg: LimbBase
+{
+    Scale 1.1
+    States
+    {
+	  Spawn:
+        SYGL G 1
+		TNT1 A 0 A_QueueCorpse
+		SYGL G -1
+        Stop
+		
+	NoCOlision:
+		SYGL G 1
+		TNT1 A 0 A_ChangeFlag("THRUACTORS", 1)
+		TNT1 A 0 A_ChangeFlag("SHOOTABLE", 0)
+		SYGL G -1
+        Stop
+	   
+Death.plasma: Death.Burn: Death.Flames:	    		   
+		TNT1 A 0 A_SpawnItemEx("TinyBurningPiece2", random (-15, 15), random (-15, 15))
+		TNT1 A 0 A_SpawnItemEx("TinyBurningPiece3", random (-15, 15), random (-15, 15))
+		TNT1 A 0 A_CustomMissile ("XDeathBurnedImpLeg", 2, 0, random (0, 360), 2, 270)        Stop
+    Death:    
+    TNT1 AAAA 0 A_CustomMissile ("Brutal_FlyingBloodTrail", 0, 0, random (0, 360), 2, random (0, 360))
+    TNT1 A 0 A_CustomMissile ("GibImpLegPart", 0, 0, random (0, 180), 2, random (0, 180))
+    TNT1 A 0 A_CustomMissile ("GibImpPaw", 0, 0, random (0, 180), 2, random (0, 180))
+Stop
+	Death.Kick:
+	Death.Melee:
+	Death.SuperPunch:
+	    SYGL A 1 A_FaceTarget
+		TNT1 A 0 A_CustomMissile ("XDeathSatyrLeg", 5, 0, random (170, 190), 2, random (20, 40))
+		Stop
+		
+	Pain:
+	TNT1 A 0
+	TNT1 A 0 ThrustThingZ(0,20,0,1)
+	SYGL ABCDEFGH 2
+	Goto Spawn
+	
+	Death.ExplosiveImpact:
+	TNT1 A 0
+	TNT1 A 0 A_ChangeFlag("NOBLOCKMAP", 0)
+	TNT1 A 0 ThrustThingZ(0,30,0,1)
+	SYGL A 5
+	SYGL ABCDEFGHABCDEFGHABCDEFGH 5 A_CheckFloor("Landz")
+	Goto Landz
+	Landz:
+	XDT5 I 0 A_SpawnItem("Gib_SatyrLeg")
+	Stop		
+	}
+}
+
+ACTOR XDeathSatyrHead: XDeathChaingunguyHead
+{
+
+    States
+    {
+	Spawn:
+	Spawn1:
+        TNT1 A 0 A_SpawnItem ("Brutal_BloodSpot", 0, 1)
+	    TNT1 A 0 A_JumpIf(waterlevel > 1, "Death")
+		TNT1 A 0 A_JumpIf(momz == 0, "Death")
+		SYGH AB 3// A_CustomMissile("ShortWallRedBlood", 0, 0, 0, 2)//
+		TNT1 A 0 A_ChangeFlag("THRUSPECIES", 0)
+		SYGH CDEFGH 3// A_CustomMissile("ShortWallRedBlood", 0, 0, 0, 2)//
+		Loop
+   	Death:
+        TNT1 A 0 A_SpawnItem ("Brutal_BloodSpot", 0, 1)
+	    SYGH E 1
+        SYGH E 1 A_SpawnItem("GibSatyrHead",0,0,0,1)
+        Stop
+	}
+}
+
+ACTOR XDeathSatyrHead2: XDeathSatyrHead
+{
+Damagetype "HeadKick"
+Speed 8
+}
+
+Actor GibSatyrhead: ZombieManHead
+{
+    States
+    {
+    Spawn:
+	TNT1 A 0
+	TNT1 A 0 A_QueueCorpse
+	TNT1 A 0 A_SpawnItem("Brutal_BloodSpot")
+    TNT1 A 0 A_Jump(256, "Spawn1", "Spawn2", "Spawn3")
+	Spawn1:
+	SYGH C 1
+	SYGH C -1
+	Stop
+	Spawn2:
+	SYGH G 1
+	SYGH G -1
+	Stop
+	Spawn3:
+	SYGH H 1
+	SYGH H -1
+	Stop
+    Death:
+		TNT1 A 0
+		TNT1 A 0 A_SpawnItem("ImpHeadExplode")
+		Stop
+	Death.Melee:
+	Death.SuperPunch:
+	Death.Kick:
+	    	SYGH EE 1 A_FaceTarget
+		TNT1 A 0 A_CustomMissile ("XDeathSatyrHead", 5, 0, random (170, 190), 2, random (20, 40))
+		TNT1 A 0 A_PlaySound("misc/xdeath4", 1)
+		TNT1 A 0 A_PlaySound("FOOTWALL", 3)
+		TNT1 A 20
+		Stop
+		
+	
+	Death.Headkick:
+		TNT1 A 0
+		TNT1 A 0 A_NoBlocking
+	   	SYGH EE 0 A_FaceTarget
+		TNT1 A 0 A_CustomMissile ("XDeathSatyrHead2", 5, 0, random (170, 190), 2, random (20, 30))
+		TNT1 A 0 A_PlaySound("misc/xdeath4", 1)
+		TNT1 A 0 A_PlaySound("FOOTWALL", 3)
+		TNT1 A 20
+		Stop	
+		
+		
+		
+		
+	Pain:	
+			TNT1 A 0
+	TNT1 A 0 ThrustThingZ(0,20,0,1)
+	SYGH ABCDEFGH 2
+	Goto Spawn
+	
+	Death.ExplosiveImpact:
+	TNT1 A 0
+	TNT1 A 0 A_ChangeFlag("NOBLOCKMAP", 0)
+	TNT1 A 0 ThrustThingZ(0,50,0,1)
+	SYGH ABCDEFGH 3
+	XDT5 I 0 A_SpawnItem("GibSatyrHead")
+	Stop	
+
+	}
+}
